@@ -10,6 +10,9 @@
             'create' => [
                 'label' => 'Vytvořit',
             ],
+            'update' => [
+                'label' => 'Upravit',
+            ],
             'delete' => [
                 'label' => 'Smazat',
             ],

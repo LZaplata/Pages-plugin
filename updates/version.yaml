@@ -10,3 +10,5 @@ v1.0.3:
 v1.0.4:
     - 'Add pricelist as content type option'
     - add_pricelist_column.php
+v1.0.5:
+    - 'Privileges update'

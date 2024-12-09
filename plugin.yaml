@@ -39,6 +39,9 @@ permissions:
     lzaplata.pages.page.create:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.page.create.label'
+    lzaplata.pages.page.update:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.page.update.label'
     lzaplata.pages.page.delete:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.page.delete.label'

@@ -4,6 +4,7 @@ fields:
         span: left
         required: 1
         type: text
+        permissions: lzaplata.pages.page.update
     slug:
         label: 'lzaplata.pages::lang.page.field.slug.label'
         span: right
@@ -13,19 +14,20 @@ fields:
             field: title
             type: slug
         type: text
+        permissions: lzaplata.pages.page.update
     parent:
         label: 'lzaplata.pages::lang.page.field.parent.label'
         nameFrom: title
         emptyOption: 'lzaplata.pages::lang.page.field.parent.prompt'
         span: left
         type: relation
-        permissions: lzaplata.pages.page.reorder
+        permissions: lzaplata.pages.page.update
     fullslug:
         label: 'lzaplata.pages::lang.page.field.fullslug.label'
         span: auto
         type: text
         required: 1
-        permissions: lzaplata.pages.page.reorder
+        permissions: lzaplata.pages.page.update
         defaultFrom: title
         dependsOn:
             - parent
@@ -37,7 +39,7 @@ fields:
         type: dropdown
         dependsOn:
             - parent
-        permissions: lzaplata.pages.page.reorder
+        permissions: lzaplata.pages.page.update
         emptyOption: 'lzaplata.pages::lang.page.field.menu.prompt'
     breadcrumb:
         label: 'lzaplata.pages::lang.page.field.breadcrumb.label'
@@ -46,7 +48,7 @@ fields:
         options:
             auto: 'lzaplata.pages::lang.page.field.breadcrumb.option.auto'
             manual: 'lzaplata.pages::lang.page.field.breadcrumb.option.manual'
-        permissions: lzaplata.pages.page.reorder
+        permissions: lzaplata.pages.page.update
         value: auto
     breadcrumb_url:
         label: "\_"

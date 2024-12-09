@@ -10,6 +10,9 @@
             'create' => [
                 'label' => 'Create',
             ],
+            'update' => [
+                'label' => 'Update',
+            ],
             'delete' => [
                 'label' => 'Delete',
             ],
@@ -165,7 +168,7 @@
         'create' => [
             'title' => 'Create content',
         ],
-        'edit' => [
+        'update' => [
             'title' => 'Edit content',
         ],
     ],
