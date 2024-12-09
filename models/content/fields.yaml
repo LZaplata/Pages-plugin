@@ -1,0 +1,86 @@
+fields:
+    is_published:
+        label: 'lzaplata.pages::lang.content.field.is_published.label'
+        type: switch
+        default: true
+    title:
+        label: 'lzaplata.pages::lang.content.field.title.label'
+        span: left
+        type: text
+        comment: "lzaplata.pages::lang.content.field.title.comment"
+    type:
+        label: 'lzaplata.pages::lang.content.field.type.label'
+        optionsMethod: getTypeOptions
+        showSearch: true
+        span: right
+        type: dropdown
+    heading:
+        label: 'lzaplata.pages::lang.content.field.heading.label'
+        span: left
+        type: text
+        comment: 'lzaplata.pages::lang.content.field.heading.comment'
+        trigger:
+            action: show
+            field: type
+            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist]'
+    sort_order:
+        label: 'lzaplata.pages::lang.content.field.sort_order.label'
+        span: right
+        type: number
+        permissions: lzaplata.pages.content.reorder
+        required: 1
+    text:
+        label: 'lzaplata.pages::lang.content.field.text.label'
+        size: giant
+        span: full
+        trigger:
+            action: show
+            field: type
+            condition: 'value[text]'
+        type: richeditor
+    blog_category:
+        label: 'lzaplata.pages::lang.content.field.blog_categories.label'
+        span: left
+        type: relation
+        trigger:
+            action: show
+            field: type
+            condition: 'value[blog]'
+    gallery:
+        label: 'lzaplata.pages::lang.content.field.gallery.label'
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: 'lzaplata.pages::lang.content.field.gallery.prompt'
+        span: left
+        type: relation
+        trigger:
+            action: show
+            field: type
+            condition: 'value[gallery]'
+    files_category:
+        label: 'lzaplata.pages::lang.content.field.files_categories.label'
+        span: left
+        type: relation
+        trigger:
+            action: show
+            field: type
+            condition: 'value[files]'
+    contacts_category:
+        label: 'lzaplata.pages::lang.content.field.contacts_categories.label'
+        span: left
+        type: relation
+        nameFrom: title
+        trigger:
+            action: show
+            field: type
+            condition: 'value[contacts]'
+    pricelist:
+        label: 'lzaplata.pages::lang.content.field.pricelist.label'
+        nameFrom: name
+        span: left
+        type: relation
+        required: 1
+        trigger:
+            action: show
+            field: type
+            condition: 'value[pricelist]'
