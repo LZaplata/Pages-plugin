@@ -1,5 +1,5 @@
 # Pages plugin
-This is Nette Framework extension for ESA logistics.
+This is plugin for creating pages and managing its content.
 
 ## Example page
 
