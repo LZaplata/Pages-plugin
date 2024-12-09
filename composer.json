@@ -1,7 +1,7 @@
 {
     "name": "lzaplata/pages-plugin",
     "type": "october-plugin",
-    "description": "Plugin for pages management",
+    "description": "Plugin for pages and its content management",
     "require": {
         "composer/installers": "~1.0"
     }
