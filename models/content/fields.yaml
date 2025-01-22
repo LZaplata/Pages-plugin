@@ -22,7 +22,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist]'
+            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed]'
     sort_order:
         label: 'lzaplata.pages::lang.content.field.sort_order.label'
         span: right
@@ -84,3 +84,31 @@ fields:
             action: show
             field: type
             condition: 'value[pricelist]'
+    opening_hours:
+        label: 'lzaplata.pages::lang.content.field.opening_hours.label'
+        nameFrom: name
+        span: left
+        type: relation
+        required: 1
+        trigger:
+            action: show
+            field: type
+            condition: 'value[opening_hours]'
+    slider:
+        label: 'lzaplata.pages::lang.content.field.slider.label'
+        nameFrom: title
+        span: left
+        type: relation
+        required: 1
+        trigger:
+            action: show
+            field: type
+            condition: 'value[slider]'
+    embed:
+        label: 'lzaplata.pages::lang.content.field.embed.label'
+        span: left
+        type: textarea
+        trigger:
+            action: show
+            field: type
+            condition: 'value[embed]'

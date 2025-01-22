@@ -27,7 +27,7 @@ class BuilderTablesCreate extends Migration
         {
             $table->increments('id')->unsigned();
             $table->string('title', 100);
-            $table->string('type', 10)->nullable(false)->default('text');
+            $table->string('type', 20)->nullable(false)->default('text');
             $table->string('heading', 100)->nullable();
             $table->text('text')->nullable();
             $table->integer('gallery_id')->nullable()->unsigned();

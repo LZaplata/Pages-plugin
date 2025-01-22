@@ -1,0 +1,16 @@
+name: Blocks
+form: $/lzaplata/pages/models/block/fields.yaml
+modelClass: LZaplata\Pages\Models\Block
+defaultRedirect: lzaplata/pages/blocks
+create:
+    title: 'lzaplata.pages::lang.block.create.title'
+    redirect: 'lzaplata/pages/blocks/update/:id'
+    redirectClose: lzaplata/pages/blocks
+update:
+    title: 'lzaplata.pages::lang.block.update.title'
+    redirect: lzaplata/pages/blocks
+    redirectClose: lzaplata/pages/blocks
+customMessages:
+    flashCreate: 'lzaplata.pages::lang.block.create.flash'
+    flashUpdate: 'lzaplata.pages::lang.block.update.flash'
+    flashDelete: 'lzaplata.pages::lang.block.delete.flash'

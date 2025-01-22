@@ -1,6 +1,79 @@
 # Pages plugin
 This is plugin for creating pages and managing its content.
 
+## Example homepage
+
+````htm
+url = "/"
+layout = "default"
+title = "Úvod"
+
+[collection partners]
+handle = "Partners\Partner"
+
+[homepage]
+
+[blogPosts flashmessage]
+postsPerPage = 1
+sortOrder = "published_at desc"
+
+[blogPosts posts]
+
+[blogPosts postsslider]
+==
+<?php
+function onEnd()
+{
+    $blocks = $this["homepage"]->blocks;
+
+    if (!is_null($blocks)) {
+        $blockTypes = [
+            "flash_message" => "flashmessage",
+            "posts"         => "posts",
+            "posts_slider"  => "postsslider",
+        ];
+
+        foreach ($blocks as $block) {
+            if (isset($blockTypes[$block->type])) {
+                ${"block" . $block->id} = $this->page->components[$blockTypes[$block->type]];
+                ${"block" . $block->id}->setProperty("categoryFilter", $block->blog_category->slug);
+                ${"block" . $block->id}->setProperty("rowCols", $block->row_cols);
+                ${"block" . $block->id}->onRun();
+            }
+        }
+    }
+}
+?>
+==
+{% for block in homepage.blocks %}
+    <div class="container-fluid{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-5{% endif %} {{ block.type }} {{ block.type }}--{{ block.title|slug }}">
+        <div class="container{% if block.is_fluid %}-fluid{% else %}-lg{% endif %}{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-xl-4{% endif %}">
+            {% if block.heading and block.type != "image_text" %}
+                <h2 class="mb-5 text-center">
+                    {{ block.heading }}
+                </h2>
+            {% endif %}
+
+            {% if block.type == "slider" %}
+                {% partial "_swiper/slider" slides=block.slider.slides settings=block.slider %}
+            {% elseif block.type == "image_text" %}
+                {% partial "_block/image-text.htm" image=block.image text=block.text heading=block.heading switched=block.switch_order %}
+            {% elseif block.type == "embed" %}
+                {% partial "_block/embed.htm" embed=block.embed %}
+            {% elseif block.type == "posts" %}
+                {% component "posts" %}
+            {% elseif block.type == "posts_slider" %}
+                {% component "postsslider" %}
+            {% elseif block.type == "flash_message" %}
+                {% component "flashmessage" %}
+            {% elseif block.type == "partial" %}
+                {% partial block.partial %}
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+````
+
 ## Example page
 
 ````htm
@@ -37,6 +110,8 @@ postPage = "page-post"
 order = "position asc"
 
 [pricelist]
+
+[openinghours]
 ==
 <?php
 function onEnd()
@@ -82,9 +157,9 @@ function onEnd()
                     {{ page.title }}
                 </h1>
 
-                <div class="contents d-flex flex-column gap-5">
+                <div class="d-flex flex-column gap-5">
                     {% for content in page.contents %}
-                        <div class="content content-{{ content.type }} {{ content.title|slug }}">
+                        <div class="{{ content.type|slug }} {{ content.type|slug }}--{{ content.title|slug }}">
                             {% if content.heading %}
                                 <h2 class="mb-4">
                                     {{ content.heading }}
@@ -103,15 +178,21 @@ function onEnd()
                                 {% component "files" category=content.files_category.slug %}
                             {% elseif content.type == "pricelist" %}
                                 {% component "pricelist" slug=content.pricelist.slug %}
+                            {% elseif content.type == "opening_hours" %}
+                                {% component "openinghours" slug=content.opening_hours.slug %}
                             {% elseif content.type == "faq" %}
                                 {% partial "_accordion/faq" items=faq %}
+                            {% elseif content.type == "slider" %}
+                                {% partial "_swiper/slider" slides=content.slider.slides settings=content.slider %}
+                            {% elseif content.type == "embed" %}
+                                {% partial "_block/embed" embed=content.embed %}
                             {% elseif content.type == "cookies" %}
                                 {% component "cookiesmanage" %}
                             {% elseif content.type == "contacts" %}
                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 {% if leftmenu.menuItems is null %}row-cols-xl-5{% else %}row-cols-xl-4{% endif %} g-4">
-                                    {% for contact in content.contacts_category.contacts %}
+                                    {% for contactItem in content.contacts_category.contacts %}
                                         <div class="col">
-                                            {% partial "_contact/card" item=contact %}
+                                            {% partial "_contact/card" item=contactItem.contact itemUpdate=contactItem %}
                                         </div>
                                     {% endfor %}
                                 </div>

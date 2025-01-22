@@ -5,6 +5,7 @@ use JanVince\SmallGDPR\Models\CookiesSettings;
 use LZaplata\Files\Models\Category as FilesCategory;
 use LZaplata\Files\Models\File;
 use LZaplata\Gallery\Models\Gallery;
+use LZaplata\OpeningHours\Models\OpeningHour;
 use LZaplata\Pricelists\Models\Pricelist;
 use Model;
 use October\Rain\Database\Traits\Multisite;
@@ -40,7 +41,8 @@ class Content extends Model
      * @var array rules for validation.
      */
     public $rules = [
-        "pricelist" => "required_if:type,pricelist",
+        "pricelist"     => "required_if:type,pricelist",
+        "opening_hours" => "required_if:type,opening_hours",
     ];
 
     /**
@@ -55,6 +57,7 @@ class Content extends Model
     {
         $types = [
             "text"  => "Text",
+            "embed" => e(trans("lzaplata.pages::lang.content.field.type.option.embed.label")),
         ];
 
         if (class_exists(Post::class)) {
@@ -73,12 +76,20 @@ class Content extends Model
             $types["pricelist"] = e(trans("lzaplata.pages::lang.content.field.type.option.pricelist.label"));
         }
 
+        if (class_exists(OpeningHour::class)) {
+            $types["opening_hours"] = e(trans("lzaplata.pages::lang.content.field.type.option.opening_hours.label"));
+        }
+
         if (BlueprintIndexer::instance()->findSectionByHandle("FAQ\Question")) {
             $types["faq"] = "FAQ";
         }
 
         if (BlueprintIndexer::instance()->findSectionByHandle("Contacts\Contact")) {
             $types["contacts"] = e(trans("lzaplata.pages::lang.content.field.type.option.contacts.label"));
+        }
+
+        if (BlueprintIndexer::instance()->findSectionByHandle("Slider\Slider")) {
+            $types["slider"] = e(trans("lzaplata.pages::lang.content.field.type.option.slider.label"));
         }
 
         if (class_exists(CookiesSettings::class)) {
@@ -98,6 +109,8 @@ class Content extends Model
         "files_category"    => FilesCategory::class,
         "page"              => Page::class,
         "pricelist"         => Pricelist::class,
+        "opening_hours"     => OpeningHour::class,
+        "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
     ];
 
     /**

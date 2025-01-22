@@ -27,7 +27,7 @@ class Pages extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('LZaplata.Pages', 'main-menu-item');
+        BackendMenu::setContext('LZaplata.Pages', 'main-menu-item', 'side-menu-item');
     }
 
     /**

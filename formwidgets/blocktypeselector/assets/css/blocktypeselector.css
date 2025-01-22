@@ -1,0 +1,59 @@
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+
+    @media (min-width: 576px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 992px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1400px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.form-container .form-check {
+    margin: 0;
+    padding: 0;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    background-color: var(--oc-form-control-bg);
+    border-radius: var(--bs-border-radius);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.form-container .form-check:has(.form-check-input:checked) {
+    border-color: var(--oc-border-focus);
+}
+
+.form-container .form-check-input {
+    display: none;
+}
+
+.form-container .form-check-label {
+    width: 100%;
+    cursor: pointer;
+}
+
+.form-container .form-check-label .img img {
+    width: 100%;
+    border-top-left-radius: var(--bs-border-radius);
+    border-top-right-radius: var(--bs-border-radius);
+}
+
+.form-container .form-check-label .name {
+    font-weight: 600;
+    font-size: 110%;
+    background: var(--oc-sidebar-bg);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.form-container .form-check:has(.form-check-input:checked) .form-check-label .name {
+    background: var(--bs-primary);
+    color: #fff;
+}

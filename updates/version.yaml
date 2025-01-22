@@ -12,3 +12,15 @@ v1.0.4:
     - add_pricelist_column.php
 v1.0.5:
     - 'Privileges update'
+v1.0.6:
+    - 'Opening hours as new content'
+    - add_opening_hours_column.php
+v1.0.7:
+    - 'Slider as new content'
+    - add_slider_column.php
+v1.0.8:
+    - 'Embed as new content'
+    - add_embed_column.php
+v1.1.0:
+    - 'Homepage builder'
+    - builder_table_create_lzaplata_pages_blocks.php

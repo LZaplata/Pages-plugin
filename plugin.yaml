@@ -2,15 +2,28 @@ plugin:
     name: 'lzaplata.pages::lang.plugin.name'
     description: 'lzaplata.pages::lang.plugin.description'
     author: 'Lukáš Záplata'
-    icon: oc-icon-sitemap
+    icon: oc-icon-desktop
     homepage: ''
 navigation:
     main-menu-item:
         label: 'lzaplata.pages::lang.plugin.name'
-        url: lzaplata/pages/pages
-        icon: icon-sitemap
+        url: /
+        icon: icon-desktop
         permissions:
             - lzaplata.pages.default
+        sideMenu:
+            side-menu-item2:
+                label: 'lzaplata.pages::lang.menuitem.submenu.homepage.label'
+                url: lzaplata/pages/blocks
+                icon: icon-home
+                permissions:
+                    - lzaplata.pages.block
+            side-menu-item:
+                label: 'lzaplata.pages::lang.menuitem.submenu.structure.label'
+                url: lzaplata/pages/pages
+                icon: icon-sitemap
+                permissions:
+                    - lzaplata.pages.default
 permissions:
     lzaplata.pages.default:
         tab: 'lzaplata.pages::lang.plugin.name'
@@ -48,3 +61,18 @@ permissions:
     lzaplata.pages.page.reorder:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.page.reorder.label'
+    lzaplata.pages.block:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.block.label'
+    lzaplata.pages.block.create:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.block.create.label'
+    lzaplata.pages.block.update:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.block.update.label'
+    lzaplata.pages.block.delete:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.block.delete.label'
+    lzaplata.pages.block.reorder:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.block.reorder.label'

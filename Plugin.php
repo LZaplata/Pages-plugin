@@ -1,10 +1,13 @@
 <?php namespace LZaplata\Pages;
 
 use Lzaplata\Pages\Components\Breadcrumbs;
+use Lzaplata\Pages\Components\Homepage;
+use Lzaplata\Pages\FormWidgets\BlockTypeSelector;
 use LZaplata\Pages\Models\Page;
 use October\Rain\Support\Facades\Event;
 use System\Classes\PluginBase;
 use Lzaplata\Pages\Components\Page as PageComponent;
+use Twig\Extra\String\StringExtension;
 
 /**
  * Plugin class
@@ -50,6 +53,7 @@ class Plugin extends PluginBase
         return [
             PageComponent::class    => "page",
             Breadcrumbs::class      => "breadcrumbs",
+            Homepage::class         => "homepage",
         ];
     }
 
@@ -75,6 +79,16 @@ class Plugin extends PluginBase
                     }, $text);
                 },
             ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function registerFormWidgets(): array
+    {
+        return [
+            BlockTypeSelector::class    => "blocktypeselector",
         ];
     }
 }

@@ -38,6 +38,24 @@
                 'label' => 'Změnit pořadí',
             ],
         ],
+        'homepage' => [
+            'label' => 'Úvod',
+        ],
+        'block' => [
+            'label' => 'Bloky',
+            'create' => [
+                'label' => 'Vytvořit',
+            ],
+            'update' => [
+                'label' => 'Upravit',
+            ],
+            'delete' => [
+                'label' => 'Smazat',
+            ],
+            'reorder' => [
+                'label' => 'Změnit pořadí',
+            ],
+        ],
     ],
     'page' => [
         'column' => [
@@ -136,6 +154,15 @@
                     'pricelist' => [
                         'label' => 'Ceník',
                     ],
+                    'opening_hours' => [
+                        'label' => 'Otevírací hodiny',
+                    ],
+                    'slider' => [
+                        'label' => 'Slider',
+                    ],
+                    'embed' => [
+                        'label' => 'Vložený prvek (embed)',
+                    ],
                 ],
             ],
             'text' => [
@@ -164,6 +191,15 @@
             'pricelist' => [
                 'label' => 'Ceník',
             ],
+            'opening_hours' => [
+                'label' => 'Otevírací hodiny',
+            ],
+            'slider' => [
+                'label' => 'Slider',
+            ],
+            'embed' => [
+                'label' => 'Kód iframe',
+            ],
         ],
         'create' => [
             'title' => 'Vytvořit obsah',
@@ -172,10 +208,120 @@
             'title' => 'Upravit obsah',
         ],
     ],
+    'block' => [
+        'column' => [
+            'title' => [
+                'label' => 'Název',
+            ],
+            'type' => [
+                'label' => 'Typ',
+            ],
+            'sort_order' => [
+                'label' => 'Pořadí',
+            ],
+            'is_published' => [
+                'label' => 'Publikováno',
+            ],
+        ],
+        'field' => [
+            'title' => [
+                'label' => 'Název',
+                'comment' => 'Interní název pro zobrazení v administraci. Nebude se zobrazovat na webu.',
+            ],
+            'heading' => [
+                'label' => 'Nadpis',
+                'comment' => 'Nadpis obsahu na webu',
+            ],
+            'is_fluid' => [
+                'label' => 'Na celou šířku',
+            ],
+            'no_gutters' => [
+                'label' => 'Bez okrajů',
+            ],
+            'no_gutters_breakpoint' => [
+                'label' => 'Bez okrajů od šířky',
+            ],
+            'padding_top' => [
+                'label' => 'Odsazení zhora',
+            ],
+            'sort_order' => [
+                'label' => 'Pořadí',
+            ],
+            'is_published' => [
+                'label' => 'Publikováno',
+            ],
+            'text' => [
+                'label' => 'Text',
+            ],
+            'image' => [
+                'label' => 'Obrázek',
+            ],
+            'blog_category' => [
+                'label' => 'Kategorie příspěvků',
+            ],
+            'partial' => [
+                'label' => 'Šablona',
+            ],
+            'row_cols' => [
+                'label' => 'Počet příspěvků na řádek',
+            ],
+            'switch_order' => [
+                'label' => 'Prohodit pořadí',
+            ],
+            'slider' => [
+                'label' => 'Slider',
+            ],
+            'embed' => [
+                'label' => 'Kód iframe',
+            ],
+            'type' => [
+                'label' => 'Typ',
+                'option' => [
+                    'posts' => [
+                        'label' => 'Příspěvky',
+                    ],
+                    'posts_slider' => [
+                        'label' => 'Slider příspěvků',
+                    ],
+                    'partial' => [
+                        'label' => 'Vlastní šablona',
+                    ],
+                    'image_text' => [
+                        'label' => 'Obrázek s textem',
+                    ],
+                    'flash_message' => [
+                        'label' => 'Rychlá zpráva',
+                    ],
+                    'embed' => [
+                        'label' => 'Vložený prvek (embed)',
+                    ],
+                ],
+            ],
+        ],
+        'create' => [
+            'title' => 'Vytvořit blok',
+            'flash' => 'Blok byl úspěšně vytvořen',
+        ],
+        'update' => [
+            'title' => 'Upravit blok',
+            'flash' => 'Blok byl úspěšně upraven',
+        ],
+        'delete' => [
+            'flash' => 'Blok byl úspěšně smazán',
+        ],
+    ],
     'menuitem' => [
         'listtype' => [
             'page' => [
                 'label' => 'Stránka',
+            ],
+        ],
+        'submenu' => [
+            'structure' => [
+                'label' => 'Struktura',
+            ],
+            'homepage' => [
+                'label' => 'Úvod',
             ],
         ],
     ],
@@ -195,6 +341,10 @@
         'breadcrumbs' => [
             'name' => 'Drobečková navigace',
             'description' => 'Komponenta pro vložení drobečkové navigace',
+        ],
+        'homepage' => [
+            'name' => 'Úvod',
+            'description' => 'Komponenta pro vložení proměnných úvodní stránky do tématu',
         ],
     ],
 ];
