@@ -24,3 +24,5 @@ v1.0.8:
 v1.1.0:
     - 'Homepage builder'
     - builder_table_create_lzaplata_pages_blocks.php
+v1.1.1:
+    - 'Fix blocks table builder'
