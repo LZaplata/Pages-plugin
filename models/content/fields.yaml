@@ -112,3 +112,11 @@ fields:
             action: show
             field: type
             condition: 'value[embed]'
+    partial:
+        label: 'lzaplata.pages::lang.content.field.partial.label'
+        span: right
+        type: dropdown
+        trigger:
+            action: show
+            field: type
+            condition: 'value[contacts]'

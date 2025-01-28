@@ -200,6 +200,9 @@
             'embed' => [
                 'label' => 'Iframe code',
             ],
+            'partial' => [
+                'label' => 'Partial',
+            ],
         ],
         'create' => [
             'title' => 'Create content',

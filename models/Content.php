@@ -1,6 +1,8 @@
 <?php namespace LZaplata\Pages\Models;
 
 use Backend\Facades\BackendAuth;
+use Cms\Classes\Partial;
+use Cms\Classes\Theme;
 use JanVince\SmallGDPR\Models\CookiesSettings;
 use LZaplata\Files\Models\Category as FilesCategory;
 use LZaplata\Files\Models\File;
@@ -97,6 +99,29 @@ class Content extends Model
         }
 
         return $types;
+    }
+
+    /**
+     * @param string|null $value
+     * @param Content $formData
+     * @return array
+     * @throws \ApplicationException
+     */
+    public function getPartialOptions(?string $value, Content $formData): array
+    {
+        $theme = Theme::getActiveTheme();
+        $partials = Partial::listInTheme($theme);
+        $partialOptions = [];
+
+        foreach ($partials as $partial) {
+            if ($formData->type == "contacts" && preg_match("@_contact/[a-z]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
+        }
+
+        asort($partialOptions);
+
+        return $partialOptions;
     }
 
     /**

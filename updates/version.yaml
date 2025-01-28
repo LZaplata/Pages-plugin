@@ -26,3 +26,6 @@ v1.1.0:
     - builder_table_create_lzaplata_pages_blocks.php
 v1.1.1:
     - 'Fix blocks table builder'
+v1.2.0:
+    - 'Option to select partial which extends content settings'
+    - add_partial_column.php

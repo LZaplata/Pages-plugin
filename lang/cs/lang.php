@@ -200,6 +200,9 @@
             'embed' => [
                 'label' => 'Kód iframe',
             ],
+            'partial' => [
+                'label' => 'Šablona',
+            ],
         ],
         'create' => [
             'title' => 'Vytvořit obsah',

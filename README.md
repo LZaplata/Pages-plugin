@@ -189,13 +189,9 @@ function onEnd()
                             {% elseif content.type == "cookies" %}
                                 {% component "cookiesmanage" %}
                             {% elseif content.type == "contacts" %}
-                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 {% if leftmenu.menuItems is null %}row-cols-xl-5{% else %}row-cols-xl-4{% endif %} g-4">
-                                    {% for contactItem in content.contacts_category.contacts %}
-                                        <div class="col">
-                                            {% partial "_contact/card" item=contactItem.contact itemUpdate=contactItem %}
-                                        </div>
-                                    {% endfor %}
-                                </div>
+                                {% set fluid = sidebarmenu.menuItems is null ? true : false %}
+
+                                {% partial "_contacts/default" partial=content.partial fluid=fluid %}
                             {% endif %}
                         </div>
                     {% endfor %}
