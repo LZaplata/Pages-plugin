@@ -107,7 +107,7 @@ categoryPage = "page"
 postPage = "page-post"
 
 [Files files]
-order = "position asc"
+order = "sort_order asc"
 
 [pricelist]
 
