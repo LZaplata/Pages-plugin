@@ -117,11 +117,30 @@ class Content extends Model
             if ($formData->type == "contacts" && preg_match("@_contact/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
+
+            if ($formData->type == "blog" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
         }
 
         asort($partialOptions);
 
         return $partialOptions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRowColsOptions(): array
+    {
+        return [
+            "1"     => "1",
+            "2"     => "2",
+            "3"     => "3",
+            "4"     => "4",
+            "5"     => "5",
+            "6"     => "6",
+        ];
     }
 
     /**

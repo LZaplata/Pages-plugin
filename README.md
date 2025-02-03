@@ -21,32 +21,8 @@ sortOrder = "published_at desc"
 
 [blogPosts postsslider]
 ==
-<?php
-function onEnd()
-{
-    $blocks = $this["homepage"]->blocks;
-
-    if (!is_null($blocks)) {
-        $blockTypes = [
-            "flash_message" => "flashmessage",
-            "posts"         => "posts",
-            "posts_slider"  => "postsslider",
-        ];
-
-        foreach ($blocks as $block) {
-            if (isset($blockTypes[$block->type])) {
-                ${"block" . $block->id} = $this->page->components[$blockTypes[$block->type]];
-                ${"block" . $block->id}->setProperty("categoryFilter", $block->blog_category->slug);
-                ${"block" . $block->id}->setProperty("rowCols", $block->row_cols);
-                ${"block" . $block->id}->onRun();
-            }
-        }
-    }
-}
-?>
-==
 {% for block in homepage.blocks %}
-    <div class="container-fluid{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-5{% endif %} {{ block.type }} {{ block.type }}--{{ block.title|slug }}">
+    <div class="container-fluid{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-5{% endif %} {{ block.type|slug }} {{ block.type|slug }}--{{ block.title|slug }}">
         <div class="container{% if block.is_fluid %}-fluid{% else %}-lg{% endif %}{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-xl-4{% endif %}">
             {% if block.heading and block.type != "image_text" %}
                 <h2 class="mb-5 text-center">
@@ -61,9 +37,9 @@ function onEnd()
             {% elseif block.type == "embed" %}
                 {% partial "_block/embed.htm" embed=block.embed %}
             {% elseif block.type == "posts" %}
-                {% component "posts" %}
+                {% component "posts" categoryFilter=block.blog_category.slug rowCols=block.row_cols partial=block.partial %}
             {% elseif block.type == "posts_slider" %}
-                {% component "postsslider" %}
+                {% component "postsslider" categoryFilter=block.blog_category.slug rowCols=block.row_cols %}
             {% elseif block.type == "flash_message" %}
                 {% component "flashmessage" %}
             {% elseif block.type == "partial" %}
@@ -89,7 +65,7 @@ value = "{{ :fullslug }}"
 [Gallery gallery]
 imagesPerPage = 16
 
-[staticMenu leftmenu]
+[staticMenu sidebarmenu]
 
 [breadcrumbs]
 
@@ -117,26 +93,15 @@ order = "sort_order asc"
 function onEnd()
 {
     $code = $this["page"]->menu;
-    $contents = $this["page"]->contents;
 
-    $this["leftmenu"]->resetMenu($code);
-
-    if (!is_null($contents)) {
-        foreach ($contents as $content) {
-            if ($content->type == "blog") {
-                $posts = $this->page->components["posts"];
-                $posts->setProperty("categoryFilter", $content->blog_category);
-                $posts->onRun();
-            }
-        }
-    }
+    $this["sidebarmenu"]->resetMenu($code);
 }
 ?>
 ==
-<div class="container-fluid mt-4">
+<div class="container-fluid" id="breadcrumb">
     <div class="container-lg">
         <div class="row g-5">
-            <div class="col {% if leftmenu.menuItems is not null %}col-xl-9 offset-xl-3{% endif %}">
+            <div class="col {% if sidebarmenu.menuItems is not null %}col-xl-9 offset-xl-3{% endif %}">
                 {% component "breadcrumbs" %}
             </div>
         </div>
@@ -146,13 +111,13 @@ function onEnd()
 <div class="container-fluid py-5 border-1 border-bottom border-light" id="page">
     <div class="container-lg">
         <div class="row g-5">
-            {% if leftmenu.menuItems is not null %}
+            {% if sidebarmenu.menuItems is not null %}
                 <div class="sidebar d-none d-xl-block col-xl-3">
-                    {% component "leftmenu" %}
+                    {% component "sidebarmenu" %}
                 </div>
             {% endif %}
 
-            <div class="col {% if leftmenu.menuItems is not null %}col-xl-9{% endif %}">
+            <div class="col {% if sidebarmenu.menuItems is not null %}col-xl-9{% endif %}">
                 <h1 class="mb-4">
                     {{ page.title }}
                 </h1>
@@ -169,9 +134,7 @@ function onEnd()
                             {% if content.type == "text" %}
                                 {{ content.text|raw|bootstrap }}
                             {% elseif content.type == "blog" %}
-                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 {% if leftmenu.menuItems is null %}row-cols-xl-4{% endif %} g-4">
-                                    {% component "posts" %}
-                                </div>
+                                {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols partial=content.partial %}
                             {% elseif content.type == "gallery" %}
                                 {% component "gallery" gallery=content.gallery.slug %}
                             {% elseif content.type == "files" %}

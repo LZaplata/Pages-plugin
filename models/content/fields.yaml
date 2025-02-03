@@ -119,4 +119,13 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[contacts]'
+            condition: 'value[contacts][blog]'
+    row_cols:
+        label: 'lzaplata.pages::lang.content.field.row_cols.label'
+        span: left
+        type: dropdown
+        default: 4
+        trigger:
+            action: show
+            field: type
+            condition: 'value[blog]'

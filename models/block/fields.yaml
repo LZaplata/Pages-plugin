@@ -103,7 +103,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[partial]'
+            condition: 'value[partial][posts]'
     slider:
         label: 'lzaplata.pages::lang.block.field.slider.label'
         span: left

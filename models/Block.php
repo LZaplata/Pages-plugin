@@ -80,17 +80,25 @@ class Block extends Model
     }
 
     /**
+     * @param string|null $value
+     * @param Block $formData
      * @return array
      * @throws \ApplicationException
      */
-    public function getPartialOptions(): array
+    public function getPartialOptions(?string $value, Block $formData): array
     {
         $theme = Theme::getActiveTheme();
         $partials = Partial::listInTheme($theme);
         $partialOptions = [];
 
         foreach ($partials as $partial) {
-            $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            if ($formData->type == "posts" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
+
+            if ($formData->type == "partial") {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
         }
 
         asort($partialOptions);

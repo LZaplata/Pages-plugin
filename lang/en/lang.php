@@ -203,6 +203,9 @@
             'partial' => [
                 'label' => 'Partial',
             ],
+            'row_cols' => [
+                'label' => 'Posts in row',
+            ],
         ],
         'create' => [
             'title' => 'Create content',

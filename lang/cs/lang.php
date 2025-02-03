@@ -203,6 +203,9 @@
             'partial' => [
                 'label' => 'Šablona',
             ],
+            'row_cols' => [
+                'label' => 'Počet příspěvků na řádek',
+            ],
         ],
         'create' => [
             'title' => 'Vytvořit obsah',
