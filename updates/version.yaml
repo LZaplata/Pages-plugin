@@ -34,3 +34,5 @@ v1.2.0:
 v1.3.0:
     - 'Blog content category fix and option to set number of posts in a row'
     - add_row_cols_column.php
+v1.3.1:
+    - 'Update README.md'
