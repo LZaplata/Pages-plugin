@@ -22,7 +22,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed]'
+            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text]'
     sort_order:
         label: 'lzaplata.pages::lang.content.field.sort_order.label'
         span: right
@@ -36,7 +36,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[text]'
+            condition: 'value[text][image_text]'
         type: richeditor
     blog_category:
         label: 'lzaplata.pages::lang.content.field.blog_categories.label'
@@ -129,3 +129,22 @@ fields:
             action: show
             field: type
             condition: 'value[blog]'
+    image:
+        label: 'lzaplata.pages::lang.content.field.image.label'
+        span: left
+        type: fileupload
+        maxItems: 1
+        fileTypes: png, jpg, jpeg, webp, svg
+        trigger:
+            action: show
+            field: type
+            condition: 'values[image_text]'
+    switch_order:
+        label: 'lzaplata.pages::lang.content.field.switch_order.label'
+        span: left
+        type: switch
+        default: false
+        trigger:
+            action: show
+            field: type
+            condition: 'values[image_text]'

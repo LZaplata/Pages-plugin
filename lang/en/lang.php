@@ -163,6 +163,9 @@
                     'embed' => [
                         'label' => 'Embed',
                     ],
+                    'image_text' => [
+                        'label' => 'Image text',
+                    ],
                 ],
             ],
             'text' => [
@@ -205,6 +208,12 @@
             ],
             'row_cols' => [
                 'label' => 'Posts in row',
+            ],
+            'image' => [
+                'label' => 'Image',
+            ],
+            'switch_order' => [
+                'label' => 'Switch order',
             ],
         ],
         'create' => [

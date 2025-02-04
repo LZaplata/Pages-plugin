@@ -163,6 +163,9 @@
                     'embed' => [
                         'label' => 'Vložený prvek (embed)',
                     ],
+                    'image_text' => [
+                        'label' => 'Obrázek s textem',
+                    ],
                 ],
             ],
             'text' => [
@@ -205,6 +208,12 @@
             ],
             'row_cols' => [
                 'label' => 'Počet příspěvků na řádek',
+            ],
+            'image' => [
+                'label' => 'Obrázek',
+            ],
+            'switch_order' => [
+                'label' => 'Prohodit pořadí',
             ],
         ],
         'create' => [

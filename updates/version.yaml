@@ -36,3 +36,6 @@ v1.3.0:
     - add_row_cols_column.php
 v1.3.1:
     - 'Update README.md'
+v1.4.0:
+    - 'Image text as new content'
+    - add_switch_order_column.php

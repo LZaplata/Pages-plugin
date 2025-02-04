@@ -33,7 +33,7 @@ sortOrder = "published_at desc"
             {% if block.type == "slider" %}
                 {% partial "_swiper/slider" slides=block.slider.slides settings=block.slider %}
             {% elseif block.type == "image_text" %}
-                {% partial "_block/image-text.htm" image=block.image text=block.text heading=block.heading switched=block.switch_order %}
+                {% partial "_block/image-text.htm" image=block.image text=block.text heading=block.heading switched=block.switch_order size=lg %}
             {% elseif block.type == "embed" %}
                 {% partial "_block/embed.htm" embed=block.embed %}
             {% elseif block.type == "posts" %}
@@ -125,7 +125,7 @@ function onEnd()
                 <div class="d-flex flex-column gap-5">
                     {% for content in page.contents %}
                         <div class="{{ content.type|slug }} {{ content.type|slug }}--{{ content.title|slug }}">
-                            {% if content.heading %}
+                            {% if content.heading and content.type != "image_text" %}
                                 <h2 class="mb-4">
                                     {{ content.heading }}
                                 </h2>
@@ -133,6 +133,8 @@ function onEnd()
 
                             {% if content.type == "text" %}
                                 {{ content.text|raw|bootstrap }}
+                            {% elseif content.type == "image_text" %}
+                                {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order %}
                             {% elseif content.type == "blog" %}
                                 {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols partial=content.partial %}
                             {% elseif content.type == "gallery" %}

@@ -17,6 +17,7 @@ use RainLab\Blog\Models\Category;
 use RainLab\Blog\Models\Post;
 use Tailor\Models\EntryRecord;
 use Tailor\Traits\BlueprintRelationModel;
+use System\Models\File as SystemFile;
 
 /**
  * Model
@@ -58,8 +59,9 @@ class Content extends Model
     public function getTypeOptions()
     {
         $types = [
-            "text"  => "Text",
-            "embed" => e(trans("lzaplata.pages::lang.content.field.type.option.embed.label")),
+            "text"          => "Text",
+            "image_text"    => e(trans("lzaplata.pages::lang.content.field.type.option.image_text.label")),
+            "embed"         => e(trans("lzaplata.pages::lang.content.field.type.option.embed.label")),
         ];
 
         if (class_exists(Post::class)) {
@@ -142,6 +144,13 @@ class Content extends Model
             "6"     => "6",
         ];
     }
+
+    /**
+     * @var array
+     */
+    public $attachOne = [
+        "image" => SystemFile::class,
+    ];
 
     /**
      * @var array
