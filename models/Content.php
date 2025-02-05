@@ -116,11 +116,11 @@ class Content extends Model
         $partialOptions = [];
 
         foreach ($partials as $partial) {
-            if ($formData->type == "contacts" && preg_match("@_contact/[a-z]+@", $partial->getBaseFileName())) {
+            if ($this->type == "contacts" && preg_match("@_contact/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
-            if ($formData->type == "blog" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+            if ($this->type == "blog" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
         }

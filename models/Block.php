@@ -92,11 +92,11 @@ class Block extends Model
         $partialOptions = [];
 
         foreach ($partials as $partial) {
-            if ($formData->type == "posts" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+            if ($this->type == "posts" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
-            if ($formData->type == "partial") {
+            if ($this->type == "partial") {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
         }

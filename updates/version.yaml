@@ -39,3 +39,5 @@ v1.3.1:
 v1.4.0:
     - 'Image text as new content'
     - add_switch_order_column.php
+v1.4.1:
+    - 'Change partial select dynamically after type selection'

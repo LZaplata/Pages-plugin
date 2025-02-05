@@ -120,6 +120,8 @@ fields:
             action: show
             field: type
             condition: 'value[contacts][blog]'
+        dependsOn:
+            - type
     row_cols:
         label: 'lzaplata.pages::lang.content.field.row_cols.label'
         span: left

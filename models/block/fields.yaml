@@ -104,6 +104,8 @@ fields:
             action: show
             field: type
             condition: 'value[partial][posts]'
+        dependsOn:
+            - type
     slider:
         label: 'lzaplata.pages::lang.block.field.slider.label'
         span: left
