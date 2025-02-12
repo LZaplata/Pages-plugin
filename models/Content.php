@@ -18,6 +18,7 @@ use RainLab\Blog\Models\Post;
 use Tailor\Models\EntryRecord;
 use Tailor\Traits\BlueprintRelationModel;
 use System\Models\File as SystemFile;
+use Cms\Classes\Page as CmsPage;
 
 /**
  * Model
@@ -96,6 +97,10 @@ class Content extends Model
             $types["slider"] = e(trans("lzaplata.pages::lang.content.field.type.option.slider.label"));
         }
 
+        if (BlueprintIndexer::instance()->findSectionByHandle("Jobs\Job")) {
+            $types["jobs"] = e(trans("lzaplata.pages::lang.content.field.type.option.jobs.label"));
+        }
+
         if (class_exists(CookiesSettings::class)) {
             $types["cookies"] = e(trans("lzaplata.pages::lang.content.field.type.option.cookies.label"));
         }
@@ -123,6 +128,10 @@ class Content extends Model
             if ($this->type == "blog" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
+
+            if ($this->type == "jobs" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
         }
 
         asort($partialOptions);
@@ -146,6 +155,34 @@ class Content extends Model
     }
 
     /**
+     * @return array
+     * @throws \ApplicationException
+     */
+    public function getPostPageOptions(): array
+    {
+        $theme = Theme::getActiveTheme();
+        $pages = CmsPage::listInTheme($theme, true);
+        $cmsPages = [];
+
+        foreach ($pages as $page) {
+            if (!$page->hasComponent("section")) {
+                continue;
+            }
+
+            $section = $page->getComponent("section");
+            $sectionProperties = $section->getProperties();
+
+            if (!isset($sectionProperties["handle"]) || $sectionProperties["handle"] != "Jobs\Job") {
+                continue;
+            }
+
+            $cmsPages[$page->baseFileName] = $page->title;
+        }
+
+        return $cmsPages;
+    }
+
+    /**
      * @var array
      */
     public $attachOne = [
@@ -164,6 +201,7 @@ class Content extends Model
         "pricelist"         => Pricelist::class,
         "opening_hours"     => OpeningHour::class,
         "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
+        "jobs_category"     => [EntryRecord::class, "blueprint" => "lzaplata_jobs_categories"],
     ];
 
     /**

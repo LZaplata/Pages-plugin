@@ -30,7 +30,9 @@ sortOrder = "published_at desc"
                 </h2>
             {% endif %}
 
-            {% if block.type == "slider" %}
+            {% if block.type == "text" %}
+                {{ block.text|raw|bootstrap }}
+            {% elseif block.type == "slider" %}
                 {% partial "_swiper/slider" slides=block.slider.slides settings=block.slider %}
             {% elseif block.type == "image_text" %}
                 {% partial "_block/image-text.htm" image=block.image text=block.text heading=block.heading switched=block.switch_order size=lg %}
@@ -157,11 +159,93 @@ function onEnd()
                                 {% set fluid = sidebarmenu.menuItems is null ? true : false %}
 
                                 {% partial "_contacts/default" partial=content.partial fluid=fluid %}
+                            {% elseif content.type == "jobs" %}
+                                {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
                             {% endif %}
                         </div>
                     {% endfor %}
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+````
+
+## Example job post page
+
+````htm
+url = "/volne-pozice/:slug"
+layout = "default"
+title = "Volná pozice"
+
+[section job]
+handle = "Jobs\Job"
+identifier = "slug"
+value = "{{ :slug }}"
+==
+<div class="container-fluid py-5 border-1 border-bottom border-light" id="page-job">
+    <div class="container-lg">
+        {% if job.image %}
+            <div class="mb-5">
+                <img src="{{ job.image.thumb(1400, 350, {mode: "crop"}) }}" alt="{{ job.image.description }}" class="img-fluid w-100 rounded-3">
+            </div>
+        {% endif %}
+
+        <h1 class="mb-4">
+            {{ job.title }}
+        </h1>
+
+        <div class="d-flex flex-column gap-5">
+            <div class="text">
+                <p class="mb-0">
+                    Pracovní poměr: {{ job.relationship }} <br>
+                    Odměna/mzda:
+
+                    <span class="fw-bold fs-2">
+                        {{ job.salary|price }}
+                    </span>
+                </p>
+            </div>
+
+            {% if job.job %}
+                <div class="text">
+                    <h2 class="mb-4">
+                        Náplň práce
+                    </h2>
+
+                    {{ job.job|raw|bootstrap }}
+                </div>
+            {% endif %}
+
+            {% if job.requirements %}
+                <div class="text">
+                    <h2 class="mb-4">
+                        Požadujeme
+                    </h2>
+
+                    {{ job.requirements|raw|bootstrap }}
+                </div>
+            {% endif %}
+
+            {% if job.offer %}
+                <div class="text">
+                    <h2 class="mb-4">
+                        Nabízíme
+                    </h2>
+
+                    {{ job.offer|raw|bootstrap }}
+                </div>
+            {% endif %}
+
+            {% if job.benefits %}
+                <div class="text">
+                    <h2 class="mb-4">
+                        Benefity
+                    </h2>
+
+                    {{ job.benefits|raw|bootstrap }}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

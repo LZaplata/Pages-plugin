@@ -166,6 +166,9 @@
                     'image_text' => [
                         'label' => 'Image text',
                     ],
+                    'jobs' => [
+                        'label' => 'Free occupations',
+                    ],
                 ],
             ],
             'text' => [
@@ -214,6 +217,12 @@
             ],
             'switch_order' => [
                 'label' => 'Switch order',
+            ],
+            'jobs_categories' => [
+                'label' => 'Categories',
+            ],
+            'post_page' => [
+                'label' => 'Post page',
             ],
         ],
         'create' => [

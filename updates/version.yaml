@@ -41,3 +41,6 @@ v1.4.0:
     - add_switch_order_column.php
 v1.4.1:
     - 'Change partial select dynamically after type selection'
+v1.5.0:
+    - 'Free jobs as new content'
+    - add_jobs_category_column.php

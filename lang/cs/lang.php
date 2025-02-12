@@ -166,6 +166,9 @@
                     'image_text' => [
                         'label' => 'Obrázek s textem',
                     ],
+                    'jobs' => [
+                        'label' => 'Volné pozice',
+                    ],
                 ],
             ],
             'text' => [
@@ -214,6 +217,12 @@
             ],
             'switch_order' => [
                 'label' => 'Prohodit pořadí',
+            ],
+            'jobs_categories' => [
+                'label' => 'Kategorie',
+            ],
+            'post_page' => [
+                'label' => 'Stránka příspěvku',
             ],
         ],
         'create' => [
