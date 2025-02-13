@@ -44,3 +44,5 @@ v1.4.1:
 v1.5.0:
     - 'Free jobs as new content'
     - add_jobs_category_column.php
+v1.5.1:
+    - 'Contacts count in a row'

@@ -139,7 +139,9 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[blog][jobs]'
+            condition: 'value[blog][jobs][contacts]'
+        dependsOn:
+            - partial
     image:
         label: 'lzaplata.pages::lang.content.field.image.label'
         span: left
@@ -149,7 +151,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'values[image_text]'
+            condition: 'value[image_text]'
     switch_order:
         label: 'lzaplata.pages::lang.content.field.switch_order.label'
         span: left
@@ -158,7 +160,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'values[image_text]'
+            condition: 'value[image_text]'
     post_page:
         label: 'lzaplata.pages::lang.content.field.post_page.label'
         span: right
@@ -166,4 +168,4 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'values[jobs]'
+            condition: 'value[jobs]'

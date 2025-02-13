@@ -229,5 +229,9 @@ class Content extends Model
 
             $fields->sort_order->value = $order;
         }
+
+        if (preg_match("@[a-z]+/row@", $fields->partial->value)) {
+            $fields->row_cols->hidden = true;
+        }
     }
 }

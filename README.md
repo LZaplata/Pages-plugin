@@ -156,9 +156,7 @@ function onEnd()
                             {% elseif content.type == "cookies" %}
                                 {% component "cookiesmanage" %}
                             {% elseif content.type == "contacts" %}
-                                {% set fluid = sidebarmenu.menuItems is null ? true : false %}
-
-                                {% partial "_contacts/default" partial=content.partial fluid=fluid %}
+                                {% partial "_contacts/default" partial=content.partial row_cols=content.row_cols %}
                             {% elseif content.type == "jobs" %}
                                 {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
                             {% endif %}
