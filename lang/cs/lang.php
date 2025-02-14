@@ -169,6 +169,9 @@
                     'jobs' => [
                         'label' => 'Volné pozice',
                     ],
+                    'links' => [
+                        'label' => 'Odkazy',
+                    ],
                 ],
             ],
             'text' => [
@@ -223,6 +226,9 @@
             ],
             'post_page' => [
                 'label' => 'Stránka příspěvku',
+            ],
+            'links_categories' => [
+                'label' => 'Kategorie',
             ],
         ],
         'create' => [
@@ -298,6 +304,9 @@
             'embed' => [
                 'label' => 'Kód iframe',
             ],
+            'links_category' => [
+                'label' => 'Kategorie odkazů',
+            ],
             'type' => [
                 'label' => 'Typ',
                 'option' => [
@@ -318,6 +327,12 @@
                     ],
                     'embed' => [
                         'label' => 'Vložený prvek (embed)',
+                    ],
+                    'links' => [
+                        'label' => 'Odkazy',
+                    ],
+                    'links_slider' => [
+                        'label' => 'Slider odkazů',
                     ],
                 ],
             ],

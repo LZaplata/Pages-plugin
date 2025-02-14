@@ -169,6 +169,9 @@
                     'jobs' => [
                         'label' => 'Free occupations',
                     ],
+                    'links' => [
+                        'label' => 'Links',
+                    ],
                 ],
             ],
             'text' => [
@@ -223,6 +226,9 @@
             ],
             'post_page' => [
                 'label' => 'Post page',
+            ],
+            'links_categories' => [
+                'label' => 'Categories',
             ],
         ],
         'create' => [
@@ -298,6 +304,9 @@
             'embed' => [
                 'label' => 'Iframe code',
             ],
+            'links_category' => [
+                'label' => 'Links category',
+            ],
             'type' => [
                 'label' => 'Type',
                 'option' => [
@@ -318,6 +327,12 @@
                     ],
                     'embed' => [
                         'label' => 'Embed',
+                    ],
+                    'links' => [
+                        'label' => 'Links',
+                    ],
+                    'links_slider' => [
+                        'label' => 'Links slider',
                     ],
                 ],
             ],

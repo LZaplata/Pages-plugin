@@ -46,3 +46,6 @@ v1.5.0:
     - add_jobs_category_column.php
 v1.5.1:
     - 'Contacts count in a row'
+v1.6.0:
+    - 'Links and links slider as new block and content'
+    - add_links_category_column.php

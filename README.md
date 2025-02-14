@@ -46,6 +46,10 @@ sortOrder = "published_at desc"
                 {% component "flashmessage" %}
             {% elseif block.type == "partial" %}
                 {% partial block.partial %}
+            {% elseif block.type == "links" %}
+                {% partial "_links/default" partial=block.partial row_cols=block.row_cols category=block.links_category %}
+            {% elseif block.type == "links_slider" %}
+                {% partial "_swiper/scrollable" items=block.links_category.links.toNested.lists("link") slides_per_view=block.row_cols partial=block.partial %}
             {% endif %}
         </div>
     </div>
@@ -159,6 +163,8 @@ function onEnd()
                                 {% partial "_contacts/default" partial=content.partial row_cols=content.row_cols %}
                             {% elseif content.type == "jobs" %}
                                 {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
+                            {% elseif content.type == "links" %}
+                                {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category %}
                             {% endif %}
                         </div>
                     {% endfor %}

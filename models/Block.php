@@ -50,8 +50,9 @@ class Block extends Model
      * @var array
      */
     public $belongsTo = [
-        "blog_category" => Category::class,
-        "slider"        => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
+        "blog_category"     => Category::class,
+        "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
+        "links_category"    => [EntryRecord::class, "blueprint" => "lzaplata_links_categories"],
     ];
 
     /**
@@ -76,6 +77,11 @@ class Block extends Model
             $types["flash_message"] = e(trans("lzaplata.pages::lang.block.field.type.option.flash_message.label"));
         }
 
+        if (BlueprintIndexer::instance()->findSectionByHandle("Links\Link")) {
+            $types["links"]         = e(trans("lzaplata.pages::lang.block.field.type.option.links.label"));
+            $types["links_slider"]  = e(trans("lzaplata.pages::lang.block.field.type.option.links_slider.label"));
+        }
+
         return $types;
     }
 
@@ -97,6 +103,10 @@ class Block extends Model
             }
 
             if ($this->type == "partial") {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
+
+            if (($this->type == "links" || $this->type == "links_slider") && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
         }

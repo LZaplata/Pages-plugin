@@ -87,6 +87,15 @@ fields:
             action: show
             field: type
             condition: 'value[posts][posts_slider][flash_message]'
+    links_category:
+        label: 'lzaplata.pages::lang.block.field.links_category.label'
+        span: left
+        type: relation
+        nameFrom: title
+        trigger:
+            action: show
+            field: type
+            condition: 'value[links][links_slider]'
     row_cols:
         label: 'lzaplata.pages::lang.block.field.row_cols.label'
         span: right
@@ -95,7 +104,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[posts][posts_slider]'
+            condition: 'value[posts][posts_slider][links][links_slider]'
     partial:
         label: 'lzaplata.pages::lang.block.field.partial.label'
         span: left
@@ -103,7 +112,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[partial][posts]'
+            condition: 'value[partial][posts][links][links_slider]'
         dependsOn:
             - type
     slider:

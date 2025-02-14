@@ -101,6 +101,10 @@ class Content extends Model
             $types["jobs"] = e(trans("lzaplata.pages::lang.content.field.type.option.jobs.label"));
         }
 
+        if (BlueprintIndexer::instance()->findSectionByHandle("Links\Link")) {
+            $types["links"] = e(trans("lzaplata.pages::lang.content.field.type.option.links.label"));
+        }
+
         if (class_exists(CookiesSettings::class)) {
             $types["cookies"] = e(trans("lzaplata.pages::lang.content.field.type.option.cookies.label"));
         }
@@ -130,6 +134,10 @@ class Content extends Model
             }
 
             if ($this->type == "jobs" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
+
+            if ($this->type == "links" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
         }
@@ -202,6 +210,7 @@ class Content extends Model
         "opening_hours"     => OpeningHour::class,
         "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
         "jobs_category"     => [EntryRecord::class, "blueprint" => "lzaplata_jobs_categories"],
+        "links_category"    => [EntryRecord::class, "blueprint" => "lzaplata_links_categories"],
     ];
 
     /**
