@@ -31,7 +31,7 @@ sortOrder = "published_at desc"
             {% endif %}
 
             {% if block.type == "text" %}
-                {{ block.text|raw|bootstrap }}
+                {{ block.text|content|bootstrap }}
             {% elseif block.type == "slider" %}
                 {% partial "_swiper/slider" slides=block.slider.slides settings=block.slider %}
             {% elseif block.type == "image_text" %}
@@ -138,7 +138,7 @@ function onEnd()
                             {% endif %}
 
                             {% if content.type == "text" %}
-                                {{ content.text|raw|bootstrap }}
+                                {{ content.text|content|bootstrap }}
                             {% elseif content.type == "image_text" %}
                                 {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order %}
                             {% elseif content.type == "blog" %}
@@ -217,7 +217,7 @@ value = "{{ :slug }}"
                         Náplň práce
                     </h2>
 
-                    {{ job.job|raw|bootstrap }}
+                    {{ job.job|content|bootstrap }}
                 </div>
             {% endif %}
 
@@ -227,7 +227,7 @@ value = "{{ :slug }}"
                         Požadujeme
                     </h2>
 
-                    {{ job.requirements|raw|bootstrap }}
+                    {{ job.requirements|content|bootstrap }}
                 </div>
             {% endif %}
 
@@ -237,7 +237,7 @@ value = "{{ :slug }}"
                         Nabízíme
                     </h2>
 
-                    {{ job.offer|raw|bootstrap }}
+                    {{ job.offer|content|bootstrap }}
                 </div>
             {% endif %}
 
@@ -247,7 +247,7 @@ value = "{{ :slug }}"
                         Benefity
                     </h2>
 
-                    {{ job.benefits|raw|bootstrap }}
+                    {{ job.benefits|content|bootstrap }}
                 </div>
             {% endif %}
         </div>

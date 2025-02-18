@@ -49,3 +49,5 @@ v1.5.1:
 v1.6.0:
     - 'Links and links slider as new block and content'
     - add_links_category_column.php
+v1.6.1:
+    - 'Update README'
