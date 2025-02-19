@@ -224,8 +224,8 @@
             'jobs_categories' => [
                 'label' => 'Categories',
             ],
-            'post_page' => [
-                'label' => 'Post page',
+            'post_partial' => [
+                'label' => 'Post partial',
             ],
             'links_categories' => [
                 'label' => 'Categories',

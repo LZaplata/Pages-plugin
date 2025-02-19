@@ -166,28 +166,21 @@ class Content extends Model
      * @return array
      * @throws \ApplicationException
      */
-    public function getPostPageOptions(): array
+    public function getPostPartialOptions(): array
     {
         $theme = Theme::getActiveTheme();
-        $pages = CmsPage::listInTheme($theme, true);
-        $cmsPages = [];
+        $partials = Partial::listInTheme($theme);
+        $partialOptions = [];
 
-        foreach ($pages as $page) {
-            if (!$page->hasComponent("section")) {
-                continue;
+        foreach ($partials as $partial) {
+            if ($this->type == "jobs" && preg_match("@_job/def[a-z]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
-
-            $section = $page->getComponent("section");
-            $sectionProperties = $section->getProperties();
-
-            if (!isset($sectionProperties["handle"]) || $sectionProperties["handle"] != "Jobs\Job") {
-                continue;
-            }
-
-            $cmsPages[$page->baseFileName] = $page->title;
         }
 
-        return $cmsPages;
+        asort($partialOptions);
+
+        return $partialOptions;
     }
 
     /**

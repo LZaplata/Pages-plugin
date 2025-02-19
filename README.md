@@ -175,82 +175,51 @@ function onEnd()
 </div>
 ````
 
-## Example job post page
+## Example post page
 
 ````htm
-url = "/volne-pozice/:slug"
+url = "/:fullslug*/d/:slug"
 layout = "default"
-title = "Volná pozice"
+title = "Post"
+seoOptionsMetaTitle = "{{ job ? job.title : (post ? post.title) }} | {{ page.title }}"
 
 [section job]
 handle = "Jobs\Job"
 identifier = "slug"
 value = "{{ :slug }}"
+
+[breadcrumbs]
+pageCode = "page"
+
+[page]
+column = "fullslug"
+value = "{{ :fullslug }}"
 ==
-<div class="container-fluid py-5 border-1 border-bottom border-light" id="page-job">
+<div class="container-fluid" id="breadcrumb">
     <div class="container-lg">
-        {% if job.image %}
-            <div class="mb-5">
-                <img src="{{ job.image.thumb(1400, 350, {mode: "crop"}) }}" alt="{{ job.image.description }}" class="img-fluid w-100 rounded-3">
+        <div class="row g-5">
+            <div class="col">
+                {% component "breadcrumbs" %}
             </div>
-        {% endif %}
-
-        <h1 class="mb-4">
-            {{ job.title }}
-        </h1>
-
-        <div class="d-flex flex-column gap-5">
-            <div class="text">
-                <p class="mb-0">
-                    Pracovní poměr: {{ job.relationship }} <br>
-                    Odměna/mzda:
-
-                    <span class="fw-bold fs-2">
-                        {{ job.salary|price }}
-                    </span>
-                </p>
-            </div>
-
-            {% if job.job %}
-                <div class="text">
-                    <h2 class="mb-4">
-                        Náplň práce
-                    </h2>
-
-                    {{ job.job|content|bootstrap }}
-                </div>
-            {% endif %}
-
-            {% if job.requirements %}
-                <div class="text">
-                    <h2 class="mb-4">
-                        Požadujeme
-                    </h2>
-
-                    {{ job.requirements|content|bootstrap }}
-                </div>
-            {% endif %}
-
-            {% if job.offer %}
-                <div class="text">
-                    <h2 class="mb-4">
-                        Nabízíme
-                    </h2>
-
-                    {{ job.offer|content|bootstrap }}
-                </div>
-            {% endif %}
-
-            {% if job.benefits %}
-                <div class="text">
-                    <h2 class="mb-4">
-                        Benefity
-                    </h2>
-
-                    {{ job.benefits|content|bootstrap }}
-                </div>
-            {% endif %}
         </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 border-1 border-bottom border-light" id="page-post">
+    <div class="container-lg">
+        {% set job_post_partial = null %}
+
+        {% for content in page.contents %}
+            {% if content.type == "jobs" %}
+                {% set job_post_partial = content.post_partial %}
+            {% endif %}
+        {% endfor %}
+
+        {% if job %}
+            {% partial job_post_partial post=job %}
+        {% elseif post %}
+            {% partial "_post/default" %}
+        {% endif %}
     </div>
 </div>
 ````

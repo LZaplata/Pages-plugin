@@ -38,7 +38,7 @@ class Breadcrumbs extends ComponentBase
         if (isset($this->page["page"])) {
             $column = $this->page["page"]->property("column");
             $value = $this->page["page"]->property("value");
-            $pageCode = $this->page["page"]->page->page->getBaseFilename();
+            $pageCode = $this->property("pageCode") ?: $this->page["page"]->page->page->getBaseFilename();
             $theme = Theme::getActiveTheme();
             $page = Page::where($column, $value)->first();
 

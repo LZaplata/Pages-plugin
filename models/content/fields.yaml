@@ -170,8 +170,8 @@ fields:
             action: show
             field: type
             condition: 'value[image_text]'
-    post_page:
-        label: 'lzaplata.pages::lang.content.field.post_page.label'
+    post_partial:
+        label: 'lzaplata.pages::lang.content.field.post_partial.label'
         span: right
         type: dropdown
         trigger:

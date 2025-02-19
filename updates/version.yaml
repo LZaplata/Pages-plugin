@@ -51,3 +51,6 @@ v1.6.0:
     - add_links_category_column.php
 v1.6.1:
     - 'Update README'
+v1.7.0:
+    - 'Breadcrumb page code property, remove content post page'
+    - remove_post_page_column.php

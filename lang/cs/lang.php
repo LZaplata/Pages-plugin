@@ -224,8 +224,8 @@
             'jobs_categories' => [
                 'label' => 'Kategorie',
             ],
-            'post_page' => [
-                'label' => 'Stránka příspěvku',
+            'post_partial' => [
+                'label' => 'Šablona příspěvku',
             ],
             'links_categories' => [
                 'label' => 'Kategorie',
