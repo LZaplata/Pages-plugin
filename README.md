@@ -20,6 +20,8 @@ sortOrder = "published_at desc"
 [blogPosts posts]
 
 [blogPosts postsslider]
+
+[contactForm contactform]
 ==
 {% for block in homepage.blocks %}
     <div class="container-fluid{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-5{% endif %}{% if loop.last %} pb-5{% endif %} {{ block.type|slug }} {{ block.type|slug }}--{{ block.title|slug }}">
@@ -94,6 +96,8 @@ order = "sort_order asc"
 [pricelist]
 
 [openinghours]
+
+[contactForm contactform]
 ==
 <?php
 function onEnd()

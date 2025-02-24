@@ -54,3 +54,5 @@ v1.6.1:
 v1.7.0:
     - 'Breadcrumb page code property, remove content post page'
     - remove_post_page_column.php
+v1.7.1:
+    - 'Update README.md with contact form settings'
