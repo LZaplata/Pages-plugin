@@ -178,3 +178,11 @@ fields:
             action: show
             field: type
             condition: 'value[jobs]'
+    blog_sort_order:
+        label: 'lzaplata.pages::lang.content.field.blog_sort_order.label'
+        span: right
+        type: dropdown
+        trigger:
+            action: show
+            field: type
+            condition: 'value[blog]'

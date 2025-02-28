@@ -230,6 +230,9 @@
             'links_categories' => [
                 'label' => 'Categories',
             ],
+            'blog_sort_order' => [
+                'label' => 'Posts sort order',
+            ],
         ],
         'create' => [
             'title' => 'Create content',
@@ -306,6 +309,9 @@
             ],
             'links_category' => [
                 'label' => 'Links category',
+            ],
+            'blog_sort_order' => [
+                'label' => 'Posts sort order',
             ],
             'type' => [
                 'label' => 'Type',

@@ -132,3 +132,11 @@ fields:
             action: show
             field: type
             condition: 'value[embed]'
+    blog_sort_order:
+        label: 'lzaplata.pages::lang.block.field.blog_sort_order.label'
+        span: right
+        type: dropdown
+        trigger:
+            action: show
+            field: type
+            condition: 'value[posts][posts_slider]'

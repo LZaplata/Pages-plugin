@@ -3,6 +3,7 @@
 use Backend\Facades\BackendAuth;
 use Cms\Classes\Partial;
 use Cms\Classes\Theme;
+use Illuminate\Support\Facades\Lang;
 use JanVince\SmallGDPR\Models\CookiesSettings;
 use LZaplata\Files\Models\Category as FilesCategory;
 use LZaplata\Files\Models\File;
@@ -12,6 +13,7 @@ use LZaplata\Pricelists\Models\Pricelist;
 use Model;
 use October\Rain\Database\Traits\Multisite;
 use October\Rain\Database\Traits\Sortable;
+use RainLab\Blog\Models\Post as BlogPost;
 use Tailor\Classes\BlueprintIndexer;
 use RainLab\Blog\Models\Category;
 use RainLab\Blog\Models\Post;
@@ -181,6 +183,20 @@ class Content extends Model
         asort($partialOptions);
 
         return $partialOptions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBlogSortOrderOptions(): array
+    {
+        $options = BlogPost::$allowedSortingOptions;
+
+        foreach ($options as $key => $value) {
+            $options[$key] = Lang::get($value);
+        }
+
+        return $options;
     }
 
     /**

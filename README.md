@@ -41,9 +41,9 @@ sortOrder = "published_at desc"
             {% elseif block.type == "embed" %}
                 {% partial "_block/embed.htm" embed=block.embed %}
             {% elseif block.type == "posts" %}
-                {% component "posts" categoryFilter=block.blog_category.slug rowCols=block.row_cols partial=block.partial %}
+                {% component "posts" categoryFilter=block.blog_category.slug rowCols=block.row_cols partial=block.partial sortOrder=block.blog_sort_order %}
             {% elseif block.type == "posts_slider" %}
-                {% component "postsslider" categoryFilter=block.blog_category.slug rowCols=block.row_cols %}
+                {% component "postsslider" categoryFilter=block.blog_category.slug rowCols=block.row_cols sortOrder=block.blog_sort_order %}
             {% elseif block.type == "flash_message" %}
                 {% component "flashmessage" %}
             {% elseif block.type == "partial" %}
@@ -86,7 +86,6 @@ handle = "FAQ\Question"
 pageNumber = "{{ :page }}"
 postsPerPage = 10
 noPostsMessage = "Nenalezeny žádné příspěvky"
-sortOrder = "published_at asc"
 categoryPage = "page"
 postPage = "page-post"
 
@@ -146,7 +145,7 @@ function onEnd()
                             {% elseif content.type == "image_text" %}
                                 {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order %}
                             {% elseif content.type == "blog" %}
-                                {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols partial=content.partial %}
+                                {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols partial=content.partial sortOrder=content.blog_sort_order %}
                             {% elseif content.type == "gallery" %}
                                 {% component "gallery" gallery=content.gallery.slug %}
                             {% elseif content.type == "files" %}

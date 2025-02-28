@@ -230,6 +230,9 @@
             'links_categories' => [
                 'label' => 'Kategorie',
             ],
+            'blog_sort_order' => [
+                'label' => 'Řazení příspěvků',
+            ],
         ],
         'create' => [
             'title' => 'Vytvořit obsah',
@@ -306,6 +309,9 @@
             ],
             'links_category' => [
                 'label' => 'Kategorie odkazů',
+            ],
+            'blog_sort_order' => [
+                'label' => 'Řazení příspěvků',
             ],
             'type' => [
                 'label' => 'Typ',

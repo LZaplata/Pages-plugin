@@ -56,3 +56,6 @@ v1.7.0:
     - remove_post_page_column.php
 v1.7.1:
     - 'Update README.md with contact form settings'
+v1.8.0:
+    - 'Add content and block blog type sort order option'
+    - add_sort_order_column.php

@@ -3,9 +3,11 @@
 use Backend\Facades\BackendAuth;
 use Cms\Classes\Partial;
 use Cms\Classes\Theme;
+use Illuminate\Support\Facades\Lang;
 use Model;
 use RainLab\Blog\Models\Category;
 use RainLab\Blog\Models\Post;
+use RainLab\Blog\Models\Post as BlogPost;
 use System\Models\File;
 use Tailor\Classes\BlueprintIndexer;
 use Tailor\Models\EntryRecord;
@@ -144,6 +146,20 @@ class Block extends Model
             "5"     => "5",
             "6"     => "6",
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getBlogSortOrderOptions(): array
+    {
+        $options = BlogPost::$allowedSortingOptions;
+
+        foreach ($options as $key => $value) {
+            $options[$key] = Lang::get($value);
+        }
+
+        return $options;
     }
 
     /**
