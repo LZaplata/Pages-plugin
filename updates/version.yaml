@@ -59,3 +59,5 @@ v1.7.1:
 v1.8.0:
     - 'Add content and block blog type sort order option'
     - add_sort_order_column.php
+v1.8.1:
+    - 'Flash message category filter README.md fix'

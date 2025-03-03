@@ -45,7 +45,7 @@ sortOrder = "published_at desc"
             {% elseif block.type == "posts_slider" %}
                 {% component "postsslider" categoryFilter=block.blog_category.slug rowCols=block.row_cols sortOrder=block.blog_sort_order %}
             {% elseif block.type == "flash_message" %}
-                {% component "flashmessage" %}
+                {% component "flashmessage" categoryFilter=block.blog_category.slug %}
             {% elseif block.type == "partial" %}
                 {% partial block.partial %}
             {% elseif block.type == "links" %}
