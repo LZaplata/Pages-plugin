@@ -313,6 +313,12 @@
             'blog_sort_order' => [
                 'label' => 'Řazení příspěvků',
             ],
+            'more_button_title' => [
+                'label' => 'Titulek tlačítka "Zobrazit více"',
+            ],
+            'more_button_link' => [
+                'label' => 'Odkaz tlačítka "Zobrazit více"',
+            ],
             'type' => [
                 'label' => 'Typ',
                 'option' => [

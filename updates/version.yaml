@@ -61,3 +61,6 @@ v1.8.0:
     - add_sort_order_column.php
 v1.8.1:
     - 'Flash message category filter README.md fix'
+v1.9.0:
+    - 'Posts slider partial select and more button definition'
+    - add_more_button_column.php

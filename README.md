@@ -41,9 +41,9 @@ sortOrder = "published_at desc"
             {% elseif block.type == "embed" %}
                 {% partial "_block/embed.htm" embed=block.embed %}
             {% elseif block.type == "posts" %}
-                {% component "posts" categoryFilter=block.blog_category.slug rowCols=block.row_cols partial=block.partial sortOrder=block.blog_sort_order %}
+                {% component "posts" categoryFilter=block.blog_category.slug rowCols=block.row_cols partial=block.partial sortOrder=block.blog_sort_order moreButtonTitle=block.more_button_title moreButtonLink=block.more_button_link %}
             {% elseif block.type == "posts_slider" %}
-                {% component "postsslider" categoryFilter=block.blog_category.slug rowCols=block.row_cols sortOrder=block.blog_sort_order %}
+                {% component "postsslider" categoryFilter=block.blog_category.slug rowCols=block.row_cols sortOrder=block.blog_sort_order moreButtonTitle=block.more_button_title moreButtonLink=block.more_button_link %}
             {% elseif block.type == "flash_message" %}
                 {% component "flashmessage" categoryFilter=block.blog_category.slug %}
             {% elseif block.type == "partial" %}

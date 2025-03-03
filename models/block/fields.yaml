@@ -112,7 +112,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[partial][posts][links][links_slider]'
+            condition: 'value[partial][posts][links][links_slider][posts_slider]'
         dependsOn:
             - type
     slider:
@@ -136,6 +136,21 @@ fields:
         label: 'lzaplata.pages::lang.block.field.blog_sort_order.label'
         span: right
         type: dropdown
+        trigger:
+            action: show
+            field: type
+            condition: 'value[posts][posts_slider]'
+    more_button_title:
+        label: 'lzaplata.pages::lang.block.field.more_button_title.label'
+        span: left
+        trigger:
+            action: show
+            field: type
+            condition: 'value[posts][posts_slider]'
+    more_button_link:
+        label: 'lzaplata.pages::lang.block.field.more_button_link.label'
+        span: right
+        type: pagefinder
         trigger:
             action: show
             field: type

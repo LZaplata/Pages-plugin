@@ -313,6 +313,12 @@
             'blog_sort_order' => [
                 'label' => 'Posts sort order',
             ],
+            'more_button_title' => [
+                'label' => '"Show more" button title',
+            ],
+            'more_button_link' => [
+                'label' => '"Show more" button link',
+            ],
             'type' => [
                 'label' => 'Type',
                 'option' => [

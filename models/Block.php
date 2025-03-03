@@ -100,7 +100,7 @@ class Block extends Model
         $partialOptions = [];
 
         foreach ($partials as $partial) {
-            if ($this->type == "posts" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+            if (($this->type == "posts" || $this->type == "posts_slider") && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
