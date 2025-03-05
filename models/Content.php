@@ -234,6 +234,42 @@ class Content extends Model
             $fields->type->disabled = true;
         }
 
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.blog_category")) {
+            $fields->blog_category->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.files_category")) {
+            $fields->files_category->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.contacts_category")) {
+            $fields->contacts_category->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.jobs_category")) {
+            $fields->jobs_category->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.links_category")) {
+            $fields->links_category->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.gallery")) {
+            $fields->gallery->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.pricelist")) {
+            $fields->pricelist->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.opening_hours")) {
+            $fields->opening_hours->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.slider")) {
+            $fields->slider->disabled = true;
+        }
+
         if (BackendAuth::userHasPermission("lzaplata.pages.content.reorder")) {
             $latestSibling = Content::where("page_id", $this->page->id)
                 ->orderBy("sort_order", "desc")
@@ -248,7 +284,7 @@ class Content extends Model
             $fields->sort_order->value = $order;
         }
 
-        if (preg_match("@[a-z]+/row@", $fields->partial->value)) {
+        if (preg_match("@[a-z]+/row@", $fields->partial?->value)) {
             $fields->row_cols->hidden = true;
         }
     }

@@ -30,6 +30,42 @@
                 'type' => [
                     'label' => 'Typ',
                 ],
+                'blog_category' => [
+                    'label' => 'Kategorie příspěvků',
+                ],
+                'files_category' => [
+                    'label' => 'Kategorie souborů',
+                ],
+                'contacts_category' => [
+                    'label' => 'Kategorie kontaktů',
+                ],
+                'jobs_category' => [
+                    'label' => 'Kategorie volných pozic',
+                ],
+                'links_category' => [
+                    'label' => 'Kategorie odkazů',
+                ],
+                'partial' => [
+                    'label' => 'Šablona',
+                ],
+                'row_cols' => [
+                    'label' => 'Počet příspěvků na řádek',
+                ],
+                'blog_sort_order' => [
+                    'label' => 'Řazení příspěvků',
+                ],
+                'gallery' => [
+                    'label' => 'Galerie',
+                ],
+                'pricelist' => [
+                    'label' => 'Ceník',
+                ],
+                'opening_hours' => [
+                    'label' => 'Otevírací hodiny',
+                ],
+                'slider' => [
+                    'label' => 'Slider',
+                ],
             ],
             'delete' => [
                 'label' => 'Smazat',
@@ -96,6 +132,18 @@
             'menu' => [
                 'label' => 'Menu',
                 'prompt' => '--Žádné--',
+            ],
+            'meta_title' => [
+                'label' => 'Titulek',
+                'comment' => 'Pokud nevyplníte, použije se název stránky.',
+            ],
+            'meta_description' => [
+                'label' => 'Popisek',
+            ],
+        ],
+        'tab' => [
+            'meta' => [
+                'label' => 'Meta',
             ],
         ],
         'create' => [

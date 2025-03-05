@@ -43,6 +43,42 @@ permissions:
     lzaplata.pages.content.update.type:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.update.type.label'
+    lzaplata.pages.content.update.blog_category:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.blog_category.label'
+    lzaplata.pages.content.update.files_category:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.files_category.label'
+    lzaplata.pages.content.update.contacts_category:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.contacts_category.label'
+    lzaplata.pages.content.update.jobs_category:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.jobs_category.label'
+    lzaplata.pages.content.update.links_category:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.links_category.label'
+    lzaplata.pages.content.update.partial:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.partial.label'
+    lzaplata.pages.content.update.row_cols:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.row_cols.label'
+    lzaplata.pages.content.update.blog_sort_order:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.blog_sort_order.label'
+    lzaplata.pages.content.update.gallery:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.gallery.label'
+    lzaplata.pages.content.update.pricelist:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.pricelist.label'
+    lzaplata.pages.content.update.opening_hours:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.opening_hours.label'
+    lzaplata.pages.content.update.slider:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.slider.label'
     lzaplata.pages.content.reorder:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.reorder.label'

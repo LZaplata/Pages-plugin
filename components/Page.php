@@ -26,6 +26,16 @@ class Page extends ComponentBase
      */
     public $menu;
 
+    /**
+     * @var string
+     */
+    public $metaTitle;
+
+    /**
+     * @var string
+     */
+    public $metaDescription;
+
     public function componentDetails()
     {
         return [
@@ -83,6 +93,8 @@ class Page extends ComponentBase
             $this->slug = $page->slug;
             $this->contents = $page->contents->where("is_published", true)->sortBy("sort_order");
             $this->menu = $page->menu;
+            $this->metaTitle = $page->meta_title;
+            $this->metaDescription = $page->meta_description;
         }
     }
 }

@@ -134,6 +134,7 @@ fields:
         label: 'lzaplata.pages::lang.content.field.partial.label'
         span: right
         type: dropdown
+        permissions: lzaplata.pages.content.update.partial
         trigger:
             action: show
             field: type
@@ -145,6 +146,7 @@ fields:
         span: left
         type: dropdown
         default: 4
+        permissions: lzaplata.pages.content.update.row_cols
         trigger:
             action: show
             field: type
@@ -174,6 +176,7 @@ fields:
         label: 'lzaplata.pages::lang.content.field.post_partial.label'
         span: right
         type: dropdown
+        permissions: lzaplata.pages.content.update.partial
         trigger:
             action: show
             field: type
@@ -182,6 +185,7 @@ fields:
         label: 'lzaplata.pages::lang.content.field.blog_sort_order.label'
         span: right
         type: dropdown
+        permissions: lzaplata.pages.content.update.blog_sort_order
         trigger:
             action: show
             field: type

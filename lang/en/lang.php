@@ -30,6 +30,42 @@
                 'type' => [
                     'label' => 'Type',
                 ],
+                'blog_category' => [
+                    'label' => 'Posts category',
+                ],
+                'files_category' => [
+                    'label' => 'Files category',
+                ],
+                'contacts_category' => [
+                    'label' => 'Contacts category',
+                ],
+                'jobs_category' => [
+                    'label' => 'Jobs category',
+                ],
+                'links_category' => [
+                    'label' => 'Links category',
+                ],
+                'partial' => [
+                    'label' => 'Partial',
+                ],
+                'row_cols' => [
+                    'label' => 'Posts in row',
+                ],
+                'blog_sort_order' => [
+                    'label' => 'Posts sort order',
+                ],
+                'gallery' => [
+                    'label' => 'Gallery',
+                ],
+                'pricelist' => [
+                    'label' => 'Price list',
+                ],
+                'opening_hours' => [
+                    'label' => 'Opening hours',
+                ],
+                'Slider' => [
+                    'label' => 'Slider',
+                ],
             ],
             'delete' => [
                 'label' => 'Delete',
@@ -96,6 +132,18 @@
             'menu' => [
                 'label' => 'Menu',
                 'prompt' => '--None--',
+            ],
+            'meta_title' => [
+                'label' => 'Title',
+                'comment' => 'Left blank to use page title.',
+            ],
+            'meta_description' => [
+                'label' => 'Description',
+            ],
+        ],
+        'tab' => [
+            'meta' => [
+                'label' => 'Meta',
             ],
         ],
         'create' => [

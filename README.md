@@ -64,7 +64,8 @@ sortOrder = "published_at desc"
 url = "/:fullslug*"
 layout = "default"
 title = "Page"
-seoOptionsMetaTitle = "{{ page.title }}"
+seoOptionsMetaTitle = "{{ page.metaTitle ?: page.title }}"
+seoOptionsMetaDescription = "{{ page.metaDescription }}"
 
 [page]
 column = "fullslug"
