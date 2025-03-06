@@ -65,6 +65,7 @@ class Content extends Model
             "text"          => "Text",
             "image_text"    => e(trans("lzaplata.pages::lang.content.field.type.option.image_text.label")),
             "embed"         => e(trans("lzaplata.pages::lang.content.field.type.option.embed.label")),
+            "partial"       => e(trans("lzaplata.pages::lang.content.field.type.option.partial.label")),
         ];
 
         if (class_exists(Post::class)) {
@@ -140,6 +141,10 @@ class Content extends Model
             }
 
             if ($this->type == "links" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
+
+            if ($this->type == "partial") {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
         }

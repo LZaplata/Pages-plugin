@@ -220,6 +220,9 @@
                     'links' => [
                         'label' => 'Odkazy',
                     ],
+                    'partial' => [
+                        'label' => 'Šablona',
+                    ],
                 ],
             ],
             'text' => [

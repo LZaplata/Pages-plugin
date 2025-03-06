@@ -169,6 +169,8 @@ function onEnd()
                                 {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
                             {% elseif content.type == "links" %}
                                 {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category %}
+                            {% elseif content.type == "partial" %}
+                                {% partial content.partial %}
                             {% endif %}
                         </div>
                     {% endfor %}

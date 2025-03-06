@@ -220,6 +220,9 @@
                     'links' => [
                         'label' => 'Links',
                     ],
+                    'partial' => [
+                        'label' => 'Partial',
+                    ],
                 ],
             ],
             'text' => [

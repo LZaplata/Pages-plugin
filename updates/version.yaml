@@ -69,3 +69,5 @@ v1.10.0:
     - add_meta_columns.php
 v1.10.1:
     - 'More content permissions'
+v1.10.2:
+    - 'Partial as new content type'
