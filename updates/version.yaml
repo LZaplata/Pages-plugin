@@ -71,3 +71,5 @@ v1.10.1:
     - 'More content permissions'
 v1.10.2:
     - 'Partial as new content type'
+v1.10.3:
+    - 'Post partial depends on type + content helper'
