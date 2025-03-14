@@ -73,3 +73,5 @@ v1.10.2:
     - 'Partial as new content type'
 v1.10.3:
     - 'Post partial depends on type + content helper'
+v1.11.0:
+    - 'Page and Content import models'

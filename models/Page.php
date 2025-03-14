@@ -58,6 +58,13 @@ class Page extends Model
     public $propagatable = [];
 
     /**
+     * @var array
+     */
+    public $fillable = [
+        "id",
+    ];
+
+    /**
      * @return void
      */
     public function afterSave()

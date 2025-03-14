@@ -57,6 +57,13 @@ class Content extends Model
     public $propagatable = [];
 
     /**
+     * @var array
+     */
+    public $fillable = [
+        "id",
+    ];
+
+    /**
      * @return array
      */
     public function getTypeOptions()
