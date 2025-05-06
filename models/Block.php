@@ -5,6 +5,7 @@ use Cms\Classes\Partial;
 use Cms\Classes\Theme;
 use Illuminate\Support\Facades\Lang;
 use Model;
+use October\Rain\Database\Traits\Multisite;
 use RainLab\Blog\Models\Category;
 use RainLab\Blog\Models\Post;
 use RainLab\Blog\Models\Post as BlogPost;
@@ -21,6 +22,7 @@ class Block extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
     use BlueprintRelationModel;
+    use Multisite;
 
     /**
      * @var array dates to cast from the database.
@@ -56,6 +58,11 @@ class Block extends Model
         "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
         "links_category"    => [EntryRecord::class, "blueprint" => "lzaplata_links_categories"],
     ];
+
+    /**
+     * @var array
+     */
+    public $propagatable = [];
 
     /**
      * @return array
