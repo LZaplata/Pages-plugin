@@ -237,6 +237,7 @@
             ],
             'blog_categories' => [
                 'label' => 'Categories',
+                'empty_option' => '-- Any --',
             ],
             'gallery' => [
                 'label' => 'Gallery',
@@ -342,6 +343,7 @@
             ],
             'blog_category' => [
                 'label' => 'Blog category',
+                'empty_option' => '-- Any --',
             ],
             'partial' => [
                 'label' => 'Partial',

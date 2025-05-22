@@ -237,6 +237,7 @@
             ],
             'blog_categories' => [
                 'label' => 'Kategorie',
+                'empty_option' => '-- Nerozhoduje --',
             ],
             'gallery' => [
                 'label' => 'Galerie',
@@ -342,6 +343,7 @@
             ],
             'blog_category' => [
                 'label' => 'Kategorie příspěvků',
+                'empty_option' => '-- Nerozhoduje --',
             ],
             'partial' => [
                 'label' => 'Šablona',

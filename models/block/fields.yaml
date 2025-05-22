@@ -83,6 +83,7 @@ fields:
         label: 'lzaplata.pages::lang.block.field.blog_category.label'
         span: left
         type: relation
+        emptyOption: 'lzaplata.pages::lang.block.field.blog_category.empty_option'
         trigger:
             action: show
             field: type
