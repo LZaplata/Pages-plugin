@@ -366,11 +366,14 @@
             'blog_sort_order' => [
                 'label' => 'Řazení příspěvků',
             ],
+            'more_button_is_published' => [
+                'label' => 'Tlačítko "Zobrazit více"',
+            ],
             'more_button_title' => [
                 'label' => 'Titulek tlačítka "Zobrazit více"',
             ],
             'more_button_link' => [
-                'label' => 'Odkaz tlačítka "Zobrazit více"',
+                'label' => 'Stránka příspěvků',
             ],
             'type' => [
                 'label' => 'Typ',
