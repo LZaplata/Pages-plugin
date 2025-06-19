@@ -42,6 +42,7 @@ fields:
         label: 'lzaplata.pages::lang.content.field.blog_categories.label'
         span: left
         type: relation
+        emptyOption: 'lzaplata.pages::lang.content.field.blog_categories.empty_option'
         trigger:
             action: show
             field: type

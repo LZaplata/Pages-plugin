@@ -83,6 +83,7 @@ fields:
         label: 'lzaplata.pages::lang.block.field.blog_category.label'
         span: left
         type: relation
+        emptyOption: 'lzaplata.pages::lang.block.field.blog_category.empty_option'
         trigger:
             action: show
             field: type
@@ -140,17 +141,27 @@ fields:
             action: show
             field: type
             condition: 'value[posts][posts_slider]'
-    more_button_title:
-        label: 'lzaplata.pages::lang.block.field.more_button_title.label'
+    more_button_is_published:
+        label: 'lzaplata.pages::lang.block.field.more_button_is_published.label'
+        type: switch
+        default: false
         span: left
         trigger:
             action: show
             field: type
             condition: 'value[posts][posts_slider]'
+    more_button_title:
+        label: 'lzaplata.pages::lang.block.field.more_button_title.label'
+        span: right
+        trigger:
+            action: show
+            field: more_button_is_published
+            condition: checked
     more_button_link:
         label: 'lzaplata.pages::lang.block.field.more_button_link.label'
-        span: right
+        span: left
         type: pagefinder
+        required: true
         trigger:
             action: show
             field: type

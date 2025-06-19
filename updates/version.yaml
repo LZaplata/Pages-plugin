@@ -75,5 +75,13 @@ v1.10.3:
     - 'Post partial depends on type + content helper'
 v1.11.0:
     - 'Page and Content import models'
-v1.11.1:
+v1.12.0:
+    - 'Homepage multisite support'
+    - add_block_multisite_columns.php
+v1.12.1:
+    - 'Block and content blog category empty option'
+v1.13.0:
+    - 'More button definition changes'
+    - add_more_button_is_published_column.php
+v1.13.1:
     - 'Throw 404 in Page component while page not exists'

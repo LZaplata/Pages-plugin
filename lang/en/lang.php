@@ -237,6 +237,7 @@
             ],
             'blog_categories' => [
                 'label' => 'Categories',
+                'empty_option' => '-- Any --',
             ],
             'gallery' => [
                 'label' => 'Gallery',
@@ -342,6 +343,7 @@
             ],
             'blog_category' => [
                 'label' => 'Blog category',
+                'empty_option' => '-- Any --',
             ],
             'partial' => [
                 'label' => 'Partial',
@@ -364,11 +366,14 @@
             'blog_sort_order' => [
                 'label' => 'Posts sort order',
             ],
+            'more_button_is_published' => [
+                'label' => '"Show more" button',
+            ],
             'more_button_title' => [
                 'label' => '"Show more" button title',
             ],
             'more_button_link' => [
-                'label' => '"Show more" button link',
+                'label' => 'Posts page',
             ],
             'type' => [
                 'label' => 'Type',
