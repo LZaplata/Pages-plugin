@@ -75,3 +75,5 @@ v1.10.3:
     - 'Post partial depends on type + content helper'
 v1.11.0:
     - 'Page and Content import models'
+v1.11.1:
+    - 'Throw 404 in Page component while page not exists'
