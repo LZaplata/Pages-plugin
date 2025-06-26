@@ -267,6 +267,9 @@
             'row_cols' => [
                 'label' => 'Počet příspěvků na řádek',
             ],
+            'items_per_page' => [
+                'label' => 'Počet příspěvků na stránku',
+            ],
             'image' => [
                 'label' => 'Obrázek',
             ],
@@ -350,6 +353,9 @@
             ],
             'row_cols' => [
                 'label' => 'Počet příspěvků na řádek',
+            ],
+            'items_per_page' => [
+                'label' => 'Celkový počet příspěvků',
             ],
             'switch_order' => [
                 'label' => 'Prohodit pořadí',

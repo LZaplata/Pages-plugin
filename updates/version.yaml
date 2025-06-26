@@ -85,3 +85,6 @@ v1.13.0:
     - add_more_button_is_published_column.php
 v1.13.1:
     - 'Throw 404 in Page component while page not exists'
+v1.14.0:
+    - 'Block and content items per page'
+    - add_items_per_page_column.php
