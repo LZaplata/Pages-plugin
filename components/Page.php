@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use LZaplata\Pages\Models\Page as PageModel;
 use October\Rain\Support\Facades\Event;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Page Component
@@ -72,6 +73,11 @@ class Page extends ComponentBase
     public function onRun()
     {
         $page = PageModel::where($this->property("column"), $this->property("value"))->first();
+
+        if (!$page) {
+            throw new NotFoundHttpException();
+        }
+
         $otherPages = $page->newOtherSiteQuery()->get();
 
         // Translating URL parameters

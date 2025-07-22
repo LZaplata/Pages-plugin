@@ -99,13 +99,21 @@ fields:
             condition: 'value[links][links_slider]'
     row_cols:
         label: 'lzaplata.pages::lang.block.field.row_cols.label'
-        span: right
+        span: left
         type: dropdown
         default: 4
         trigger:
             action: show
             field: type
             condition: 'value[posts][posts_slider][links][links_slider]'
+    items_per_page:
+        label: 'lzaplata.pages::lang.block.field.items_per_page.label'
+        span: right
+        default: 4
+        trigger:
+            action: show
+            field: type
+            condition: 'value[posts]'
     partial:
         label: 'lzaplata.pages::lang.block.field.partial.label'
         span: left

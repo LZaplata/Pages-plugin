@@ -267,6 +267,9 @@
             'row_cols' => [
                 'label' => 'Posts in row',
             ],
+            'items_per_page' => [
+                'label' => 'Posts per page',
+            ],
             'image' => [
                 'label' => 'Image',
             ],
@@ -376,6 +379,9 @@
             ],
             'row_cols' => [
                 'label' => 'Posts in row',
+            ],
+            'items_per_page' => [
+                'label' => 'Total posts',
             ],
             'switch_order' => [
                 'label' => 'Switch order',

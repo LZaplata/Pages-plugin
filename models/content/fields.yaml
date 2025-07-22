@@ -154,6 +154,16 @@ fields:
             condition: 'value[blog][jobs][contacts][links]'
         dependsOn:
             - partial
+    items_per_page:
+        label: 'lzaplata.pages::lang.content.field.items_per_page.label'
+        span: right
+        default: 12
+        trigger:
+            action: show
+            field: type
+            condition: 'value[blog]'
+        dependsOn:
+            - partial
     image:
         label: 'lzaplata.pages::lang.content.field.image.label'
         span: left
@@ -186,7 +196,7 @@ fields:
             - type
     blog_sort_order:
         label: 'lzaplata.pages::lang.content.field.blog_sort_order.label'
-        span: right
+        span: left
         type: dropdown
         permissions: lzaplata.pages.content.update.blog_sort_order
         trigger:
