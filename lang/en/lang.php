@@ -285,6 +285,32 @@
             'blog_sort_order' => [
                 'label' => 'Posts sort order',
             ],
+            'variables' => [
+                'label' => 'Variables',
+                'prompt' => 'Add new variable',
+                'field' => [
+                    'name' => [
+                        'label' => 'Name',
+                    ],
+                    'type' => [
+                        'label' => 'Type',
+                        'option' => [
+                            'text' => [
+                                'label' => 'Text',
+                            ],
+                            'link' => [
+                                'label' => 'Link',
+                            ],
+                        ],
+                    ],
+                    'value' => [
+                        'label' => 'Value',
+                    ],
+                    'link' => [
+                        'label' => 'Link',
+                    ]
+                ],
+            ],
         ],
         'create' => [
             'title' => 'Create content',
@@ -374,6 +400,32 @@
             ],
             'more_button_link' => [
                 'label' => 'Posts page',
+            ],
+            'variables' => [
+                'label' => 'Variables',
+                'prompt' => 'Add new variable',
+                'field' => [
+                    'name' => [
+                        'label' => 'Name',
+                    ],
+                    'type' => [
+                        'label' => 'Type',
+                        'option' => [
+                            'text' => [
+                                'label' => 'Text',
+                            ],
+                            'link' => [
+                                'label' => 'Link',
+                            ],
+                        ],
+                    ],
+                    'value' => [
+                        'label' => 'Value',
+                    ],
+                    'link' => [
+                        'label' => 'Link',
+                    ]
+                ],
             ],
             'type' => [
                 'label' => 'Type',

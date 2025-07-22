@@ -285,6 +285,32 @@
             'blog_sort_order' => [
                 'label' => 'Řazení příspěvků',
             ],
+            'variables' => [
+                'label' => 'Proměnné',
+                'prompt' => 'Přidat novou proměnnou',
+                'field' => [
+                    'name' => [
+                        'label' => 'Název',
+                    ],
+                    'type' => [
+                        'label' => 'Typ',
+                        'option' => [
+                            'text' => [
+                                'label' => 'Text',
+                            ],
+                            'link' => [
+                                'label' => 'Odkaz',
+                            ],
+                        ],
+                    ],
+                    'value' => [
+                        'label' => 'Hodnota',
+                    ],
+                    'link' => [
+                        'label' => 'Odkaz',
+                    ]
+                ],
+            ],
         ],
         'create' => [
             'title' => 'Vytvořit obsah',
@@ -374,6 +400,32 @@
             ],
             'more_button_link' => [
                 'label' => 'Stránka příspěvků',
+            ],
+            'variables' => [
+                'label' => 'Proměnné',
+                'prompt' => 'Přidat novou proměnnou',
+                'field' => [
+                    'name' => [
+                        'label' => 'Název',
+                    ],
+                    'type' => [
+                        'label' => 'Typ',
+                        'option' => [
+                            'text' => [
+                                'label' => 'Text',
+                            ],
+                            'link' => [
+                                'label' => 'Odkaz',
+                            ],
+                        ],
+                    ],
+                    'value' => [
+                        'label' => 'Hodnota',
+                    ],
+                    'link' => [
+                        'label' => 'Odkaz',
+                    ]
+                ],
             ],
             'type' => [
                 'label' => 'Typ',

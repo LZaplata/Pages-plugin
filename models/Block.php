@@ -65,6 +65,11 @@ class Block extends Model
     public $propagatable = [];
 
     /**
+     * @var array
+     */
+    public $jsonable = ["variables"];
+
+    /**
      * @return array
      */
     public function getTypeOptions(): array
@@ -177,7 +182,7 @@ class Block extends Model
      */
     public function filterFields($fields, $context = null)
     {
-        if (BackendAuth::userHasPermission("lzaplata.pages.block.reorder")) {
+        if (BackendAuth::userHasPermission("lzaplata.pages.block.reorder") && isset($fields->sort_order)) {
             $latestSibling = Block::orderBy("sort_order", "desc")
                 ->first();
 

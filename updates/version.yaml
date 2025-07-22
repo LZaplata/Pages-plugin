@@ -83,3 +83,6 @@ v1.12.1:
 v1.13.0:
     - 'More button definition changes'
     - add_more_button_is_published_column.php
+v1.14.0:
+    - 'Option to add some variables to block or content partial'
+    - add_variables_column.php

@@ -24,6 +24,12 @@ sortOrder = "published_at desc"
 [contactForm contactform]
 ==
 {% for block in homepage.blocks %}
+    {% set variables = {} %}
+
+    {% for variable in block.variables %}
+        {% set variables = variables|merge({(variable.name): variable.type == "text" ? variable.value : variable.link}) %}
+    {% endfor %}
+
     <div class="container-fluid{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-5{% endif %}{% if loop.last %} pb-5{% endif %} {{ block.type|slug }} {{ block.type|slug }}--{{ block.title|slug }}">
         <div class="container{% if block.is_fluid %}-fluid{% else %}-lg{% endif %}{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-xl-4{% endif %}{% if loop.last %} pb-xl-4{% endif %}">
             {% if block.heading and block.type != "image_text" %}
@@ -134,6 +140,12 @@ function onEnd()
 
                 <div class="d-flex flex-column gap-5">
                     {% for content in page.contents %}
+                        {% set variables = {} %}
+
+                        {% for variable in content.variables %}
+                            {% set variables = variables|merge({(variable.name): variable.type == "text" ? variable.value : variable.link}) %}
+                        {% endfor %}
+
                         <div class="{{ content.type|slug }} {{ content.type|slug }}--{{ content.title|slug }}">
                             {% if content.heading and content.type != "image_text" %}
                                 <h2 class="mb-4">

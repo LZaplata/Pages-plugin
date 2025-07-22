@@ -166,3 +166,41 @@ fields:
             action: show
             field: type
             condition: 'value[posts][posts_slider]'
+    variables:
+        label: 'lzaplata.pages::lang.block.field.variables.label'
+        span: right
+        type: repeater
+        prompt: 'lzaplata.pages::lang.block.field.variables.prompt'
+        itemsExpanded: false
+        trigger:
+            action: show
+            field: type
+            condition: 'value[partial]'
+        form:
+            fields:
+                name:
+                    label: 'lzaplata.pages::lang.block.field.variables.field.name.label'
+                    span: left
+                type:
+                    label: 'lzaplata.pages::lang.block.field.variables.field.type.label'
+                    span: right
+                    type: dropdown
+                    options:
+                        text: 'lzaplata.pages::lang.block.field.variables.field.type.option.text.label'
+                        link: 'lzaplata.pages::lang.block.field.variables.field.type.option.link.label'
+                value:
+                    label: 'lzaplata.pages::lang.block.field.variables.field.value.label'
+                    span: left
+                    trigger:
+                        action: show
+                        field: type
+                        condition: 'value[text]'
+
+                link:
+                    label: 'lzaplata.pages::lang.block.field.variables.field.link.label'
+                    type: pagefinder
+                    span: left
+                    trigger:
+                        action: show
+                        field: type
+                        condition: 'value[link]'

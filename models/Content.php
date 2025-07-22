@@ -64,6 +64,11 @@ class Content extends Model
     ];
 
     /**
+     * @var array
+     */
+    public $jsonable = ["variables"];
+
+    /**
      * @return array
      */
     public function getTypeOptions()
@@ -282,7 +287,7 @@ class Content extends Model
             $fields->slider->disabled = true;
         }
 
-        if (BackendAuth::userHasPermission("lzaplata.pages.content.reorder")) {
+        if (BackendAuth::userHasPermission("lzaplata.pages.content.reorder") && isset($fields->sort_order)) {
             $latestSibling = Content::where("page_id", $this->page->id)
                 ->orderBy("sort_order", "desc")
                 ->first();
