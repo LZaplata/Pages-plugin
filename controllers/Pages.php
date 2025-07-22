@@ -6,6 +6,9 @@ use Backend\Behaviors\RelationController;
 use Backend\Facades\BackendAuth;
 use BackendMenu;
 use Backend\Classes\Controller;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\View;
+use Illuminate\Http\Response as HttpResponse;
 use LZaplata\Pages\Models\Page;
 
 class Pages extends Controller
@@ -55,5 +58,26 @@ class Pages extends Controller
         }
 
         $config->view["toolbarButtons"] = empty($buttons) ? false : implode("|", $buttons);
+    }
+
+    /**
+     * @param int $id
+     * @return HttpResponse|null
+     */
+    public function update(int $id): ?HttpResponse
+    {
+        $page = Page::find($id);
+
+        if ($page) {
+            $permissionName = str_replace("/", ".", $page->fullslug);
+
+            if (BackendAuth::userHasAccess("lzaplata.pages.structure") && !BackendAuth::userHasAccess("lzaplata.pages.structure.$permissionName")) {
+                $content = View::make("backend::access_denied")->render();
+
+                return Response::make($content, 403);
+            }
+        }
+
+        return parent::update($id);
     }
 }

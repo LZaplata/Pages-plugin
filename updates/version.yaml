@@ -91,3 +91,5 @@ v1.14.0:
 v1.15.0:
     - 'Option to add some variables to block or content partial'
     - add_variables_column.php
+v1.16.0:
+    - 'Permissions that allow edit only specific page/s or create page under the allowed page/s'

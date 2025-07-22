@@ -7,6 +7,7 @@ use LZaplata\Pages\Models\Page;
 use October\Rain\Support\Facades\Event;
 use System\Classes\PluginBase;
 use Lzaplata\Pages\Components\Page as PageComponent;
+use System\Classes\PluginManager;
 use Twig\Extra\String\StringExtension;
 
 /**
@@ -90,5 +91,27 @@ class Plugin extends PluginBase
         return [
             BlockTypeSelector::class    => "blocktypeselector",
         ];
+    }
+
+    /**
+     * @return array
+     * @throws \SystemException
+     */
+    public function registerPermissions(): array
+    {
+        $yamlConfig = $this->getConfigurationFromYaml();
+        $permissions = $yamlConfig["permissions"];
+
+        foreach (Page::all() as $page) {
+            $permissionName = str_replace("/", ".", $page->fullslug);
+
+            $permissions["lzaplata.pages.structure." . $permissionName] = [
+                "label" => $page->title,
+                "tab"   => 'lzaplata.pages::lang.plugin.name',
+                "order" => $page->sort_order,
+            ];
+        }
+
+        return $permissions;
     }
 }

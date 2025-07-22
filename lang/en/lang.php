@@ -92,6 +92,9 @@
                 'label' => 'Order',
             ],
         ],
+        'structure' => [
+            'label' => 'Struktura',
+        ],
     ],
     'page' => [
         'column' => [

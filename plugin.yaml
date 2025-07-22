@@ -112,3 +112,6 @@ permissions:
     lzaplata.pages.block.reorder:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.block.reorder.label'
+    lzaplata.pages.structure:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.structure.label'

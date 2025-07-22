@@ -92,6 +92,9 @@
                 'label' => 'Změnit pořadí',
             ],
         ],
+        'structure' => [
+            'label' => 'Struktura',
+        ],
     ],
     'page' => [
         'column' => [

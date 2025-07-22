@@ -281,6 +281,27 @@ class Page extends Model
     }
 
     /**
+     * @param $query
+     * @param $model
+     * @return void
+     */
+    public function scopeFilterParents($query, $model): void
+    {
+        $forbiddenParentIds = [];
+
+        foreach ($query->get() as $parent) {
+            $permissionName = str_replace("/", ".", $parent->fullslug);
+
+            if (BackendAuth::userHasAccess("lzaplata.pages.structure") && !BackendAuth::userHasAccess("lzaplata.pages.structure.$permissionName")) {
+                $forbiddenParentIds[] = $parent->id;
+            }
+        }
+
+        $query->whereNotIn("id", $forbiddenParentIds);
+    }
+
+
+    /**
      * @return array
      */
     public function getMenuOptions(): array

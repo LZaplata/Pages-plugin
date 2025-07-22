@@ -22,6 +22,7 @@ tabs:
             emptyOption: 'lzaplata.pages::lang.page.field.parent.prompt'
             span: left
             type: relation
+            modelScope: filterParents
             permissions: lzaplata.pages.page.update
         fullslug:
             label: 'lzaplata.pages::lang.page.field.fullslug.label'
