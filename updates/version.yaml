@@ -93,3 +93,5 @@ v1.15.0:
     - add_variables_column.php
 v1.16.0:
     - 'Permissions that allow edit only specific page/s or create page under the allowed page/s'
+v1.17.0:
+    - 'Contact form as new content type'

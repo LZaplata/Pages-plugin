@@ -183,6 +183,8 @@ function onEnd()
                                 {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category %}
                             {% elseif content.type == "partial" %}
                                 {% partial content.partial %}
+                            {% elseif content.type == "contact_form" %}
+                                {% component "contactform" %}
                             {% endif %}
                         </div>
                     {% endfor %}

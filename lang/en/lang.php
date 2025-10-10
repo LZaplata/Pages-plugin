@@ -226,6 +226,9 @@
                     'partial' => [
                         'label' => 'Partial',
                     ],
+                    'contact_form' => [
+                        'label' => 'Kontaktní formulář',
+                    ],
                 ],
             ],
             'text' => [

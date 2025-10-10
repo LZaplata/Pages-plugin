@@ -21,6 +21,7 @@ use Tailor\Models\EntryRecord;
 use Tailor\Traits\BlueprintRelationModel;
 use System\Models\File as SystemFile;
 use Cms\Classes\Page as CmsPage;
+use JanVince\SmallContactForm\Models\Settings as SmallContactFormSettings;
 
 /**
  * Model
@@ -122,6 +123,10 @@ class Content extends Model
 
         if (class_exists(CookiesSettings::class)) {
             $types["cookies"] = e(trans("lzaplata.pages::lang.content.field.type.option.cookies.label"));
+        }
+
+        if (class_exists(SmallContactFormSettings::class)) {
+            $types["contact_form"] = e(trans("lzaplata.pages::lang.content.field.type.option.contact_form.label"));
         }
 
         return $types;
