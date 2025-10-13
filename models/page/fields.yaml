@@ -43,6 +43,13 @@ tabs:
                 - parent
             permissions: lzaplata.pages.page.update
             emptyOption: 'lzaplata.pages::lang.page.field.menu.prompt'
+        slider:
+            label: 'lzaplata.pages::lang.page.field.slider.label'
+            span: right
+            type: relation
+            nameFrom: title
+            permissions: lzaplata.pages.page.slider
+            emptyOption: 'lzaplata.pages::lang.page.field.slider.prompt'
         breadcrumb:
             label: 'lzaplata.pages::lang.page.field.breadcrumb.label'
             type: dropdown

@@ -19,6 +19,9 @@
             'reorder' => [
                 'label' => 'Order',
             ],
+            'slider' => [
+                'label' => 'Slider',
+            ],
         ],
         'content' => [
             'label' => 'Content',
@@ -142,6 +145,10 @@
             ],
             'meta_description' => [
                 'label' => 'Description',
+            ],
+            'slider' => [
+                'label' => 'Slider',
+                'prompt' => '--None--',
             ],
         ],
         'tab' => [

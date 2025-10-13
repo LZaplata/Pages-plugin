@@ -97,6 +97,9 @@ permissions:
     lzaplata.pages.page.reorder:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.page.reorder.label'
+    lzaplata.pages.page.slider:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.page.slider.label'
     lzaplata.pages.block:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.block.label'

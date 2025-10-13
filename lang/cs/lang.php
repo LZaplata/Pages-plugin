@@ -19,6 +19,9 @@
             'reorder' => [
                 'label' => 'Změnit pořadí',
             ],
+            'slider' => [
+                'label' => 'Slider',
+            ],
         ],
         'content' => [
             'label' => 'Obsah',
@@ -142,6 +145,10 @@
             ],
             'meta_description' => [
                 'label' => 'Popisek',
+            ],
+            'slider' => [
+                'label' => 'Slider',
+                'prompt' => '--Žádný--',
             ],
         ],
         'tab' => [

@@ -5,6 +5,7 @@ use LZaplata\Pages\Models\Page as PageModel;
 use October\Rain\Database\Collection;
 use October\Rain\Support\Facades\Event;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Tailor\Models\EntryRecord;
 
 /**
  * Page Component
@@ -42,6 +43,11 @@ class Page extends ComponentBase
      * @var string
      */
     public string $metaDescription;
+
+    /**
+     * @var EntryRecord|null
+     */
+    public ?EntryRecord $slider = null;
 
     public function componentDetails()
     {
@@ -107,6 +113,7 @@ class Page extends ComponentBase
             $this->menu = $page->menu;
             $this->metaTitle = $page->meta_title;
             $this->metaDescription = $page->meta_description;
+            $this->slider = $page->slider;
         }
     }
 }

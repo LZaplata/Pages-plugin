@@ -116,6 +116,14 @@ function onEnd()
 }
 ?>
 ==
+{% if page.slider %}
+    <div class="container-fluid g-0">
+        <div class="container-fluid g-0">
+            {% partial "_swiper/slider" slides=page.slider.slides settings=page.slider %}
+        </div>
+    </div>
+{% endif %}
+
 <div class="container-fluid" id="breadcrumb">
     <div class="container-lg">
         <div class="row g-5">

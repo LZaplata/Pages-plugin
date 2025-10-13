@@ -8,6 +8,8 @@ use October\Rain\Database\Traits\Multisite;
 use October\Rain\Database\Traits\SimpleTree;
 use October\Rain\Database\Traits\Sortable;
 use RainLab\Pages\Classes\Menu as PagesMenu;
+use Tailor\Models\EntryRecord;
+use Tailor\Traits\BlueprintRelationModel;
 use Url;
 
 /**
@@ -20,6 +22,7 @@ class Page extends Model
     use SimpleTree;
     use Sortable;
     use Multisite;
+    use BlueprintRelationModel;
 
     /**
      * @var array dates to cast from the database.
@@ -45,11 +48,15 @@ class Page extends Model
      * @var array
      */
     public $hasMany = [
-        "contents" => Content::class,
+        "contents"  => Content::class,
     ];
 
     public $belongsTo = [
-        "parent" => Page::class,
+        "parent"    => Page::class,
+        "slider"    => [
+            EntryRecord::class,
+            "blueprint" => "lzaplata_slider_sliders",
+        ],
     ];
 
     /**
