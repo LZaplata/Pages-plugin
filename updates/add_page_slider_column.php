@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class add_page_slider_column extends Migration
+class AddPageSliderColumn extends Migration
 {
     public function up()
     {

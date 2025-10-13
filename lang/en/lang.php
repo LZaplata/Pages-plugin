@@ -248,6 +248,15 @@
             'sort_order' => [
                 'label' => 'Order',
             ],
+            'is_fluid' => [
+                'label' => 'Full width',
+            ],
+            'no_gutters' => [
+                'label' => 'No gutters',
+            ],
+            'no_gutters_breakpoint' => [
+                'label' => 'No gutters breakpoint',
+            ],
             'blog_categories' => [
                 'label' => 'Categories',
                 'empty_option' => '-- Any --',

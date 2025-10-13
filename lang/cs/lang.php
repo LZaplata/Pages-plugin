@@ -248,6 +248,15 @@
             'sort_order' => [
                 'label' => 'Pořadí',
             ],
+            'is_fluid' => [
+                'label' => 'Na celou šířku',
+            ],
+            'no_gutters' => [
+                'label' => 'Bez okrajů',
+            ],
+            'no_gutters_breakpoint' => [
+                'label' => 'Bez okrajů od šířky',
+            ],
             'blog_categories' => [
                 'label' => 'Kategorie',
                 'empty_option' => '-- Nerozhoduje --',

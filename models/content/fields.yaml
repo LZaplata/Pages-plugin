@@ -29,6 +29,23 @@ fields:
         type: number
         permissions: lzaplata.pages.content.reorder
         required: 1
+    is_fluid:
+        label: 'lzaplata.pages::lang.content.field.is_fluid.label'
+        span: left
+        type: switch
+    no_gutters:
+        label: 'lzaplata.pages::lang.content.field.no_gutters.label'
+        span: left
+        type: switch
+    no_gutters_breakpoint:
+        label: 'lzaplata.pages::lang.content.field.no_gutters_breakpoint.label'
+        span: left
+        type: dropdown
+        default: lg
+        trigger:
+            action: show
+            field: no_gutters
+            condition: checked
     text:
         label: 'lzaplata.pages::lang.content.field.text.label'
         size: giant

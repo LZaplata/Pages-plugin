@@ -100,3 +100,6 @@ v1.17.1:
 v1.18.0:
     - 'Leading page slider'
     - add_page_slider_column.php
+v1.19.0:
+    - 'Option to have fluid page content'
+    - add_page_slider_column.php

@@ -310,4 +310,19 @@ class Content extends Model
             $fields->row_cols->hidden = true;
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getNoGuttersBreakpointOptions(): array
+    {
+        return [
+            "xs"    => "XS",
+            "sm"    => "SM",
+            "md"    => "MD",
+            "lg"    => "LG",
+            "xl"    => "XL",
+            "xxl"   => "XXL",
+        ];
+    }
 }

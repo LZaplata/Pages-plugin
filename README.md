@@ -134,8 +134,8 @@ function onEnd()
     </div>
 </div>
 
-<div class="container-fluid py-5 border-1 border-bottom border-light" id="page">
-    <div class="container-lg">
+<div class="container-fluid py-5{% if sidebarmenu.menuItems is null %} g-0{% endif %}" id="page">
+    <div class="container-{% if sidebarmenu.menuItems is null %}fluid g-0{% else %}lg{% endif %} pb-xl-4">
         <div class="row g-5">
             {% if sidebarmenu.menuItems is not null %}
                 <div class="sidebar d-none d-xl-block col-xl-3">
@@ -144,9 +144,11 @@ function onEnd()
             {% endif %}
 
             <div class="col {% if sidebarmenu.menuItems is not null %}col-xl-9{% endif %}">
-                <h1 class="mb-4">
-                    {{ page.title }}
-                </h1>
+                <div class="container-fluid{% if sidebarmenu.menuItems is not null %} g-0{% endif %}">
+                    <h1 class="mb-4 container-lg{% if sidebarmenu.menuItems is not null %} g-0{% endif %}">
+                        {{ page.title }}
+                    </h1>
+                </div>
 
                 <div class="d-flex flex-column gap-5">
                     {% for content in page.contents %}
@@ -156,46 +158,48 @@ function onEnd()
                             {% set variables = variables|merge({(variable.name): variable.type == "text" ? variable.value : variable.link}) %}
                         {% endfor %}
 
-                        <div class="{{ content.type|slug }} {{ content.type|slug }}--{{ content.title|slug }}">
-                            {% if content.heading and content.type != "image_text" %}
-                                <h2 class="mb-4">
-                                    {{ content.heading }}
-                                </h2>
-                            {% endif %}
+                        <div class="container-fluid{% if content.no_gutters %} g-{% if content.no_gutters_breakpoint != "xs" %}{{ content.no_gutters_breakpoint }}-{% endif %}0{% endif %} {{ content.type|slug }} {{ content.type|slug }}--{{ content.title|slug }}">
+                            <div class="container{% if content.is_fluid %}-fluid{% else %}-lg{% endif %}{% if content.no_gutters %} g-{% if content.no_gutters_breakpoint != "xs" %}{{ content.no_gutters_breakpoint }}-{% endif %}0{% endif %}">
+                                {% if content.heading and content.type != "image_text" %}
+                                    <h2 class="mb-4">
+                                        {{ content.heading }}
+                                    </h2>
+                                {% endif %}
 
-                            {% if content.type == "text" %}
-                                {{ content.text|content|bootstrap }}
-                            {% elseif content.type == "image_text" %}
-                                {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order %}
-                            {% elseif content.type == "blog" %}
-                                {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols partial=content.partial sortOrder=content.blog_sort_order %}
-                            {% elseif content.type == "gallery" %}
-                                {% component "gallery" gallery=content.gallery.slug %}
-                            {% elseif content.type == "files" %}
-                                {% component "files" category=content.files_category.slug %}
-                            {% elseif content.type == "pricelist" %}
-                                {% component "pricelist" slug=content.pricelist.slug %}
-                            {% elseif content.type == "opening_hours" %}
-                                {% component "openinghours" slug=content.opening_hours.slug %}
-                            {% elseif content.type == "faq" %}
-                                {% partial "_accordion/faq" items=faq %}
-                            {% elseif content.type == "slider" %}
-                                {% partial "_swiper/slider" slides=content.slider.slides settings=content.slider %}
-                            {% elseif content.type == "embed" %}
-                                {% partial "_block/embed" embed=content.embed %}
-                            {% elseif content.type == "cookies" %}
-                                {% component "cookiesmanage" %}
-                            {% elseif content.type == "contacts" %}
-                                {% partial "_contacts/default" partial=content.partial row_cols=content.row_cols %}
-                            {% elseif content.type == "jobs" %}
-                                {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
-                            {% elseif content.type == "links" %}
-                                {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category %}
-                            {% elseif content.type == "partial" %}
-                                {% partial content.partial %}
-                            {% elseif content.type == "contact_form" %}
-                                {% component "contactform" %}
-                            {% endif %}
+                                {% if content.type == "text" %}
+                                    {{ content.text|content|bootstrap }}
+                                {% elseif content.type == "image_text" %}
+                                    {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order %}
+                                {% elseif content.type == "blog" %}
+                                    {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols postsPerPage=content.items_per_page showPagination=true partial=content.partial sortOrder=content.blog_sort_order %}
+                                {% elseif content.type == "gallery" %}
+                                    {% component "gallery" gallery=content.gallery.slug %}
+                                {% elseif content.type == "files" %}
+                                    {% component "files" category=content.files_category.slug %}
+                                {% elseif content.type == "pricelist" %}
+                                    {% component "pricelist" slug=content.pricelist.slug %}
+                                {% elseif content.type == "opening_hours" %}
+                                    {% component "openinghours" slug=content.opening_hours.slug %}
+                                {% elseif content.type == "faq" %}
+                                    {% partial "_accordion/faq" items=faq %}
+                                {% elseif content.type == "slider" %}
+                                    {% partial "_swiper/slider" slides=content.slider.slides settings=content.slider %}
+                                {% elseif content.type == "embed" %}
+                                    {% partial "_block/embed" embed=content.embed %}
+                                {% elseif content.type == "cookies" %}
+                                    {% component "cookiesmanage" %}
+                                {% elseif content.type == "contacts" %}
+                                    {% partial "_contacts/default" partial=content.partial row_cols=content.row_cols %}
+                                {% elseif content.type == "jobs" %}
+                                    {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
+                                {% elseif content.type == "links" %}
+                                    {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category %}
+                                {% elseif content.type == "partial" %}
+                                    {% partial content.partial %}
+                                {% elseif content.type == "contact_form" %}
+                                    {% component "contactform" %}
+                                {% endif %}
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
