@@ -95,3 +95,5 @@ v1.16.0:
     - 'Permissions that allow edit only specific page/s or create page under the allowed page/s'
 v1.17.0:
     - 'Contact form as new content type'
+v1.17.1:
+    - 'Contact form as new block type + some bugfixes'

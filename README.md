@@ -58,6 +58,8 @@ sortOrder = "published_at desc"
                 {% partial "_links/default" partial=block.partial row_cols=block.row_cols category=block.links_category %}
             {% elseif block.type == "links_slider" %}
                 {% partial "_swiper/scrollable" items=block.links_category.links.toNested.lists("link") slides_per_view=block.row_cols partial=block.partial %}
+            {% elseif block.type == "contact_form" %}
+                {% component "contactform" %}
             {% endif %}
         </div>
     </div>

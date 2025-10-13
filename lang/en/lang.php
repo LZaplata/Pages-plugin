@@ -466,6 +466,9 @@
                     'links_slider' => [
                         'label' => 'Links slider',
                     ],
+                    'contact_form' => [
+                        'label' => 'Kontaktní formulář',
+                    ],
                 ],
             ],
         ],

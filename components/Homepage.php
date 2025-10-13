@@ -1,4 +1,4 @@
-<?php namespace Lzaplata\Pages\Components;
+<?php namespace LZaplata\Pages\Components;
 
 use Cms\Classes\ComponentBase;
 use LZaplata\Pages\Models\Block;

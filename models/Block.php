@@ -4,6 +4,7 @@ use Backend\Facades\BackendAuth;
 use Cms\Classes\Partial;
 use Cms\Classes\Theme;
 use Illuminate\Support\Facades\Lang;
+use JanVince\SmallContactForm\Models\Settings as SmallContactFormSettings;
 use Model;
 use October\Rain\Database\Traits\Multisite;
 use RainLab\Blog\Models\Category;
@@ -94,6 +95,10 @@ class Block extends Model
         if (BlueprintIndexer::instance()->findSectionByHandle("Links\Link")) {
             $types["links"]         = e(trans("lzaplata.pages::lang.block.field.type.option.links.label"));
             $types["links_slider"]  = e(trans("lzaplata.pages::lang.block.field.type.option.links_slider.label"));
+        }
+
+        if (class_exists(SmallContactFormSettings::class)) {
+            $types["contact_form"] = e(trans("lzaplata.pages::lang.block.field.type.option.contact_form.label"));
         }
 
         return $types;

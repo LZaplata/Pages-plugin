@@ -1,7 +1,8 @@
-<?php namespace Lzaplata\Pages\Components;
+<?php namespace LZaplata\Pages\Components;
 
 use Cms\Classes\ComponentBase;
 use LZaplata\Pages\Models\Page as PageModel;
+use October\Rain\Database\Collection;
 use October\Rain\Support\Facades\Event;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -15,27 +16,32 @@ class Page extends ComponentBase
     /**
      * @var string
      */
-    public $title;
-
-    /**
-     * @var array
-     */
-    public $contents;
+    public string $title;
 
     /**
      * @var string
      */
-    public $menu;
+    public string $slug;
+
+    /**
+     * @var Collection
+     */
+    public Collection $contents;
 
     /**
      * @var string
      */
-    public $metaTitle;
+    public string $menu;
 
     /**
      * @var string
      */
-    public $metaDescription;
+    public string $metaTitle;
+
+    /**
+     * @var string
+     */
+    public string $metaDescription;
 
     public function componentDetails()
     {
