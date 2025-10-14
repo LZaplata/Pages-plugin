@@ -39,7 +39,7 @@ sortOrder = "published_at desc"
             {% endif %}
 
             {% if block.type == "text" %}
-                {{ block.text|content|bootstrap }}
+                {{ block.text|bootstrap|content }}
             {% elseif block.type == "slider" %}
                 {% partial "_swiper/slider" slides=block.slider.slides settings=block.slider %}
             {% elseif block.type == "image_text" %}
@@ -167,7 +167,7 @@ function onEnd()
                                 {% endif %}
 
                                 {% if content.type == "text" %}
-                                    {{ content.text|content|bootstrap }}
+                                    {{ content.text|bootstrap|content }}
                                 {% elseif content.type == "image_text" %}
                                     {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order %}
                                 {% elseif content.type == "blog" %}

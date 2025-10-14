@@ -103,3 +103,5 @@ v1.18.0:
 v1.19.0:
     - 'Option to have fluid page content'
     - add_page_slider_column.php
+v1.19.1:
+    - 'Allow heading with contact form content type'

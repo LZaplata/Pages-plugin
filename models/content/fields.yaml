@@ -22,7 +22,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial]'
+            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial][contact_form]'
     sort_order:
         label: 'lzaplata.pages::lang.content.field.sort_order.label'
         span: right
