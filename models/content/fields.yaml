@@ -22,7 +22,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial][contact_form]'
+            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial][contact_form][timeline]'
     sort_order:
         label: 'lzaplata.pages::lang.content.field.sort_order.label'
         span: right
@@ -258,3 +258,13 @@ fields:
                         action: show
                         field: type
                         condition: 'value[link]'
+    timeline:
+        label: 'lzaplata.pages::lang.content.field.timeline.label'
+        nameFrom: name
+        span: left
+        type: relation
+        required: 1
+        trigger:
+            action: show
+            field: type
+            condition: 'value[timeline]'

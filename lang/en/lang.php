@@ -234,7 +234,10 @@
                         'label' => 'Partial',
                     ],
                     'contact_form' => [
-                        'label' => 'Kontaktní formulář',
+                        'label' => 'Contact form',
+                    ],
+                    'timeline' => [
+                        'label' => 'Timeline',
                     ],
                 ],
             ],
@@ -335,6 +338,9 @@
                         'label' => 'Link',
                     ]
                 ],
+            ],
+            'timeline' => [
+                'label' => 'Timeline',
             ],
         ],
         'create' => [

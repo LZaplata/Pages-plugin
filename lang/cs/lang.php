@@ -236,6 +236,9 @@
                     'contact_form' => [
                         'label' => 'Kontaktní formulář',
                     ],
+                    'timeline' => [
+                        'label' => 'Časová osa',
+                    ],
                 ],
             ],
             'text' => [
@@ -335,6 +338,9 @@
                         'label' => 'Odkaz',
                     ]
                 ],
+            ],
+            'timeline' => [
+                'label' => 'Časová osa',
             ],
         ],
         'create' => [

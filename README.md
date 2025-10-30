@@ -106,6 +106,8 @@ order = "sort_order asc"
 [openinghours]
 
 [contactForm contactform]
+
+[timeline]
 ==
 <?php
 function onEnd()
@@ -198,6 +200,8 @@ function onEnd()
                                     {% partial content.partial %}
                                 {% elseif content.type == "contact_form" %}
                                     {% component "contactform" %}
+                                {% elseif content.type == "timeline" %}
+                                    {% component "timeline" slug=content.timeline.slug %}
                                 {% endif %}
                             </div>
                         </div>
@@ -212,10 +216,48 @@ function onEnd()
 ## Example post page
 
 ````htm
-url = "/:fullslug*/d/:slug"
+url = "/:fullslug*/p/:slug"
 layout = "default"
 title = "Post"
-seoOptionsMetaTitle = "{{ job ? job.title : (post ? post.title) }} | {{ page.title }}"
+seoOptionsMetaTitle = "{{ post.id ? post.title }} | {{ page.title }}"
+
+[breadcrumbs]
+pageCode = "page"
+
+[page]
+column = "fullslug"
+value = "{{ :fullslug }}"
+
+[blogPost post]
+slug = "{{ :slug }}"
+categoryPage = "page"
+==
+<div class="container-fluid">
+    <div class="container-lg">
+        <div id="breadcrumb">
+            <div class="row g-5">
+                <div class="col">
+                    {% component "breadcrumbs" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5" id="page-post">
+    <div class="container-lg pb-xl-4">
+        {% component "post" %}
+    </div>
+</div>
+````
+
+## Example job page
+
+````htm
+url = "/:fullslug*/j/:slug"
+layout = "default"
+title = "Post"
+seoOptionsMetaTitle = "{{ job.id ? job.title }} | {{ page.title }}"
 
 [section job]
 handle = "Jobs\Job"
@@ -229,18 +271,20 @@ pageCode = "page"
 column = "fullslug"
 value = "{{ :fullslug }}"
 ==
-<div class="container-fluid" id="breadcrumb">
+<div class="container-fluid">
     <div class="container-lg">
-        <div class="row g-5">
-            <div class="col">
-                {% component "breadcrumbs" %}
+        <div id="breadcrumb">
+            <div class="row g-5">
+                <div class="col">
+                    {% component "breadcrumbs" %}
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid py-5 border-1 border-bottom border-light" id="page-post">
-    <div class="container-lg">
+<div class="container-fluid py-5" id="page-post">
+    <div class="container-lg pb-xl-4">
         {% set job_post_partial = null %}
 
         {% for content in page.contents %}
@@ -249,11 +293,7 @@ value = "{{ :fullslug }}"
             {% endif %}
         {% endfor %}
 
-        {% if job %}
-            {% partial job_post_partial post=job %}
-        {% elseif post %}
-            {% partial "_post/default" %}
-        {% endif %}
+        {% partial job_post_partial post=job %}
     </div>
 </div>
 ````

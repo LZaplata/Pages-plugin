@@ -10,6 +10,7 @@ use LZaplata\Files\Models\File;
 use LZaplata\Gallery\Models\Gallery;
 use LZaplata\OpeningHours\Models\OpeningHour;
 use LZaplata\Pricelists\Models\Pricelist;
+use LZaplata\Timelines\Models\Timeline;
 use Model;
 use October\Rain\Database\Traits\Multisite;
 use October\Rain\Database\Traits\Sortable;
@@ -129,6 +130,10 @@ class Content extends Model
             $types["contact_form"] = e(trans("lzaplata.pages::lang.content.field.type.option.contact_form.label"));
         }
 
+        if (class_exists(Timeline::class)) {
+            $types["timeline"] = e(trans("lzaplata.pages::lang.content.field.type.option.timeline.label"));
+        }
+
         return $types;
     }
 
@@ -242,6 +247,7 @@ class Content extends Model
         "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
         "jobs_category"     => [EntryRecord::class, "blueprint" => "lzaplata_jobs_categories"],
         "links_category"    => [EntryRecord::class, "blueprint" => "lzaplata_links_categories"],
+        "timeline"          => Timeline::class,
     ];
 
     /**

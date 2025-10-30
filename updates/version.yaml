@@ -107,3 +107,6 @@ v1.19.1:
     - 'Allow heading with contact form content type'
 v1.19.2:
     - 'Migration fix'
+v1.20.0:
+    - 'Timeline as new content type'
+    - add_timeline_column.php
