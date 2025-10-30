@@ -110,3 +110,5 @@ v1.19.2:
 v1.20.0:
     - 'Timeline as new content type'
     - add_timeline_column.php
+v1.20.1:
+    - 'Readme update'

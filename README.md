@@ -171,7 +171,7 @@ function onEnd()
                                 {% if content.type == "text" %}
                                     {{ content.text|bootstrap|content }}
                                 {% elseif content.type == "image_text" %}
-                                    {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order %}
+                                    {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order size=(content.is_fluid ? "lg") %}
                                 {% elseif content.type == "blog" %}
                                     {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols postsPerPage=content.items_per_page showPagination=true partial=content.partial sortOrder=content.blog_sort_order %}
                                 {% elseif content.type == "gallery" %}
@@ -256,7 +256,7 @@ categoryPage = "page"
 ````htm
 url = "/:fullslug*/j/:slug"
 layout = "default"
-title = "Post"
+title = "Job"
 seoOptionsMetaTitle = "{{ job.id ? job.title }} | {{ page.title }}"
 
 [section job]
