@@ -87,7 +87,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[posts][posts_slider][flash_message]'
+            condition: 'value[posts][posts_slider]'
     links_category:
         label: 'lzaplata.pages::lang.block.field.links_category.label'
         span: left

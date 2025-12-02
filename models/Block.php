@@ -5,6 +5,7 @@ use Cms\Classes\Partial;
 use Cms\Classes\Theme;
 use Illuminate\Support\Facades\Lang;
 use JanVince\SmallContactForm\Models\Settings as SmallContactFormSettings;
+use LZaplata\FlashMessages\Models\Message;
 use Model;
 use October\Rain\Database\Traits\Multisite;
 use RainLab\Blog\Models\Category;
@@ -89,6 +90,9 @@ class Block extends Model
         if (class_exists(Post::class)) {
             $types["posts"]         = e(trans("lzaplata.pages::lang.block.field.type.option.posts.label"));
             $types["posts_slider"]  = e(trans("lzaplata.pages::lang.block.field.type.option.posts_slider.label"));
+        }
+
+        if (class_exists(Message::class)) {
             $types["flash_message"] = e(trans("lzaplata.pages::lang.block.field.type.option.flash_message.label"));
         }
 

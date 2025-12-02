@@ -112,3 +112,5 @@ v1.20.0:
     - add_timeline_column.php
 v1.20.1:
     - 'Readme update'
+v1.21.0:
+    - 'Flash Messages plugin integration'

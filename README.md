@@ -13,15 +13,13 @@ handle = "Partners\Partner"
 
 [homepage]
 
-[blogPosts flashmessage]
-postsPerPage = 1
-sortOrder = "published_at desc"
-
 [blogPosts posts]
 
 [blogPosts postsslider]
 
 [contactForm contactform]
+
+[flashmessage]
 ==
 {% for block in homepage.blocks %}
     {% set variables = {} %}
@@ -51,7 +49,7 @@ sortOrder = "published_at desc"
             {% elseif block.type == "posts_slider" %}
                 {% component "postsslider" categoryFilter=block.blog_category.slug rowCols=block.row_cols sortOrder=block.blog_sort_order moreButtonTitle=block.more_button_title moreButtonLink=block.more_button_link %}
             {% elseif block.type == "flash_message" %}
-                {% component "flashmessage" categoryFilter=block.blog_category.slug %}
+                {% component "flashmessage" %}
             {% elseif block.type == "partial" %}
                 {% partial block.partial %}
             {% elseif block.type == "links" %}
