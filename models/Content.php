@@ -162,7 +162,7 @@ class Content extends Model
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
-            if ($this->type == "links" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+            if ($this->type == "links" && preg_match("@_link/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 

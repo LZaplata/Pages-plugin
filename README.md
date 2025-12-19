@@ -30,11 +30,11 @@ handle = "Partners\Partner"
 
     <div class="container-fluid{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-5{% endif %}{% if loop.last %} pb-5{% endif %} {{ block.type|slug }} {{ block.type|slug }}--{{ block.title|slug }}">
         <div class="container{% if block.is_fluid %}-fluid{% else %}-lg{% endif %}{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-xl-4{% endif %}{% if loop.last %} pb-xl-4{% endif %}">
-            {% if block.heading and block.type != "image_text" %}
-                <h2 class="mb-5 text-center">
+            <h2 class="mb-5 text-center">
+                <span>
                     {{ block.heading }}
-                </h2>
-            {% endif %}
+                <span>
+            </h2>
 
             {% if block.type == "text" %}
                 {{ block.text|bootstrap|content }}
@@ -146,7 +146,9 @@ function onEnd()
             <div class="col {% if sidebarmenu.menuItems is not null %}col-xl-9{% endif %}">
                 <div class="container-fluid{% if sidebarmenu.menuItems is not null %} g-0{% endif %}">
                     <h1 class="mb-4 container-lg{% if sidebarmenu.menuItems is not null %} g-0{% endif %}">
-                        {{ page.title }}
+                        <span>
+                            {{ page.title }}
+                        </span>
                     </h1>
                 </div>
 
@@ -162,7 +164,9 @@ function onEnd()
                             <div class="container{% if content.is_fluid %}-fluid{% else %}-lg{% endif %}{% if content.no_gutters %} g-{% if content.no_gutters_breakpoint != "xs" %}{{ content.no_gutters_breakpoint }}-{% endif %}0{% endif %}">
                                 {% if content.heading and content.type != "image_text" %}
                                     <h2 class="mb-4">
-                                        {{ content.heading }}
+                                        <span>
+                                            {{ content.heading }}
+                                        </span>
                                     </h2>
                                 {% endif %}
 
