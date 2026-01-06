@@ -116,3 +116,5 @@ v1.21.0:
     - 'Flash Messages plugin integration'
 v1.22.0:
     - 'Readme update, block and content link partial'
+v1.23.0:
+    - 'Added partials to image text block and content'

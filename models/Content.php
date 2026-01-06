@@ -169,6 +169,10 @@ class Content extends Model
             if ($this->type == "partial") {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
+
+            if ($this->type == "image_text" && preg_match("@_image-text/[a-z0-9]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
         }
 
         asort($partialOptions);

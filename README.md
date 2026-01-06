@@ -30,18 +30,20 @@ handle = "Partners\Partner"
 
     <div class="container-fluid{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-5{% endif %}{% if loop.last %} pb-5{% endif %} {{ block.type|slug }} {{ block.type|slug }}--{{ block.title|slug }}">
         <div class="container{% if block.is_fluid %}-fluid{% else %}-lg{% endif %}{% if block.no_gutters %} g-{% if block.no_gutters_breakpoint != "xs" %}{{ block.no_gutters_breakpoint }}-{% endif %}0{% endif %}{% if loop.index > 1 and block.padding_top %} pt-xl-4{% endif %}{% if loop.last %} pb-xl-4{% endif %}">
-            <h2 class="mb-5 text-center">
-                <span>
-                    {{ block.heading }}
-                <span>
-            </h2>
+            {% if block.heading %}
+                <h2 class="mb-5 text-center">
+                    <span>
+                        {{ block.heading }}
+                    <span>
+                </h2>
+            {% endif %}
 
             {% if block.type == "text" %}
                 {{ block.text|bootstrap|content }}
             {% elseif block.type == "slider" %}
                 {% partial "_swiper/slider" slides=block.slider.slides settings=block.slider %}
             {% elseif block.type == "image_text" %}
-                {% partial "_block/image-text.htm" image=block.image text=block.text heading=block.heading switched=block.switch_order size=lg %}
+                {% partial block.partial image=block.image text=block.text heading=block.heading switched=block.switch_order size=(block.is_fluid ? "lg") %}
             {% elseif block.type == "embed" %}
                 {% partial "_block/embed.htm" embed=block.embed %}
             {% elseif block.type == "posts" %}
@@ -162,7 +164,7 @@ function onEnd()
 
                         <div class="container-fluid{% if content.no_gutters %} g-{% if content.no_gutters_breakpoint != "xs" %}{{ content.no_gutters_breakpoint }}-{% endif %}0{% endif %} {{ content.type|slug }} {{ content.type|slug }}--{{ content.title|slug }}">
                             <div class="container{% if content.is_fluid %}-fluid{% else %}-lg{% endif %}{% if content.no_gutters %} g-{% if content.no_gutters_breakpoint != "xs" %}{{ content.no_gutters_breakpoint }}-{% endif %}0{% endif %}">
-                                {% if content.heading and content.type != "image_text" %}
+                                {% if content.heading %}
                                     <h2 class="mb-4">
                                         <span>
                                             {{ content.heading }}
@@ -173,7 +175,7 @@ function onEnd()
                                 {% if content.type == "text" %}
                                     {{ content.text|bootstrap|content }}
                                 {% elseif content.type == "image_text" %}
-                                    {% partial "_block/image-text.htm" image=content.image text=content.text heading=content.heading switched=content.switch_order size=(content.is_fluid ? "lg") %}
+                                    {% partial content.partial image=content.image text=content.text heading=content.heading switched=content.switch_order size=(content.is_fluid ? "lg") %}
                                 {% elseif content.type == "blog" %}
                                     {% component "posts" categoryFilter=content.blog_category.slug rowCols=content.row_cols postsPerPage=content.items_per_page showPagination=true partial=content.partial sortOrder=content.blog_sort_order %}
                                 {% elseif content.type == "gallery" %}

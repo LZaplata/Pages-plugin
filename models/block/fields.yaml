@@ -121,7 +121,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[partial][posts][links][links_slider][posts_slider]'
+            condition: 'value[partial][posts][links][links_slider][posts_slider][image_text]'
         dependsOn:
             - type
     slider:

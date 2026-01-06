@@ -132,6 +132,10 @@ class Block extends Model
             if (($this->type == "links" || $this->type == "links_slider") && preg_match("@_link/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
+
+            if ($this->type == "image_text" && preg_match("@_image-text/[a-z0-9]+@", $partial->getBaseFileName())) {
+                $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
+            }
         }
 
         asort($partialOptions);
