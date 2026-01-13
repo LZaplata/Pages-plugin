@@ -200,6 +200,8 @@ function onEnd()
                                     {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
                                 {% elseif content.type == "links" %}
                                     {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category %}
+                                {% elseif content.type == "links_slider" %}
+                                    {% partial "_swiper/scrollable" items=content.links_category.links.toNested.lists("link") slides_per_view=content.row_cols partial=content.partial %}
                                 {% elseif content.type == "partial" %}
                                     {% partial content.partial %}
                                 {% elseif content.type == "contact_form" %}

@@ -119,7 +119,8 @@ class Content extends Model
         }
 
         if (BlueprintIndexer::instance()->findSectionByHandle("Links\Link")) {
-            $types["links"] = e(trans("lzaplata.pages::lang.content.field.type.option.links.label"));
+            $types["links"]         = e(trans("lzaplata.pages::lang.content.field.type.option.links.label"));
+            $types["links_slider"]  = e(trans("lzaplata.pages::lang.content.field.type.option.links_slider.label"));
         }
 
         if (class_exists(CookiesSettings::class)) {
@@ -162,7 +163,7 @@ class Content extends Model
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
-            if ($this->type == "links" && preg_match("@_link/[a-z]+@", $partial->getBaseFileName())) {
+            if (($this->type == "links" || $this->type == "links_slider") && preg_match("@_link/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 

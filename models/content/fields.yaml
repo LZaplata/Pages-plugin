@@ -147,7 +147,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[links]'
+            condition: 'value[links][links_slider]'
     partial:
         label: 'lzaplata.pages::lang.content.field.partial.label'
         span: right
@@ -156,7 +156,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[contacts][blog][jobs][links][partial][image_text]'
+            condition: 'value[contacts][blog][jobs][links][links_slider][partial][image_text]'
         dependsOn:
             - type
     row_cols:
@@ -168,7 +168,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[blog][jobs][contacts][links]'
+            condition: 'value[blog][jobs][contacts][links][links_slider]'
         dependsOn:
             - partial
     items_per_page:

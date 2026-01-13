@@ -230,6 +230,9 @@
                     'links' => [
                         'label' => 'Links',
                     ],
+                    'links_slider' => [
+                        'label' => 'Links slider',
+                    ],
                     'partial' => [
                         'label' => 'Partial',
                     ],

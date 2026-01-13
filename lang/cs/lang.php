@@ -230,6 +230,9 @@
                     'links' => [
                         'label' => 'Odkazy',
                     ],
+                    'links_slider' => [
+                        'label' => 'Slider odkazů',
+                    ],
                     'partial' => [
                         'label' => 'Šablona',
                     ],

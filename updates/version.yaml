@@ -118,3 +118,5 @@ v1.22.0:
     - 'Readme update, block and content link partial'
 v1.23.0:
     - 'Added partials to image text block and content'
+v1.24.0:
+    - 'Links slider as a new content type'
