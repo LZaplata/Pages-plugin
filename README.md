@@ -199,7 +199,7 @@ function onEnd()
                                 {% elseif content.type == "jobs" %}
                                     {% partial "_jobs/default" partial=content.partial row_cols=content.row_cols post_page=content.post_page %}
                                 {% elseif content.type == "links" %}
-                                    {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category %}
+                                    {% partial "_links/default" partial=content.partial row_cols=content.row_cols category=content.links_category more_button_is_published=block.more_button_is_published more_button_title=block.more_button_title more_button_link=block.more_button_link %}
                                 {% elseif content.type == "links_slider" %}
                                     {% partial "_swiper/scrollable" items=content.links_category.links.toNested.lists("link") slides_per_view=content.row_cols partial=content.partial %}
                                 {% elseif content.type == "partial" %}

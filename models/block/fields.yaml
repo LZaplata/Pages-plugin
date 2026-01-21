@@ -157,7 +157,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[posts][posts_slider]'
+            condition: 'value[posts][posts_slider][links]'
     more_button_title:
         label: 'lzaplata.pages::lang.block.field.more_button_title.label'
         span: right
@@ -173,7 +173,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[posts][posts_slider]'
+            condition: 'value[posts][posts_slider][links]'
     variables:
         label: 'lzaplata.pages::lang.block.field.variables.label'
         span: right

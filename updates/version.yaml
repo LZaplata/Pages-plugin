@@ -120,3 +120,5 @@ v1.23.0:
     - 'Added partials to image text block and content'
 v1.24.0:
     - 'Links slider as a new content type'
+v1.25.0:
+    - 'More button definition with links block'
