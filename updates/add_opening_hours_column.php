@@ -11,4 +11,9 @@ class add_opening_hours_column extends Migration
             $table->integer('opening_hours_id')->nullable()->unsigned();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

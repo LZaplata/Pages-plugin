@@ -13,4 +13,9 @@ class AddContentFluidAndGutterColumns extends Migration
             $table->string('no_gutters_breakpoint', 3)->default('lg');
         });
     }
+
+    public function down()
+    {
+
+    }
 }

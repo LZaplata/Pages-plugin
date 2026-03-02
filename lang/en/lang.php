@@ -33,7 +33,7 @@
                 'type' => [
                     'label' => 'Type',
                 ],
-                'blog_category' => [
+                'posts_category' => [
                     'label' => 'Posts category',
                 ],
                 'files_category' => [
@@ -54,7 +54,7 @@
                 'row_cols' => [
                     'label' => 'Posts in row',
                 ],
-                'blog_sort_order' => [
+                'posts_sort_order' => [
                     'label' => 'Posts sort order',
                 ],
                 'gallery' => [
@@ -194,8 +194,8 @@
             'type' => [
                 'label' => 'Type',
                 'option' => [
-                    'blog' => [
-                        'label' => 'Blog',
+                    'posts' => [
+                        'label' => 'Posts',
                     ],
                     'gallery' => [
                         'label' => 'Gallery',
@@ -263,7 +263,7 @@
             'no_gutters_breakpoint' => [
                 'label' => 'No gutters breakpoint',
             ],
-            'blog_categories' => [
+            'posts_categories' => [
                 'label' => 'Categories',
                 'empty_option' => '-- Any --',
             ],
@@ -313,7 +313,7 @@
             'links_categories' => [
                 'label' => 'Categories',
             ],
-            'blog_sort_order' => [
+            'posts_sort_order' => [
                 'label' => 'Posts sort order',
             ],
             'variables' => [
@@ -344,6 +344,21 @@
             ],
             'timeline' => [
                 'label' => 'Timeline',
+            ],
+            'padding_top' => [
+                'label' => 'Padding top on desktop',
+            ],
+            'padding_bottom' => [
+                'label' => 'Padding bottom on desktop',
+            ],
+            'padding_top_sm' => [
+                'label' => 'Padding top',
+            ],
+            'padding_bottom_sm' => [
+                'label' => 'Padding bottom',
+            ],
+            'options_inherited' => [
+                'label' => 'Inherit template options',
             ],
         ],
         'create' => [
@@ -387,7 +402,16 @@
                 'label' => 'No gutters breakpoint',
             ],
             'padding_top' => [
+                'label' => 'Padding top on desktop',
+            ],
+            'padding_bottom' => [
+                'label' => 'Padding bottom on desktop',
+            ],
+            'padding_top_sm' => [
                 'label' => 'Padding top',
+            ],
+            'padding_bottom_sm' => [
+                'label' => 'Padding bottom',
             ],
             'sort_order' => [
                 'label' => 'Order',
@@ -401,8 +425,8 @@
             'image' => [
                 'label' => 'Image',
             ],
-            'blog_category' => [
-                'label' => 'Blog category',
+            'posts_category' => [
+                'label' => 'Posts category',
                 'empty_option' => '-- Any --',
             ],
             'partial' => [
@@ -426,7 +450,7 @@
             'links_category' => [
                 'label' => 'Links category',
             ],
-            'blog_sort_order' => [
+            'posts_sort_order' => [
                 'label' => 'Posts sort order',
             ],
             'more_button_is_published' => [
@@ -463,6 +487,12 @@
                         'label' => 'Link',
                     ]
                 ],
+            ],
+            'options_inherited' => [
+                'label' => 'Inherit template options',
+            ],
+            'options' => [
+                'label' => 'Options',
             ],
             'type' => [
                 'label' => 'Type',

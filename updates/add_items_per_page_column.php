@@ -20,4 +20,12 @@ class AddItemsPerPageColumn extends Migration
             $table->integer("items_per_page")->default(12);
         });
     }
+
+    /**
+     * @return void
+     */
+    public function down(): void
+    {
+
+    }
 }

@@ -122,3 +122,6 @@ v1.24.0:
     - 'Links slider as a new content type'
 v1.25.0:
     - 'More button definition with links block'
+v2.0.0:
+    - 'Refactoring for web theme v2'
+    - v2_changes.php

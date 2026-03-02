@@ -1,0 +1,104 @@
+fields:
+    _color_scheme:
+        label: Barvy
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    color_scheme:
+        label: Schéma
+        type: colorschemeselector
+        span: full
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _appearance:
+        label: Vzhled
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    is_overlay_visible:
+        label: Zobrazit překryv
+        type: switch
+        span: auto
+        default: true
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    align_items:
+        label: Zarovnání obsahu
+        type: balloon-selector
+        span: auto
+        options:
+            start: Vlevo
+            center: Uprostřed
+            end: Vpravo
+        default: center
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _heading:
+        label: Nadpis
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    heading:
+        type: nestedform
+        form:
+            fields:
+                font_size:
+                    label: Velikost
+                    type: dropdown
+                    span: auto
+                    options:
+                        1: Nadpis 1
+                        2: Nadpis 2
+                        3: Nadpis 3
+                        4: Nadpis 4
+                        5: Nadpis 5
+                        6: Nadpis 6
+                    default: 1
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _button:
+        label: Tlačítko
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    button:
+        type: nestedform
+        form:
+            fields:
+                size:
+                    label: Velikost
+                    type: dropdown
+                    span: auto
+                    options:
+                        sm: Malé
+                        0: Normální
+                        lg: Velké
+                    default: sm
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked

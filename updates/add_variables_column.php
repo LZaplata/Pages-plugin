@@ -15,4 +15,9 @@ class AddVariablesColumn extends Migration
             $table->text('variables')->nullable();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

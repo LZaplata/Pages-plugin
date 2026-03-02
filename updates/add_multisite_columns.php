@@ -11,10 +11,15 @@ class AddMultisiteColumns extends Migration
             $table->integer('site_id')->nullable()->index();
             $table->integer('site_root_id')->nullable()->index();
         });
-        
+
         Schema::table('lzaplata_pages_contents', function ($table) {
             $table->integer('site_id')->nullable()->index();
             $table->integer('site_root_id')->nullable()->index();
         });
+    }
+
+    public function down()
+    {
+
     }
 }

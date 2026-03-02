@@ -1,0 +1,17 @@
+fields:
+    _color_scheme:
+        label: Barvy
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    color_scheme:
+        label: Schéma
+        type: colorschemeselector
+        span: full
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked

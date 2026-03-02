@@ -1,0 +1,93 @@
+.form-container.color-scheme {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @media (min-width: 576px) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    @media (min-width: 992px) {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    @media (min-width: 1400px) {
+        grid-template-columns: repeat(24, 1fr);
+    }
+}
+
+.form-container.color-scheme .form-check {
+    margin: 0;
+    padding: 0;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    background-color: var(--oc-form-control-bg);
+    border-radius: var(--bs-border-radius);
+    cursor: pointer;
+    overflow: hidden;
+    width: 77px;
+}
+
+.form-container.color-scheme .form-check:has(.form-check-input:checked) {
+    border-color: var(--oc-border-focus);
+}
+
+.form-container.color-scheme .form-check-input {
+    display: none;
+}
+
+.form-container.color-scheme .form-check-label {
+    width: 100%;
+    cursor: pointer;
+}
+
+.form-container.color-scheme .form-check-label .visual {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: var(--cs-bg);
+}
+
+.form-container.color-scheme .form-check-label .visual .text {
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+    color: var(--cs-text);
+}
+
+.form-container.color-scheme .form-check-label .visual .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.form-container.color-scheme .form-check-label .visual .buttons .button {
+    width: 20px;
+    height: 10px;
+    border-radius: 999px;
+}
+
+.form-container.color-scheme .form-check-label .visual .buttons .button-primary {
+    background-color: var(--cs-btn-primary-bg);
+    border: 1px solid var(--cs-btn-primary-border-color);
+}
+
+.form-container.color-scheme .form-check-label .visual .buttons .button-secondary {
+    background-color: var(--cs-btn-secondary-bg);
+    border: 1px solid var(--cs-btn-secondary-border-color);
+}
+
+.form-container.color-scheme .form-check-label .name {
+    font-weight: 600;
+    font-size: 80%;
+    background: var(--oc-sidebar-bg);
+    padding: 5px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: clip;
+    white-space: nowrap;
+}
+
+.form-container.color-scheme .form-check:has(.form-check-input:checked) .form-check-label .name {
+    background: var(--bs-primary);
+    color: #fff;
+}

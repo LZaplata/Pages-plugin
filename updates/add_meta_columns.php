@@ -12,4 +12,9 @@ class AddMetaColumns extends Migration
             $table->text('meta_description')->nullable();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

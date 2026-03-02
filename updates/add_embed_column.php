@@ -11,4 +11,9 @@ class add_embed_column extends Migration
             $table->text('embed')->nullable();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

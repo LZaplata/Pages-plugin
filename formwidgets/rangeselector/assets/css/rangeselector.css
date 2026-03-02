@@ -1,0 +1,13 @@
+.form-range-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.form-range-group .form-control {
+    max-width: 100px;
+}
+
+.form-range-group .form-range-unit {
+    margin-left: -10px;
+}

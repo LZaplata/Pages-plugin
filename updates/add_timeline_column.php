@@ -11,4 +11,9 @@ class AddTimelineColumn extends Migration
             $table->integer('timeline_id')->nullable()->unsigned();
         });
     }
+
+    public function down(): void
+    {
+
+    }
 }

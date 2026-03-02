@@ -1,0 +1,52 @@
+fields:
+    _color_scheme:
+        label: Barvy
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    color_scheme:
+        label: Schéma
+        type: colorschemeselector
+        span: full
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _thumb:
+        label: Obrázek
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    thumb:
+        type: nestedform
+        form:
+            fields:
+                border_radius:
+                    label: Poloměr rohů
+                    type: dropdown
+                    span: auto
+                    options:
+                        0: Žádný
+                        1: Malý
+                        2: Normální
+                        3: Velký
+                        4: Extra velký
+                        circle: Kruh
+                    default: 2
+
+                is_overlay_visible:
+                    label: Zobrazit překryv při najetí
+                    type: switch
+                    span: left
+                    default: true
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked

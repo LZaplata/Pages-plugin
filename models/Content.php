@@ -68,7 +68,7 @@ class Content extends Model
     /**
      * @var array
      */
-    public $jsonable = ["variables"];
+    public $jsonable = ["variables", "padding", "options"];
 
     /**
      * @return array
@@ -83,7 +83,7 @@ class Content extends Model
         ];
 
         if (class_exists(Post::class)) {
-            $types["blog"] = e(trans("lzaplata.pages::lang.content.field.type.option.blog.label"));
+            $types["posts"] = e(trans("lzaplata.pages::lang.content.field.type.option.posts.label"));
         }
 
         if (class_exists(Gallery::class)) {
@@ -155,11 +155,11 @@ class Content extends Model
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
-            if ($this->type == "blog" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+            if ($this->type == "posts" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
-            if ($this->type == "jobs" && preg_match("@_post/[a-z]+@", $partial->getBaseFileName())) {
+            if ($this->type == "jobs" && preg_match("@_post/card@", $partial->getBaseFileName())) {
                 $partialOptions[$partial->getBaseFileName()] = $partial->getBaseFileName();
             }
 
@@ -220,7 +220,7 @@ class Content extends Model
     /**
      * @return array
      */
-    public function getBlogSortOrderOptions(): array
+    public function getPostsSortOrderOptions(): array
     {
         $options = BlogPost::$allowedSortingOptions;
 
@@ -244,7 +244,7 @@ class Content extends Model
     public $belongsTo = [
         "gallery"           => Gallery::class,
         "contacts_category" => [EntryRecord::class, "blueprint" => "lzaplata_contacts_categories"],
-        "blog_category"     => Category::class,
+        "posts_category"    => Category::class,
         "files_category"    => FilesCategory::class,
         "page"              => Page::class,
         "pricelist"         => Pricelist::class,
@@ -267,8 +267,8 @@ class Content extends Model
             $fields->type->disabled = true;
         }
 
-        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.blog_category")) {
-            $fields->blog_category->disabled = true;
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.posts_category")) {
+            $fields->posts_category->disabled = true;
         }
 
         if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.files_category")) {
@@ -335,5 +335,73 @@ class Content extends Model
             "xl"    => "XL",
             "xxl"   => "XXL",
         ];
+    }
+
+    /**
+     * @return void
+     */
+    public function beforeSave(): void
+    {
+        $this->options = match($this->type) {
+            "text"          => $this->options_text,
+            "image_text"    => $this->options_image_text,
+            "posts"         => $this->options_posts,
+            "gallery"       => $this->options_gallery,
+            "files"         => $this->options_partial,
+            "pricelist"     => $this->options_partial,
+            "opening_hours" => $this->options_partial,
+            "faq"           => $this->options_accordion,
+            "contacts"      => $this->options_contacts,
+            "slider"        => $this->options_slider,
+            "jobs"          => $this->options_jobs,
+            "links"         => $this->options_links,
+            "links_slider"  => $this->options_links,
+            "cookies"       => $this->options_partial,
+            "contact_form"  => $this->options_partial,
+            "embed"         => $this->options_partial,
+            "partial"       => $this->options_partial,
+            "timeline"      => $this->options_timeline,
+            default         => null,
+        };
+
+        unset($this->options_text);
+        unset($this->options_image_text);
+        unset($this->options_posts);
+        unset($this->options_gallery);
+        unset($this->options_accordion);
+        unset($this->options_contacts);
+        unset($this->options_slider);
+        unset($this->options_jobs);
+        unset($this->options_links);
+        unset($this->options_partial);
+        unset($this->options_timeline);
+    }
+
+    /**
+     * @return void
+     */
+    public function afterFetch(): void
+    {
+        match($this->type) {
+            "text"          => $this->options_text = $this->options,
+            "image_text"    => $this->options_image_text = $this->options,
+            "posts"         => $this->options_posts = $this->options,
+            "gallery"       => $this->options_gallery = $this->options,
+            "files"         => $this->options_partial = $this->options,
+            "pricelist"     => $this->options_partial = $this->options,
+            "opening_hours" => $this->options_partial = $this->options,
+            "faq"           => $this->options_accordion = $this->options,
+            "contacts"      => $this->options_contacts = $this->options,
+            "slider"        => $this->options_slider = $this->options,
+            "jobs"          => $this->options_jobs = $this->options,
+            "links"         => $this->options_links = $this->options,
+            "links_slider"  => $this->options_links = $this->options,
+            "cookies"       => $this->options_partial = $this->options,
+            "contact_form"  => $this->options_partial = $this->options,
+            "embed"         => $this->options_partial = $this->options,
+            "partial"       => $this->options_partial = $this->options,
+            "timeline"      => $this->options_timeline = $this->options,
+            default         => null,
+        };
     }
 }

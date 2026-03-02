@@ -33,7 +33,7 @@
                 'type' => [
                     'label' => 'Typ',
                 ],
-                'blog_category' => [
+                'posts_category' => [
                     'label' => 'Kategorie příspěvků',
                 ],
                 'files_category' => [
@@ -54,7 +54,7 @@
                 'row_cols' => [
                     'label' => 'Počet příspěvků na řádek',
                 ],
-                'blog_sort_order' => [
+                'posts_sort_order' => [
                     'label' => 'Řazení příspěvků',
                 ],
                 'gallery' => [
@@ -194,8 +194,8 @@
             'type' => [
                 'label' => 'Typ',
                 'option' => [
-                    'blog' => [
-                        'label' => 'Blog',
+                    'posts' => [
+                        'label' => 'Příspěvky',
                     ],
                     'gallery' => [
                         'label' => 'Galerie',
@@ -263,7 +263,7 @@
             'no_gutters_breakpoint' => [
                 'label' => 'Bez okrajů od šířky',
             ],
-            'blog_categories' => [
+            'posts_categories' => [
                 'label' => 'Kategorie',
                 'empty_option' => '-- Nerozhoduje --',
             ],
@@ -313,7 +313,7 @@
             'links_categories' => [
                 'label' => 'Kategorie',
             ],
-            'blog_sort_order' => [
+            'posts_sort_order' => [
                 'label' => 'Řazení příspěvků',
             ],
             'variables' => [
@@ -344,6 +344,21 @@
             ],
             'timeline' => [
                 'label' => 'Časová osa',
+            ],
+            'padding_top' => [
+                'label' => 'Vnitřní okraj nahoře na desktopu',
+            ],
+            'padding_bottom' => [
+                'label' => 'Vnitřní okraj dole na desktopu',
+            ],
+            'padding_top_sm' => [
+                'label' => 'Vnitřní okraj nahoře',
+            ],
+            'padding_bottom_sm' => [
+                'label' => 'Vnitřní okraj dole',
+            ],
+            'options_inherited' => [
+                'label' => 'Zdědit předvolby šablony',
             ],
         ],
         'create' => [
@@ -387,7 +402,16 @@
                 'label' => 'Bez okrajů od šířky',
             ],
             'padding_top' => [
-                'label' => 'Odsazení zhora',
+                'label' => 'Vnitřní okraj nahoře na desktopu',
+            ],
+            'padding_bottom' => [
+                'label' => 'Vnitřní okraj dole na desktopu',
+            ],
+            'padding_top_sm' => [
+                'label' => 'Vnitřní okraj nahoře',
+            ],
+            'padding_bottom_sm' => [
+                'label' => 'Vnitřní okraj dole',
             ],
             'sort_order' => [
                 'label' => 'Pořadí',
@@ -401,7 +425,7 @@
             'image' => [
                 'label' => 'Obrázek',
             ],
-            'blog_category' => [
+            'posts_category' => [
                 'label' => 'Kategorie příspěvků',
                 'empty_option' => '-- Nerozhoduje --',
             ],
@@ -426,7 +450,7 @@
             'links_category' => [
                 'label' => 'Kategorie odkazů',
             ],
-            'blog_sort_order' => [
+            'posts_sort_order' => [
                 'label' => 'Řazení příspěvků',
             ],
             'more_button_is_published' => [
@@ -463,6 +487,12 @@
                         'label' => 'Odkaz',
                     ]
                 ],
+            ],
+            'options_inherited' => [
+                'label' => 'Zdědit předvolby šablony',
+            ],
+            'options' => [
+                'label' => 'Předvolby',
             ],
             'type' => [
                 'label' => 'Typ',

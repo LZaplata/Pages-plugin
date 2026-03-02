@@ -39,11 +39,38 @@ fields:
             action: show
             field: no_gutters
             condition: checked
-    padding_top:
-        label: 'lzaplata.pages::lang.block.field.padding_top.label'
-        span: left
-        type: switch
-        default: true
+    padding:
+        type: nestedform
+        span: full
+        form:
+            fields:
+                top:
+                    label: 'lzaplata.pages::lang.block.field.padding_top.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                bottom:
+                    label: 'lzaplata.pages::lang.block.field.padding_bottom.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                top_sm:
+                    label: 'lzaplata.pages::lang.block.field.padding_top_sm.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 5
+
+                bottom_sm:
+                    label: 'lzaplata.pages::lang.block.field.padding_bottom_sm.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 5
     type:
         label: 'lzaplata.pages::lang.block.field.type.label'
         optionsMethod: getTypeOptions
@@ -79,11 +106,11 @@ fields:
             action: show
             field: type
             condition: 'value[text][image_text]'
-    blog_category:
-        label: 'lzaplata.pages::lang.block.field.blog_category.label'
+    posts_category:
+        label: 'lzaplata.pages::lang.block.field.posts_category.label'
         span: left
         type: relation
-        emptyOption: 'lzaplata.pages::lang.block.field.blog_category.empty_option'
+        emptyOption: 'lzaplata.pages::lang.block.field.posts_category.empty_option'
         trigger:
             action: show
             field: type
@@ -141,8 +168,8 @@ fields:
             action: show
             field: type
             condition: 'value[embed]'
-    blog_sort_order:
-        label: 'lzaplata.pages::lang.block.field.blog_sort_order.label'
+    posts_sort_order:
+        label: 'lzaplata.pages::lang.block.field.posts_sort_order.label'
         span: right
         type: dropdown
         trigger:
@@ -157,7 +184,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[posts][posts_slider][links]'
+            condition: 'value[posts][posts_slider][links][links_slider]'
     more_button_title:
         label: 'lzaplata.pages::lang.block.field.more_button_title.label'
         span: right
@@ -173,7 +200,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[posts][posts_slider][links]'
+            condition: 'value[posts][posts_slider][links][links_slider]'
     variables:
         label: 'lzaplata.pages::lang.block.field.variables.label'
         span: right
@@ -212,3 +239,65 @@ fields:
                         action: show
                         field: type
                         condition: 'value[link]'
+
+    options_inherited:
+        label: 'lzaplata.pages::lang.block.field.options_inherited.label'
+        type: switch
+        span: auto
+        default: true
+
+    options_slider:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/slider.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[slider]'
+
+    options_flash_message:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/flash-message.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[flash_message]'
+
+    options_links:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/links.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[links][links_slider]'
+
+    options_image_text:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/image-text.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[image_text]'
+
+    options_text:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/text.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[text]'
+
+    options_posts:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/posts.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[posts][posts_slider]'
+
+    options_partial:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/partial.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[partial][embed][contact_form]'

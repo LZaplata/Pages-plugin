@@ -14,8 +14,10 @@ class RemovePostPageColumn extends Migration
 
     public function down()
     {
-        Schema::table('lzaplata_pages_contents', function ($table) {
-            $table->dropColumn('post_page');
-        });
+        if (Schema::hasTable("lzaplata_pages_contents")) {
+            Schema::table('lzaplata_pages_contents', function ($table) {
+                $table->dropColumn('post_page');
+            });
+        }
     }
 }

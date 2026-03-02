@@ -22,7 +22,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[text][blog][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial][contact_form][timeline]'
+            condition: 'value[text][posts][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial][contact_form][timeline]'
     sort_order:
         label: 'lzaplata.pages::lang.content.field.sort_order.label'
         span: right
@@ -46,6 +46,39 @@ fields:
             action: show
             field: no_gutters
             condition: checked
+    padding:
+        type: nestedform
+        span: full
+        permissions: lzaplata.pages.content.reorder
+        form:
+            fields:
+                top:
+                    label: 'lzaplata.pages::lang.content.field.padding_top.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                bottom:
+                    label: 'lzaplata.pages::lang.content.field.padding_bottom.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                top_sm:
+                    label: 'lzaplata.pages::lang.content.field.padding_top_sm.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 5
+
+                bottom_sm:
+                    label: 'lzaplata.pages::lang.content.field.padding_bottom_sm.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 5
     text:
         label: 'lzaplata.pages::lang.content.field.text.label'
         size: giant
@@ -55,15 +88,15 @@ fields:
             field: type
             condition: 'value[text][image_text]'
         type: richeditor
-    blog_category:
-        label: 'lzaplata.pages::lang.content.field.blog_categories.label'
+    posts_category:
+        label: 'lzaplata.pages::lang.content.field.posts_categories.label'
         span: left
         type: relation
-        emptyOption: 'lzaplata.pages::lang.content.field.blog_categories.empty_option'
+        emptyOption: 'lzaplata.pages::lang.content.field.posts_categories.empty_option'
         trigger:
             action: show
             field: type
-            condition: 'value[blog]'
+            condition: 'value[posts]'
     gallery:
         label: 'lzaplata.pages::lang.content.field.gallery.label'
         nameFrom: name
@@ -156,7 +189,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[contacts][blog][jobs][links][links_slider][partial][image_text]'
+            condition: 'value[contacts][posts][jobs][links][links_slider][partial][image_text]'
         dependsOn:
             - type
     row_cols:
@@ -168,7 +201,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[blog][jobs][contacts][links][links_slider]'
+            condition: 'value[posts][jobs][contacts][links][links_slider][gallery]'
         dependsOn:
             - partial
     items_per_page:
@@ -178,7 +211,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[blog]'
+            condition: 'value[posts]'
         dependsOn:
             - partial
     image:
@@ -211,15 +244,15 @@ fields:
             condition: 'value[jobs]'
         dependsOn:
             - type
-    blog_sort_order:
-        label: 'lzaplata.pages::lang.content.field.blog_sort_order.label'
+    posts_sort_order:
+        label: 'lzaplata.pages::lang.content.field.posts_sort_order.label'
         span: left
         type: dropdown
-        permissions: lzaplata.pages.content.update.blog_sort_order
+        permissions: lzaplata.pages.content.update.posts_sort_order
         trigger:
             action: show
             field: type
-            condition: 'value[blog]'
+            condition: 'value[posts]'
     variables:
         label: 'lzaplata.pages::lang.content.field.variables.label'
         span: right
@@ -268,3 +301,109 @@ fields:
             action: show
             field: type
             condition: 'value[timeline]'
+
+    options_inherited:
+        label: 'lzaplata.pages::lang.content.field.options_inherited.label'
+        type: switch
+        span: left
+        default: true
+        permissions: lzaplata.pages.content.reorder
+
+    options_text:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/text.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[text]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_image_text:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/image-text.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[image_text]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_slider:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/slider.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[slider]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_links:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/links.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[links][links_slider]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_partial:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/partial.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[partial][embed][contact_form][files][pricelist][cookies]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_posts:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/posts.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[posts]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_jobs:
+        type: nestedform
+        form: $/lzaplata/pages/models/content/jobs.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[jobs]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_contacts:
+        type: nestedform
+        form: $/lzaplata/pages/models/content/contacts.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[contacts]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_gallery:
+        type: nestedform
+        form: $/lzaplata/pages/models/content/gallery.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[gallery]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_accordion:
+        type: nestedform
+        form: $/lzaplata/pages/models/content/accordion.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[faq]'
+        permissions: lzaplata.pages.content.reorder
+
+    options_timeline:
+        type: nestedform
+        form: $/lzaplata/pages/models/content/timeline.yaml
+        trigger:
+            action: show
+            field: type
+            condition: 'value[timeline]'
+        permissions: lzaplata.pages.content.reorder

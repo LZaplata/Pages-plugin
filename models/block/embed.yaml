@@ -1,0 +1,7 @@
+fields:
+    b:
+        label: B
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
