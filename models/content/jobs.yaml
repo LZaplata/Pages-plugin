@@ -150,6 +150,16 @@ fields:
                                     on-hover: Při najetí
                                     off-hover: Před najetím
                                 default: none
+
+                            justify_content:
+                                label: Pozice
+                                type: balloon-selector
+                                span: auto
+                                options:
+                                    start: Vlevo
+                                    center: Uprostřed
+                                    end: Vpravo
+                                default: start
         trigger:
             action: show
             field: ^options_inherited

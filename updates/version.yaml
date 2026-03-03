@@ -127,3 +127,7 @@ v2.0.0:
     - v2_changes.php
 v2.0.1:
     - 'Fix config yaml file paths'
+v2.0.2:
+    - 'Move _post-type.yaml into plugin to remove theme path dependency'
+v2.0.3:
+    - 'Add heading justify_content option for posts, links and jobs'
