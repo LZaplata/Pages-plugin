@@ -12,4 +12,9 @@ class AddMoreButtonColumn extends Migration
             $table->text('more_button_link')->nullable();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

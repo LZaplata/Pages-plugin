@@ -11,4 +11,9 @@ class AddPageSliderColumn extends Migration
             $table->integer('slider_id')->nullable()->unsigned();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

@@ -11,4 +11,9 @@ class AddMoreButtonIsPublishedColumn extends Migration
             $table->boolean('more_button_is_published')->default(false);
         });
     }
+
+    public function down()
+    {
+
+    }
 }

@@ -1,0 +1,123 @@
+fields:
+    _color_scheme:
+        label: Barvy
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    color_scheme:
+        label: Schéma
+        type: colorschemeselector
+        span: full
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _picture:
+        label: Obrázek
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    picture:
+        type: nestedform
+        form:
+            fields:
+                border_radius:
+                    label: Poloměr rohů
+                    type: dropdown
+                    span: auto
+                    options:
+                        0: Žádný
+                        1: Malý
+                        2: Normální
+                        3: Velký
+                        4: Extra velký
+                        circle: Kruh
+                    default: 2
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _text:
+        label: Text
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    text:
+        type: nestedform
+        form:
+            fields:
+                color_scheme:
+                    label: Schéma
+                    type: colorschemeselector
+                    span: full
+
+                padding_top:
+                    label: Vnitřní okraj nahoře na desktopu
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                padding_bottom:
+                    label: Vnitřní okraj dole na desktopu
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                padding_left:
+                    label: Vnitřní okraj vlevo na desktopu
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                padding_right:
+                    label: Vnitřní okraj vpravo na desktopu
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 7
+
+                padding_top_sm:
+                    label: Vnitřní okraj nahoře
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 4
+
+                padding_bottom_sm:
+                    label: Vnitřní okraj dole
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 0
+
+                padding_left_sm:
+                    label: Vnitřní okraj vlevo
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 0
+
+                padding_right_sm:
+                    label: Vnitřní okraj vpravo
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 0
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked

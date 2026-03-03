@@ -11,4 +11,9 @@ class AddPartialColumn extends Migration
             $table->string('partial', 100)->nullable();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

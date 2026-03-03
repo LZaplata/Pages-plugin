@@ -3,6 +3,8 @@
 use Lzaplata\Pages\Components\Breadcrumbs;
 use Lzaplata\Pages\Components\Homepage;
 use Lzaplata\Pages\FormWidgets\BlockTypeSelector;
+use Lzaplata\Pages\FormWidgets\ColorSchemeSelector;
+use Lzaplata\Pages\FormWidgets\RangeSelector;
 use LZaplata\Pages\Models\Page;
 use October\Rain\Support\Facades\Event;
 use System\Classes\PluginBase;
@@ -90,6 +92,8 @@ class Plugin extends PluginBase
     {
         return [
             BlockTypeSelector::class    => "blocktypeselector",
+            ColorSchemeSelector::class  => "colorschemeselector",
+            RangeSelector::class        => "rangeselector",
         ];
     }
 

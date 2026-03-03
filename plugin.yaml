@@ -43,9 +43,9 @@ permissions:
     lzaplata.pages.content.update.type:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.update.type.label'
-    lzaplata.pages.content.update.blog_category:
+    lzaplata.pages.content.update.posts_category:
         tab: 'lzaplata.pages::lang.plugin.name'
-        label: 'lzaplata.pages::lang.permission.content.update.blog_category.label'
+        label: 'lzaplata.pages::lang.permission.content.update.posts_category.label'
     lzaplata.pages.content.update.files_category:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.update.files_category.label'
@@ -64,9 +64,9 @@ permissions:
     lzaplata.pages.content.update.row_cols:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.update.row_cols.label'
-    lzaplata.pages.content.update.blog_sort_order:
+    lzaplata.pages.content.update.posts_sort_order:
         tab: 'lzaplata.pages::lang.plugin.name'
-        label: 'lzaplata.pages::lang.permission.content.update.blog_sort_order.label'
+        label: 'lzaplata.pages::lang.permission.content.update.posts_sort_order.label'
     lzaplata.pages.content.update.gallery:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.update.gallery.label'

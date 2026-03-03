@@ -16,4 +16,9 @@ class AddRowColsColumn extends Migration
             $table->integer("row_cols")->default(4);
         });
     }
+
+    public function down(): void
+    {
+
+    }
 }

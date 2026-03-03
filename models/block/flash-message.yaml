@@ -1,0 +1,44 @@
+fields:
+    _color_scheme:
+        label: Barvy
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    color_scheme:
+        label: Schéma
+        type: colorschemeselector
+        span: full
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _heading:
+        label: Nadpis
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    heading:
+        type: nestedform
+        form:
+            fields:
+                font_style:
+                    label: Písmo
+                    type: dropdown
+                    span: auto
+                    options:
+                        paragraph: Odstavec
+                        subheading: Podnadpis
+                        heading: Nadpis
+                        accent: Akcent
+                    default: accent
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked

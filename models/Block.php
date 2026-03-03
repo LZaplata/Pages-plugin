@@ -56,7 +56,7 @@ class Block extends Model
      * @var array
      */
     public $belongsTo = [
-        "blog_category"     => Category::class,
+        "posts_category"    => Category::class,
         "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
         "links_category"    => [EntryRecord::class, "blueprint" => "lzaplata_links_categories"],
     ];
@@ -69,7 +69,7 @@ class Block extends Model
     /**
      * @var array
      */
-    public $jsonable = ["variables"];
+    public $jsonable = ["variables", "padding", "options"];
 
     /**
      * @return array
@@ -176,7 +176,7 @@ class Block extends Model
     /**
      * @return array
      */
-    public function getBlogSortOrderOptions(): array
+    public function getPostsSortOrderOptions(): array
     {
         $options = BlogPost::$allowedSortingOptions;
 
@@ -207,5 +207,57 @@ class Block extends Model
 
             $fields->sort_order->value = $order;
         }
+    }
+
+    /**
+     * @return void
+     * @throws \Exception
+     */
+    public function beforeSave(): void
+    {
+        $this->options = match($this->type) {
+            "slider"        => $this->options_slider,
+            "flash_message" => $this->options_flash_message,
+            "links"         => $this->options_links,
+            "links_slider"  => $this->options_links,
+            "image_text"    => $this->options_image_text,
+            "text"          => $this->options_text,
+            "posts"         => $this->options_posts,
+            "posts_slider"  => $this->options_posts,
+            "partial"       => $this->options_partial,
+            "embed"         => $this->options_partial,
+            "contact_form"  => $this->options_partial,
+            default         => null,
+        };
+
+        unset($this->options_slider);
+        unset($this->options_flash_message);
+        unset($this->options_links);
+        unset($this->options_image_text);
+        unset($this->options_text);
+        unset($this->options_posts);
+        unset($this->options_partial);
+    }
+
+    /**
+     * @return void
+     * @throws \Exception
+     */
+    public function afterFetch(): void
+    {
+        match($this->type) {
+            "slider"        => $this->options_slider = $this->options,
+            "flash_message" => $this->options_flash_message = $this->options,
+            "links"         => $this->options_links = $this->options,
+            "links_slider"  => $this->options_links = $this->options,
+            "image_text"    => $this->options_image_text = $this->options,
+            "text"          => $this->options_text = $this->options,
+            "posts"         => $this->options_posts = $this->options,
+            "posts_slider"  => $this->options_posts = $this->options,
+            "partial"       => $this->options_partial = $this->options,
+            "embed"         => $this->options_partial = $this->options,
+            "contact_form"  => $this->options_partial = $this->options,
+            default         => null,
+        };
     }
 }

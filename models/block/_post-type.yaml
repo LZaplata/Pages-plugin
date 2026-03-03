@@ -1,0 +1,165 @@
+fields:
+    color_scheme:
+        label: Schéma
+        type: colorschemeselector
+        span: full
+
+    padding_top:
+        label: Vnitřní okraj nahoře
+        type: rangeselector
+        span: auto
+        max: 10
+        default: 0
+
+    padding_bottom:
+        label: Vnitřní okraj dole
+        type: rangeselector
+        span: auto
+        max: 10
+        default: 0
+
+    padding_left:
+        label: Vnitřní okraj vlevo
+        type: rangeselector
+        span: auto
+        max: 10
+        default: 0
+
+    padding_right:
+        label: Vnitřní okraj vpravo
+        type: rangeselector
+        span: auto
+        max: 10
+        default: 0
+
+    border_radius:
+        label: Poloměr rohů
+        type: dropdown
+        span: auto
+        options:
+            0: Žádný
+            1: Malý
+            2: Normální
+            3: Velký
+            4: Extra velký
+            circle: Kruh
+        default: 2
+
+    border_width:
+        label: Šířka ohraničení
+        type: rangeselector
+        span: auto
+        max: 10
+        default: 0
+        unit: px
+
+    _thumb:
+        label: Obrázek
+        type: section
+
+    thumb:
+        type: nestedform
+        form:
+            fields:
+                border_radius:
+                    label: Poloměr rohů
+                    type: dropdown
+                    span: auto
+                    options:
+                        0: Žádný
+                        1: Malý
+                        2: Normální
+                        3: Velký
+                        4: Extra velký
+                        circle: Kruh
+                    default: 2
+
+                is_overlay_visible:
+                    label: Zobrazit překryv při najetí
+                    type: switch
+                    span: left
+                    default: true
+
+    _heading:
+        label: Nadpis
+        type: section
+
+    heading:
+        type: nestedform
+        form:
+            fields:
+                font_style:
+                    label: Písmo
+                    type: dropdown
+                    span: auto
+                    options:
+                        subheading: Podnadpis
+                        heading: Nadpis
+                        accent: Akcent
+                    default: heading
+
+                font_size:
+                    label: Velikost
+                    type: dropdown
+                    span: auto
+                    options:
+                        1: Nadpis 1
+                        2: Nadpis 2
+                        3: Nadpis 3
+                        4: Nadpis 4
+                        5: Nadpis 5
+                        6: Nadpis 6
+                    default: 5
+
+                text_decoration:
+                    label: Podtržení
+                    type: dropdown
+                    span: auto
+                    options:
+                        none: Žádné
+                        underline: Vždy
+                        on-hover: Při najetí
+                        off-hover: Před najetím
+                    default: none
+
+                justify_content:
+                    label: Pozice
+                    type: balloon-selector
+                    span: auto
+                    options:
+                        start: Vlevo
+                        center: Uprostřed
+                        end: Vpravo
+                    default: start
+
+    _perex:
+        label: Perex
+        type: section
+
+    perex:
+        type: nestedform
+        form:
+            fields:
+                font_size:
+                    label: Velikost
+                    type: dropdown
+                    span: auto
+                    options:
+                        12: 12px
+                        14: 14px
+                        16: 16px
+                    default: 14
+
+    _details:
+        label: Podrobnosti
+        type: section
+
+    details:
+        type: nestedform
+        form:
+            fields:
+                is_visible:
+                    label: Zobrazit
+                    type: switch
+                    span: auto
+                    default: true

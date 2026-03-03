@@ -15,4 +15,9 @@ class AddSortOrderColumn extends Migration
             $table->string('blog_sort_order', 20)->nullable();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

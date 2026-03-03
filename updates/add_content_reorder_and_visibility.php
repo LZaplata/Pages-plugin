@@ -12,4 +12,9 @@ class AddContentReorderAndVisibility extends Migration
             $table->boolean('is_published')->default(true);
         });
     }
+
+    public function down()
+    {
+
+    }
 }

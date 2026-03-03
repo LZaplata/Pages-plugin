@@ -1,0 +1,124 @@
+fields:
+    _color_scheme:
+        label: Barvy
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    color_scheme:
+        label: Schéma
+        type: colorschemeselector
+        span: full
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _appearance:
+        label: Vzhled
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    button_style:
+        label: Tlačítko
+        type: balloon-selector
+        options:
+            primary: Primární
+            secondary: Sekundární
+        default: primary
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _card:
+        label: Karta
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    card:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/_post-type.yaml
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _inline:
+        label: Inline
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    inline:
+        type: nestedform
+        form: $/lzaplata/pages/models/block/_post-type.yaml
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _swiper:
+        label: Slider
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    swiper:
+        type: nestedform
+        form:
+            fields:
+                _navigation:
+                    label: Navigace
+                    type: section
+
+                navigation:
+                    type: nestedform
+                    form:
+                        fields:
+                            is_visible:
+                                label: Zobrazit
+                                type: switch
+                                default: true
+
+                _pagination:
+                    label: Stránkování
+                    type: section
+
+                pagination:
+                    type: nestedform
+                    form:
+                        fields:
+                            is_visible:
+                                label: Zobrazit
+                                type: switch
+                                default: true
+
+                _scrollbar:
+                    label: Posuvník
+                    type: section
+
+                scrollbar:
+                    type: nestedform
+                    form:
+                        fields:
+                            is_visible:
+                                label: Zobrazit
+                                type: switch
+                                default: false
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked

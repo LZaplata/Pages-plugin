@@ -12,4 +12,9 @@ class AddBlockMultisiteColumns extends Migration
             $table->integer('site_root_id')->nullable()->index();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

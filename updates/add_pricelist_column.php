@@ -11,4 +11,9 @@ class AddPricelistColumn extends Migration
             $table->integer('pricelist_id')->nullable()->unsigned();
         });
     }
+
+    public function down()
+    {
+
+    }
 }

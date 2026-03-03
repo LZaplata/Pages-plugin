@@ -11,4 +11,9 @@ class AddSwitchOrderColumn extends Migration
             $table->integer('switch_order')->default(0);
         });
     }
+
+    public function down()
+    {
+
+    }
 }
