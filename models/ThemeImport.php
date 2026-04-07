@@ -14,9 +14,12 @@ class ThemeImport extends ImportModel
     public array $rules = [];
 
     /**
-     * @param $results
-     * @param $sessionKey
+     * Import theme data, merging parent theme DB values as base before applying overrides.
+     *
+     * @param  array $results
+     * @param  mixed $sessionKey
      * @return void
+     * @throws \Exception
      */
     public function importData($results, $sessionKey = null): void
     {
@@ -24,6 +27,30 @@ class ThemeImport extends ImportModel
             try {
                 $theme = Theme::load($data["code"]);
                 $themeData = ThemeData::forTheme($theme);
+                $parentCode = $theme->getConfigValue("parent");
+
+                if ($parentCode) {
+                    $parentTheme = Theme::load($parentCode);
+                    $parentThemeData = ThemeData::forTheme($parentTheme);
+
+                    $staticAttributes = [
+                        "id",
+                        "theme",
+                        "data",
+                        "created_at",
+                        "updated_at",
+                    ];
+
+                    $parentDynamicAttributes = array_diff_key(
+                        $parentThemeData->getAttributes(),
+                        array_flip($staticAttributes)
+                    );
+
+                    $themeData->setRawAttributes(
+                        $themeData->getAttributes() + $parentDynamicAttributes,
+                        true
+                    );
+                }
 
                 foreach ($data as $key => $value) {
                     if ($key == "code") continue;

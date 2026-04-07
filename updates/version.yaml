@@ -129,3 +129,5 @@ v2.0.1:
     - 'Fix config yaml file paths'
 v2.0.2:
     - 'Add heading justify_content option for posts, links and jobs'
+v2.0.3:
+    - 'Add parent theme handling to theme import'
