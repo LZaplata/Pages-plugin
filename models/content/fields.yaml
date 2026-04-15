@@ -22,7 +22,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[text][posts][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial][contact_form][timeline]'
+            condition: 'value[text][posts][gallery][files][faq][cookies][contacts][pricelist][opening_hours][slider][embed][image_text][jobs][links][partial][contact_form][timeline][flash_message]'
     sort_order:
         label: 'lzaplata.pages::lang.content.field.sort_order.label'
         span: right
@@ -116,6 +116,14 @@ fields:
             action: show
             field: type
             condition: 'value[files]'
+    flashmessages_category:
+        label: 'lzaplata.pages::lang.content.field.flashmessages_categories.label'
+        span: left
+        type: relation
+        trigger:
+            action: show
+            field: type
+            condition: 'value[flash_message]'
     contacts_category:
         label: 'lzaplata.pages::lang.content.field.contacts_categories.label'
         span: left

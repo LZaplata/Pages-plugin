@@ -5,6 +5,7 @@ use Cms\Classes\Partial;
 use Cms\Classes\Theme;
 use Illuminate\Support\Facades\Lang;
 use JanVince\SmallContactForm\Models\Settings as SmallContactFormSettings;
+use LZaplata\FlashMessages\Models\Category as FlashMessagesCategory;
 use LZaplata\FlashMessages\Models\Message;
 use Model;
 use October\Rain\Database\Traits\Multisite;
@@ -56,9 +57,10 @@ class Block extends Model
      * @var array
      */
     public $belongsTo = [
-        "posts_category"    => Category::class,
-        "slider"            => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
-        "links_category"    => [EntryRecord::class, "blueprint" => "lzaplata_links_categories"],
+        "posts_category"          => Category::class,
+        "flashmessages_category"  => FlashMessagesCategory::class,
+        "slider"                  => [EntryRecord::class, "blueprint" => "lzaplata_slider_sliders"],
+        "links_category"          => [EntryRecord::class, "blueprint" => "lzaplata_links_categories"],
     ];
 
     /**

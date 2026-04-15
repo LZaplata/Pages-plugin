@@ -39,6 +39,9 @@
                 'files_category' => [
                     'label' => 'Kategorie souborů',
                 ],
+                'flashmessages_category' => [
+                    'label' => 'Kategorie rychlých zpráv',
+                ],
                 'contacts_category' => [
                     'label' => 'Kategorie kontaktů',
                 ],
@@ -242,6 +245,9 @@
                     'timeline' => [
                         'label' => 'Časová osa',
                     ],
+                    'flash_message' => [
+                        'label' => 'Rychlá zpráva',
+                    ],
                 ],
             ],
             'text' => [
@@ -272,6 +278,9 @@
                 'prompt' => '--Vybrat--',
             ],
             'files_categories' => [
+                'label' => 'Kategorie',
+            ],
+            'flashmessages_categories' => [
                 'label' => 'Kategorie',
             ],
             'contacts_categories' => [
@@ -449,6 +458,10 @@
             ],
             'links_category' => [
                 'label' => 'Kategorie odkazů',
+            ],
+            'flashmessages_category' => [
+                'label'        => 'Kategorie rychlých zpráv',
+                'empty_option' => '-- Vybrat --',
             ],
             'posts_sort_order' => [
                 'label' => 'Řazení příspěvků',

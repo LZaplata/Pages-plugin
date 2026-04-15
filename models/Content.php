@@ -6,6 +6,8 @@ use Cms\Classes\Theme;
 use Illuminate\Support\Facades\Lang;
 use JanVince\SmallGDPR\Models\CookiesSettings;
 use LZaplata\Files\Models\Category as FilesCategory;
+use LZaplata\FlashMessages\Models\Category as FlashMessagesCategory;
+use LZaplata\FlashMessages\Models\Message;
 use LZaplata\Files\Models\File;
 use LZaplata\Gallery\Models\Gallery;
 use LZaplata\OpeningHours\Models\OpeningHour;
@@ -135,6 +137,10 @@ class Content extends Model
             $types["timeline"] = e(trans("lzaplata.pages::lang.content.field.type.option.timeline.label"));
         }
 
+        if (class_exists(Message::class)) {
+            $types["flash_message"] = e(trans("lzaplata.pages::lang.content.field.type.option.flash_message.label"));
+        }
+
         return $types;
     }
 
@@ -245,7 +251,8 @@ class Content extends Model
         "gallery"           => Gallery::class,
         "contacts_category" => [EntryRecord::class, "blueprint" => "lzaplata_contacts_categories"],
         "posts_category"    => Category::class,
-        "files_category"    => FilesCategory::class,
+        "files_category"          => FilesCategory::class,
+        "flashmessages_category"  => FlashMessagesCategory::class,
         "page"              => Page::class,
         "pricelist"         => Pricelist::class,
         "opening_hours"     => OpeningHour::class,
@@ -273,6 +280,10 @@ class Content extends Model
 
         if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.files_category")) {
             $fields->files_category->disabled = true;
+        }
+
+        if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.flashmessages_category")) {
+            $fields->flashmessages_category->disabled = true;
         }
 
         if (!BackendAuth::userHasPermission("lzaplata.pages.content.update.contacts_category")) {

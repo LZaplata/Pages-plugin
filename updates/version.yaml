@@ -131,3 +131,6 @@ v2.0.2:
     - 'Add heading justify_content option for posts, links and jobs'
 v2.0.3:
     - 'Add parent theme handling to theme import'
+v2.1.0:
+    - 'Flash messages category selector for block and content, more flash message options'
+    - add_flashmessages_category_column.php

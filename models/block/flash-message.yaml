@@ -16,6 +16,124 @@ fields:
             field: ^options_inherited
             condition: unchecked
 
+    _container:
+        label: Kontejner
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    container:
+        type: nestedform
+        form:
+            fields:
+                color_scheme:
+                    label: Schéma
+                    type: colorschemeselector
+                    span: full
+
+                padding_top:
+                    label: Vnitřní okraj nahoře
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 3
+
+                padding_bottom:
+                    label: Vnitřní okraj dole
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 3
+
+                padding_left:
+                    label: Vnitřní okraj vlevo
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 3
+
+                padding_right:
+                    label: Vnitřní okraj vpravo
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 3
+
+                border_radius:
+                    label: Poloměr rohů
+                    type: dropdown
+                    span: auto
+                    options:
+                        0: Žádný
+                        1: Malý
+                        2: Normální
+                        3: Velký
+                        4: Extra velký
+                        circle: Kruh
+                    default: 2
+
+                border_width:
+                    label: Šířka ohraničení
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 1
+                    unit: px
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    _icon:
+        label: Ikona
+        type: section
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
+    icon:
+        type: nestedform
+        form:
+            fields:
+                color_scheme:
+                    label: Schéma
+                    type: colorschemeselector
+                    span: full
+
+                has_background:
+                    label: Pozadí
+                    type: switch
+                    span: auto
+                    default: 0
+
+                border_radius:
+                    label: Poloměr rohů
+                    type: dropdown
+                    span: left
+                    options:
+                        0: Žádný
+                        1: Malý
+                        2: Normální
+                        3: Velký
+                        4: Extra velký
+                        circle: Kruh
+                    default: circle
+
+                border_width:
+                    label: Šířka ohraničení
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 1
+                    unit: px
+        trigger:
+            action: show
+            field: ^options_inherited
+            condition: unchecked
+
     _heading:
         label: Nadpis
         type: section

@@ -49,6 +49,9 @@ permissions:
     lzaplata.pages.content.update.files_category:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.update.files_category.label'
+    lzaplata.pages.content.update.flashmessages_category:
+        tab: 'lzaplata.pages::lang.plugin.name'
+        label: 'lzaplata.pages::lang.permission.content.update.flashmessages_category.label'
     lzaplata.pages.content.update.contacts_category:
         tab: 'lzaplata.pages::lang.plugin.name'
         label: 'lzaplata.pages::lang.permission.content.update.contacts_category.label'

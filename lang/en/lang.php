@@ -39,6 +39,9 @@
                 'files_category' => [
                     'label' => 'Files category',
                 ],
+                'flashmessages_category' => [
+                    'label' => 'Flash messages category',
+                ],
                 'contacts_category' => [
                     'label' => 'Contacts category',
                 ],
@@ -242,6 +245,9 @@
                     'timeline' => [
                         'label' => 'Timeline',
                     ],
+                    'flash_message' => [
+                        'label' => 'Flash message',
+                    ],
                 ],
             ],
             'text' => [
@@ -272,6 +278,9 @@
                 'prompt' => '--Choose--',
             ],
             'files_categories' => [
+                'label' => 'Categories',
+            ],
+            'flashmessages_categories' => [
                 'label' => 'Categories',
             ],
             'contacts_categories' => [
@@ -449,6 +458,10 @@
             ],
             'links_category' => [
                 'label' => 'Links category',
+            ],
+            'flashmessages_category' => [
+                'label'        => 'Flash messages category',
+                'empty_option' => '-- Choose --',
             ],
             'posts_sort_order' => [
                 'label' => 'Posts sort order',

@@ -115,6 +115,15 @@ fields:
             action: show
             field: type
             condition: 'value[posts][posts_slider]'
+    flashmessages_category:
+        label: 'lzaplata.pages::lang.block.field.flashmessages_category.label'
+        span: left
+        type: relation
+        emptyOption: 'lzaplata.pages::lang.block.field.flashmessages_category.empty_option'
+        trigger:
+            action: show
+            field: type
+            condition: 'value[flash_message]'
     links_category:
         label: 'lzaplata.pages::lang.block.field.links_category.label'
         span: left
