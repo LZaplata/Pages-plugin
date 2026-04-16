@@ -3,6 +3,7 @@
 use Backend\Facades\BackendAuth;
 use Cms\Classes\Partial;
 use Cms\Classes\Theme;
+use Cms\Models\ThemeData;
 use Illuminate\Support\Facades\Lang;
 use JanVince\SmallContactForm\Models\Settings as SmallContactFormSettings;
 use LZaplata\FlashMessages\Models\Category as FlashMessagesCategory;
@@ -247,6 +248,10 @@ class Block extends Model
      */
     public function afterFetch(): void
     {
+        if (empty($this->options)) {
+            $this->options = $this->getThemeOptionsForType();
+        }
+
         match($this->type) {
             "slider"        => $this->options_slider = $this->options,
             "flash_message" => $this->options_flash_message = $this->options,
@@ -261,5 +266,38 @@ class Block extends Model
             "contact_form"  => $this->options_partial = $this->options,
             default         => null,
         };
+    }
+
+    /**
+     * Returns theme options for the current block type, or null if none exist.
+     *
+     * @return array|null
+     */
+    private function getThemeOptionsForType(): ?array
+    {
+        if (!$this->type) {
+            return null;
+        }
+
+        $theme = Theme::getActiveTheme();
+
+        if (!$theme) {
+            return null;
+        }
+
+        $themeKey = match($this->type) {
+            "posts_slider"  => "posts",
+            "links_slider"  => "links",
+            "partial",
+            "embed",
+            "contact_form"  => null,
+            default         => $this->type,
+        };
+
+        if (!$themeKey) {
+            return null;
+        }
+
+        return ThemeData::forTheme($theme)->{$themeKey} ?? null;
     }
 }

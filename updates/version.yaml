@@ -136,3 +136,5 @@ v2.1.0:
     - add_flashmessages_category_column.php
 v2.2.0:
     - 'Post and link card overlay color scheme and icon options'
+v2.3.0:
+    - 'Prefill block and content options from theme when no custom options are stored'

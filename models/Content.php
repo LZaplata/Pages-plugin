@@ -3,6 +3,7 @@
 use Backend\Facades\BackendAuth;
 use Cms\Classes\Partial;
 use Cms\Classes\Theme;
+use Cms\Models\ThemeData;
 use Illuminate\Support\Facades\Lang;
 use JanVince\SmallGDPR\Models\CookiesSettings;
 use LZaplata\Files\Models\Category as FilesCategory;
@@ -393,6 +394,10 @@ class Content extends Model
      */
     public function afterFetch(): void
     {
+        if (empty($this->options)) {
+            $this->options = $this->getThemeOptionsForType();
+        }
+
         match($this->type) {
             "text"          => $this->options_text = $this->options,
             "image_text"    => $this->options_image_text = $this->options,
@@ -414,5 +419,41 @@ class Content extends Model
             "timeline"      => $this->options_timeline = $this->options,
             default         => null,
         };
+    }
+
+    /**
+     * Returns theme options for the current content type, or null if none exist.
+     *
+     * @return array|null
+     */
+    private function getThemeOptionsForType(): ?array
+    {
+        if (!$this->type) {
+            return null;
+        }
+
+        $theme = Theme::getActiveTheme();
+
+        if (!$theme) {
+            return null;
+        }
+
+        $themeKey = match($this->type) {
+            "links_slider"  => "links",
+            "faq"           => "accordion",
+            "files",
+            "pricelist",
+            "opening_hours",
+            "cookies",
+            "embed",
+            "partial"       => null,
+            default         => $this->type,
+        };
+
+        if (!$themeKey) {
+            return null;
+        }
+
+        return ThemeData::forTheme($theme)->{$themeKey} ?? null;
     }
 }
