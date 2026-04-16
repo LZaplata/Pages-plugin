@@ -134,3 +134,5 @@ v2.0.3:
 v2.1.0:
     - 'Flash messages category selector for block and content, more flash message options'
     - add_flashmessages_category_column.php
+v2.2.0:
+    - 'Post and link card overlay color scheme and icon options'
