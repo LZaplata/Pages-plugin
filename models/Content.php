@@ -332,6 +332,26 @@ class Content extends Model
         if (preg_match("@[a-z]+/row@", $fields->partial?->value)) {
             $fields->row_cols->hidden = true;
         }
+
+        $optionsAttr = match($this->type) {
+            "text"          => "options_text",
+            "image_text"    => "options_image_text",
+            "posts"         => "options_posts",
+            "gallery"       => "options_gallery",
+            "faq"           => "options_accordion",
+            "contacts"      => "options_contacts",
+            "slider"        => "options_slider",
+            "jobs"          => "options_jobs",
+            "links",
+            "links_slider"  => "options_links",
+            "contact_form"  => "options_partial",
+            "timeline"      => "options_timeline",
+            default         => null,
+        };
+
+        if ($optionsAttr && empty($this->{$optionsAttr})) {
+            $this->{$optionsAttr} = $this->getThemeOptionsForType();
+        }
     }
 
     /**

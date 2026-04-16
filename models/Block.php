@@ -210,6 +210,22 @@ class Block extends Model
 
             $fields->sort_order->value = $order;
         }
+
+        $optionsAttr = match($this->type) {
+            "slider"        => "options_slider",
+            "flash_message" => "options_flash_message",
+            "links",
+            "links_slider"  => "options_links",
+            "image_text"    => "options_image_text",
+            "text"          => "options_text",
+            "posts",
+            "posts_slider"  => "options_posts",
+            default         => null,
+        };
+
+        if ($optionsAttr && empty($this->{$optionsAttr})) {
+            $this->{$optionsAttr} = $this->getThemeOptionsForType();
+        }
     }
 
     /**
