@@ -223,7 +223,7 @@ class Block extends Model
             default         => null,
         };
 
-        if ($optionsAttr && empty($this->{$optionsAttr})) {
+        if ($optionsAttr && !$this->exists) {
             $this->{$optionsAttr} = $this->getThemeOptionsForType();
         }
     }
@@ -288,6 +288,7 @@ class Block extends Model
      * Returns theme options for the current block type, or null if none exist.
      *
      * @return array|null
+     * @throws \ApplicationException
      */
     private function getThemeOptionsForType(): ?array
     {

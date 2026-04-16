@@ -349,7 +349,7 @@ class Content extends Model
             default         => null,
         };
 
-        if ($optionsAttr && empty($this->{$optionsAttr})) {
+        if ($optionsAttr && !$this->exists) {
             $this->{$optionsAttr} = $this->getThemeOptionsForType();
         }
     }
@@ -445,6 +445,7 @@ class Content extends Model
      * Returns theme options for the current content type, or null if none exist.
      *
      * @return array|null
+     * @throws \ApplicationException
      */
     private function getThemeOptionsForType(): ?array
     {
