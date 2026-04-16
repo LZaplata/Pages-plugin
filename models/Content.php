@@ -349,8 +349,12 @@ class Content extends Model
             default         => null,
         };
 
-        if ($optionsAttr && !$this->exists) {
-            $this->{$optionsAttr} = $this->getThemeOptionsForType();
+        if ($optionsAttr && (!$this->exists || empty($this->getOriginal("options")))) {
+            $themeOptions = $this->getThemeOptionsForType();
+
+            if ($themeOptions !== null) {
+                $this->{$optionsAttr} = $themeOptions;
+            }
         }
     }
 

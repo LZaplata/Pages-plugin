@@ -320,7 +320,9 @@ fields:
     options_text:
         type: nestedform
         form: $/lzaplata/pages/models/block/text.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -330,7 +332,9 @@ fields:
     options_image_text:
         type: nestedform
         form: $/lzaplata/pages/models/block/image-text.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -340,7 +344,9 @@ fields:
     options_slider:
         type: nestedform
         form: $/lzaplata/pages/models/block/slider.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -350,7 +356,9 @@ fields:
     options_links:
         type: nestedform
         form: $/lzaplata/pages/models/block/links.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -360,7 +368,9 @@ fields:
     options_partial:
         type: nestedform
         form: $/lzaplata/pages/models/block/partial.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -370,7 +380,9 @@ fields:
     options_posts:
         type: nestedform
         form: $/lzaplata/pages/models/block/posts.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -380,7 +392,9 @@ fields:
     options_jobs:
         type: nestedform
         form: $/lzaplata/pages/models/content/jobs.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -390,7 +404,9 @@ fields:
     options_contacts:
         type: nestedform
         form: $/lzaplata/pages/models/content/contacts.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -400,7 +416,9 @@ fields:
     options_gallery:
         type: nestedform
         form: $/lzaplata/pages/models/content/gallery.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -410,7 +428,9 @@ fields:
     options_accordion:
         type: nestedform
         form: $/lzaplata/pages/models/content/accordion.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -420,7 +440,9 @@ fields:
     options_timeline:
         type: nestedform
         form: $/lzaplata/pages/models/content/timeline.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type

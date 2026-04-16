@@ -258,7 +258,9 @@ fields:
     options_slider:
         type: nestedform
         form: $/lzaplata/pages/models/block/slider.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -267,7 +269,9 @@ fields:
     options_flash_message:
         type: nestedform
         form: $/lzaplata/pages/models/block/flash-message.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -276,7 +280,9 @@ fields:
     options_links:
         type: nestedform
         form: $/lzaplata/pages/models/block/links.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -285,7 +291,9 @@ fields:
     options_image_text:
         type: nestedform
         form: $/lzaplata/pages/models/block/image-text.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -294,7 +302,9 @@ fields:
     options_text:
         type: nestedform
         form: $/lzaplata/pages/models/block/text.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -303,7 +313,9 @@ fields:
     options_posts:
         type: nestedform
         form: $/lzaplata/pages/models/block/posts.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
@@ -312,7 +324,9 @@ fields:
     options_partial:
         type: nestedform
         form: $/lzaplata/pages/models/block/partial.yaml
-        dependsOn: type
+        dependsOn:
+            - type
+            - options_inherited
         trigger:
             action: show
             field: type
