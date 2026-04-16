@@ -228,6 +228,10 @@ class Block extends Model
 
             if ($themeOptions !== null) {
                 $this->{$optionsAttr} = $themeOptions;
+
+                if (isset($fields->{$optionsAttr})) {
+                    $fields->{$optionsAttr}->value = $themeOptions;
+                }
             }
         }
     }
