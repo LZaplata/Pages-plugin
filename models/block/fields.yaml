@@ -81,6 +81,7 @@ fields:
                     type: rangeselector
                     span: auto
                     max: 10
+                    unit: px
                     default: 0
 
                 bottom:
@@ -88,6 +89,7 @@ fields:
                     type: rangeselector
                     span: auto
                     max: 10
+                    unit: px
                     default: 0
     type:
         label: 'lzaplata.pages::lang.block.field.type.label'

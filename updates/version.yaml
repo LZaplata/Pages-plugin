@@ -141,3 +141,5 @@ v2.3.0:
 v2.4.0:
     - 'Top and bottom border width option for blocks and content'
     - add_border_column.php
+v2.4.1:
+    - 'Added border width unit'
