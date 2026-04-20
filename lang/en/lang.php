@@ -366,6 +366,12 @@
             'padding_bottom_sm' => [
                 'label' => 'Padding bottom',
             ],
+            'border_top' => [
+                'label' => 'Border width top',
+            ],
+            'border_bottom' => [
+                'label' => 'Border width bottom',
+            ],
             'options_inherited' => [
                 'label' => 'Inherit template options',
             ],
@@ -421,6 +427,12 @@
             ],
             'padding_bottom_sm' => [
                 'label' => 'Padding bottom',
+            ],
+            'border_top' => [
+                'label' => 'Border width top',
+            ],
+            'border_bottom' => [
+                'label' => 'Border width bottom',
             ],
             'sort_order' => [
                 'label' => 'Order',

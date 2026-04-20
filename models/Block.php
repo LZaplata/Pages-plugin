@@ -72,7 +72,7 @@ class Block extends Model
     /**
      * @var array
      */
-    public $jsonable = ["variables", "padding", "options"];
+    public $jsonable = ["variables", "padding", "border", "options"];
 
     /**
      * @return array

@@ -138,3 +138,6 @@ v2.2.0:
     - 'Post and link card overlay color scheme and icon options'
 v2.3.0:
     - 'Prefill block and content options from theme when no custom options are stored'
+v2.4.0:
+    - 'Top and bottom border width option for blocks and content'
+    - add_border_column.php

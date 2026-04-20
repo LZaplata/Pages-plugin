@@ -79,6 +79,25 @@ fields:
                     span: auto
                     max: 10
                     default: 5
+    border:
+        type: nestedform
+        span: full
+        permissions: lzaplata.pages.content.reorder
+        form:
+            fields:
+                top:
+                    label: 'lzaplata.pages::lang.content.field.border_top.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 0
+
+                bottom:
+                    label: 'lzaplata.pages::lang.content.field.border_bottom.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 0
     text:
         label: 'lzaplata.pages::lang.content.field.text.label'
         size: giant

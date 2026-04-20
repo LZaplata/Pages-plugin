@@ -366,6 +366,12 @@
             'padding_bottom_sm' => [
                 'label' => 'Vnitřní okraj dole',
             ],
+            'border_top' => [
+                'label' => 'Šířka ohraničení nahoře',
+            ],
+            'border_bottom' => [
+                'label' => 'Šířka ohraničení dole',
+            ],
             'options_inherited' => [
                 'label' => 'Zdědit předvolby šablony',
             ],
@@ -421,6 +427,12 @@
             ],
             'padding_bottom_sm' => [
                 'label' => 'Vnitřní okraj dole',
+            ],
+            'border_top' => [
+                'label' => 'Šířka ohraničení nahoře',
+            ],
+            'border_bottom' => [
+                'label' => 'Šířka ohraničení dole',
             ],
             'sort_order' => [
                 'label' => 'Pořadí',

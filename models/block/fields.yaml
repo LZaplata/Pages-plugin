@@ -71,6 +71,24 @@ fields:
                     span: auto
                     max: 10
                     default: 5
+    border:
+        type: nestedform
+        span: full
+        form:
+            fields:
+                top:
+                    label: 'lzaplata.pages::lang.block.field.border_top.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 0
+
+                bottom:
+                    label: 'lzaplata.pages::lang.block.field.border_bottom.label'
+                    type: rangeselector
+                    span: auto
+                    max: 10
+                    default: 0
     type:
         label: 'lzaplata.pages::lang.block.field.type.label'
         optionsMethod: getTypeOptions
