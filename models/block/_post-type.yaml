@@ -216,3 +216,48 @@ fields:
                     type: switch
                     span: auto
                     default: true
+
+    _button:
+        label: Tlačítko
+        type: section
+
+    button:
+        type: nestedform
+        form:
+            fields:
+                is_visible:
+                    label: Zobrazit
+                    type: switch
+                    span: auto
+                    default: true
+
+                text:
+                    label: Výchozí text
+                    type: text
+                    span: left
+                    default: Zjistit více
+
+                style:
+                    label: Styl
+                    type: balloon-selector
+                    span: auto
+                    options:
+                        primary: Primární
+                        secondary: Sekundární
+                    default: primary
+
+                size:
+                    label: Velikost
+                    type: dropdown
+                    span: auto
+                    options:
+                        sm: Malé
+                        0: Normální
+                        lg: Velké
+                    default: 0
+
+                is_fluid:
+                    label: Celá šířka
+                    type: switch
+                    span: auto
+                    default: true
