@@ -149,3 +149,5 @@ v2.4.3:
     - 'Post card button options (visibility, default text, style, size, full-width)'
 v2.5.0:
     - 'Added content import model'
+v2.5.1:
+    - 'Content import model fix'

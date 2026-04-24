@@ -3,6 +3,7 @@
 namespace LZaplata\Pages\Models;
 
 use Backend\Models\ImportModel;
+use Illuminate\Support\Facades\DB;
 
 class BlockImport extends ImportModel
 {
@@ -12,21 +13,27 @@ class BlockImport extends ImportModel
     public array $rules = [];
 
     /**
+     * Insert rows directly via the query builder to bypass Block's beforeSave()
+     * rewrite of the options column and jsonable double-encoding.
+     *
      * @param  $results
      * @param  $sessionKey
      * @return void
      */
     public function importData($results, $sessionKey = null): void
     {
+        $block = new Block();
+        $table = $block->getTable();
+
         foreach ($results as $row => $data) {
             try {
-                $block = new Block();
+                $attributes = [];
 
                 foreach ($data as $column => $value) {
-                    $block->{$column} = $value;
+                    $attributes[$column] = $value === "" ? null : $value;
                 }
 
-                $block->save();
+                DB::table($table)->insert($attributes);
 
                 $this->logCreated();
             } catch (\Exception $exception) {
