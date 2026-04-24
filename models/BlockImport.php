@@ -25,6 +25,8 @@ class BlockImport extends ImportModel
         $block = new Block();
         $table = $block->getTable();
 
+        $updateExisting = (bool) ($this->update_existing ?? false);
+
         foreach ($results as $row => $data) {
             try {
                 $attributes = [];
@@ -33,9 +35,20 @@ class BlockImport extends ImportModel
                     $attributes[$column] = $value === "" ? null : $value;
                 }
 
-                DB::table($table)->insert($attributes);
+                $id = $attributes["id"] ?? null;
+                $existing = $id && DB::table($table)->where("id", $id)->exists();
 
-                $this->logCreated();
+                if ($existing && $updateExisting) {
+                    DB::table($table)->where("id", $id)->update($attributes);
+
+                    $this->logUpdated();
+                } elseif (!$existing) {
+                    DB::table($table)->insert($attributes);
+
+                    $this->logCreated();
+                } else {
+                    $this->logSkipped($row, "Row with id $id already exists");
+                }
             } catch (\Exception $exception) {
                 $this->logError($row, $exception->getMessage());
             }

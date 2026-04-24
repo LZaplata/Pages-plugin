@@ -151,3 +151,5 @@ v2.5.0:
     - 'Added content import model'
 v2.5.1:
     - 'Content import model fix'
+v2.5.2:
+    - 'Content import model to log updated'
