@@ -147,3 +147,5 @@ v2.4.2:
     - 'Link card button options (visibility, default text, style, size, full-width)'
 v2.4.3:
     - 'Post card button options (visibility, default text, style, size, full-width)'
+v2.5.0:
+    - 'Allow selecting partial for pricelist content type'

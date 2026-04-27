@@ -218,7 +218,7 @@ fields:
         trigger:
             action: show
             field: type
-            condition: 'value[contacts][posts][jobs][links][links_slider][partial][image_text]'
+            condition: 'value[contacts][posts][jobs][links][links_slider][partial][image_text][pricelist]'
         dependsOn:
             - type
     row_cols:
